@@ -534,11 +534,10 @@ ul {
    FAQ Section
    ========================================================================== */
 .faq {
-  --brand: #cd1f5b;
-  --card-bg: var(--brand);
-  --summary-ink: #fff;
-  --radius: 14px;
-  --shadow: 0 6px 14px rgba(0, 0, 0, .10);
+  --faq-main: #B33F5A;
+  --faq-accent: #FCECEF;
+  --faq-text: #333;
+  --faq-radius: 8px;
   --maxw: 960px;
 
   margin: 0 auto;
@@ -564,18 +563,18 @@ ul {
   bottom: -8px;
   width: 72px;
   height: 3px;
-  background: #cd1f5b;
+  background: var(--faq-main);
   border-radius: 999px;
 }
 
 .faq__item {
-  background: var(--card-bg);
-  border: 1px solid var(--brand);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  margin: 8px 0;
-  overflow: clip;
-  color: var(--summary-ink);
+  background: transparent;
+  border: 2px solid var(--faq-main);
+  border-radius: var(--faq-radius);
+  box-shadow: none;
+  margin-bottom: 24px;
+  overflow: hidden;
+  color: #fff;
 }
 
 .faq__summary {
@@ -583,9 +582,12 @@ ul {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  column-gap: 10px;
-  padding: 8px 16px;
+  column-gap: 16px;
+  padding: 16px 24px;
+  /* More padding for readability */
   cursor: pointer;
+  background-color: var(--faq-main);
+  transition: background-color 0.3s;
 }
 
 .faq__summary::-webkit-details-marker {
@@ -609,27 +611,30 @@ ul {
   height: 24px;
   display: inline-grid;
   place-items: center;
-  border: 1.8px solid #fff;
+  border: 1px solid var(--faq-accent);
+  /* Subtle border */
   border-radius: 50%;
   position: relative;
+  opacity: 0.8;
 }
 
 .faq__marker::before,
 .faq__marker::after {
   content: "";
   position: absolute;
-  background: #fff;
+  background: var(--faq-accent);
+  /* Soft color */
   border-radius: 2px;
 }
 
 .faq__marker::before {
-  width: 60%;
+  width: 50%;
   height: 2px;
 }
 
 .faq__marker::after {
   width: 2px;
-  height: 60%;
+  height: 50%;
 }
 
 details[open] .faq__marker::after {
@@ -637,23 +642,24 @@ details[open] .faq__marker::after {
 }
 
 .faq__answer {
-  background: transparent;
-  padding: 0 4px;
+  background: #fff;
+  padding: 0;
 }
 
 .faq__answer-body {
   background: #fff;
-  color: #333;
-  border-radius: 10px;
-  padding: 12px;
+  color: var(--faq-text);
+  padding: 24px;
   display: flex;
-  gap: 10px;
-  margin: 0 12px 12px;
+  gap: 16px;
+  margin: 0;
+  line-height: 1.8;
 }
 
 .faq__a-label {
-  color: var(--brand);
+  color: var(--faq-main);
   font-weight: 700;
+  font-size: 18px;
 }
 
 /* ==========================================================================
