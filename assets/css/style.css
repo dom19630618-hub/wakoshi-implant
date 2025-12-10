@@ -16,6 +16,7 @@
   --wp--preset--color--white: #ffffff;
   --wp--preset--color--pale-pink: #f78da7;
   --text-shadow-hero: 0 2px 10px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.6);
+  --font-serif: "Noto Serif JP", serif;
 }
 
 *,
@@ -123,7 +124,8 @@ ul {
    ========================================================================== */
 .hero {
   --hero-h: 78vh;
-  --side-w: 10vw;
+  --side-w: 24vw;
+  /* PC width 24vw */
   --focus-x: 50%;
   --focus-y: 35%;
 
@@ -161,82 +163,88 @@ ul {
 
 .hero__catch {
   position: absolute;
-  right: 8vw;
-  top: 45%;
-  transform: translateY(-50%);
+  left: 30%;
+  /* PC: Slightly left from center */
+  top: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-  width: min(90vw, 560px);
+  width: auto;
   pointer-events: auto;
-  text-align: right;
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 16px;
+  flex-direction: row-reverse;
+  /* Vertical text reads right-to-left */
+  gap: 20px;
+  align-items: flex-start;
+  /* Align top (start of vertical text) */
 }
 
-.hero__catch-title {
-  margin: 0;
-  font-size: clamp(20px, 4vw, 36px);
+.hero__catch-line {
+  writing-mode: vertical-rl;
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 2.5vw, 32px);
+  /* PC size */
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1;
+  letter-spacing: 0.05em;
   color: #333;
-  /* 背景により調整が必要だが一旦黒系で視認性を、あるいは白 */
-  background: rgba(255, 255, 255, 0.85);
-  /* 読みやすさ重視のパネル風デザイン */
-  padding: 16px 24px;
-  border-radius: 8px 0 8px 8px;
-  /* 右上だけ直角 */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
-}
-
-.hero__catch-text {
+  background: #fff;
+  padding: 16px 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   margin: 0;
-  font-size: clamp(14px, 2vw, 16px);
-  font-weight: 500;
-  line-height: 1.6;
-  color: #111;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 12px 20px;
-  border-radius: 8px 0 8px 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(4px);
 }
 
-@media (max-width: 768px) {
+/* Staggered effect for PC */
+.hero__catch-line.line-1 {
+  margin-top: 0;
+}
+
+.hero__catch-line.line-2 {
+  margin-top: 40px;
+}
+
+.hero__catch-line.line-3 {
+  margin-top: 80px;
+}
+
+@media (max-width: 991px) {
   .hero {
-    --hero-h: 64vh;
-    --side-w: 16vw;
+    --hero-h: 60vh;
+    --side-w: 0;
+    /* Hide or shrink side on mobile */
     --focus-y: 30%;
   }
 
   .hero__catch {
-    transform: translate(50%, -50%);
-    align-items: center;
-    text-align: center;
-    width: 90vw;
-    right: 50%;
+    left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    justify-content: center;
+    /* Center horizontally */
+    gap: 10px;
   }
 
-  .hero__catch-title {
-    font-size: 22px;
-    padding: 12px 16px;
-    border-radius: 8px;
+  .hero__catch-line {
+    font-size: clamp(22px, 5vw, 26px);
+    /* SP size */
+    padding: 12px 8px;
   }
 
-  .hero__catch-text {
-    font-size: 13px;
-    padding: 10px 14px;
-    border-radius: 8px;
+  /* Reset stagger or adjust for mobile */
+  .hero__catch-line.line-1 {
+    margin-top: 0;
+  }
+
+  .hero__catch-line.line-2 {
+    margin-top: 20px;
+  }
+
+  .hero__catch-line.line-3 {
+    margin-top: 40px;
   }
 }
 
-@media (min-width: 1200px) {
-  .hero__catch {
-    width: 600px;
-  }
-}
+
 
 /* ==========================================================================
    Message Section
