@@ -10,15 +10,17 @@
   --color-text: #333;
   --color-bg: #fff;
   --font-base: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
-  
+
   /* Original WP Variables (Selected) */
   --wp--preset--color--black: #000000;
   --wp--preset--color--white: #ffffff;
   --wp--preset--color--pale-pink: #f78da7;
-  --text-shadow-hero: 0 2px 10px rgba(0,0,0,0.15), 0 0 20px rgba(255,255,255,0.6);
+  --text-shadow-hero: 0 2px 10px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.6);
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -74,7 +76,7 @@ ul {
 .header {
   position: relative;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   z-index: 100;
 }
 
@@ -109,8 +111,10 @@ ul {
   .header__logo img {
     height: 30px;
   }
+
   .nav {
-    display: none; /* Mobile nav handles this */
+    display: none;
+    /* Mobile nav handles this */
   }
 }
 
@@ -122,10 +126,7 @@ ul {
   --side-w: 10vw;
   --focus-x: 50%;
   --focus-y: 35%;
-  --catch-right: 8vw;
-  --catch-top: 45%;
-  --catch-w: min(90vw, 560px);
-  
+
   position: relative;
   width: 100vw;
   height: var(--hero-h);
@@ -160,11 +161,11 @@ ul {
 
 .hero__catch {
   position: absolute;
-  right: var(--catch-right);
-  top: var(--catch-top);
+  right: 8vw;
+  top: 45%;
   transform: translateY(-50%);
   z-index: 2;
-  width: var(--catch-w);
+  width: min(90vw, 560px);
   pointer-events: auto;
   text-align: right;
   display: flex;
@@ -178,11 +179,14 @@ ul {
   font-size: clamp(20px, 4vw, 36px);
   font-weight: 700;
   line-height: 1.3;
-  color: #333; /* 背景により調整が必要だが一旦黒系で視認性を、あるいは白 */
-  background: rgba(255,255,255,0.85); /* 読みやすさ重視のパネル風デザイン */
+  color: #333;
+  /* 背景により調整が必要だが一旦黒系で視認性を、あるいは白 */
+  background: rgba(255, 255, 255, 0.85);
+  /* 読みやすさ重視のパネル風デザイン */
   padding: 16px 24px;
-  border-radius: 8px 0 8px 8px; /* 右上だけ直角 */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px 0 8px 8px;
+  /* 右上だけ直角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
 }
 
@@ -192,10 +196,10 @@ ul {
   font-weight: 500;
   line-height: 1.6;
   color: #111;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255, 255, 255, 0.85);
   padding: 12px 20px;
   border-radius: 8px 0 8px 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
 }
 
@@ -204,17 +208,15 @@ ul {
     --hero-h: 64vh;
     --side-w: 16vw;
     --focus-y: 30%;
-    --catch-right: 50%;
-    --catch-top: 50%;
-    --catch-w: 90vw;
   }
-  
+
   .hero__catch {
-    transform: translate(50%, -50%); /* 中央配置 */
+    transform: translate(50%, -50%);
     align-items: center;
     text-align: center;
-    width: 100%;
+    width: 90vw;
     right: 50%;
+    top: 50%;
   }
 
   .hero__catch-title {
@@ -222,7 +224,7 @@ ul {
     padding: 12px 16px;
     border-radius: 8px;
   }
-  
+
   .hero__catch-text {
     font-size: 13px;
     padding: 10px 14px;
@@ -231,8 +233,8 @@ ul {
 }
 
 @media (min-width: 1200px) {
-  .hero {
-    --catch-w: 600px;
+  .hero__catch {
+    width: 600px;
   }
 }
 
@@ -264,9 +266,11 @@ ul {
   .message {
     padding: 24px 16px;
   }
+
   .message__title {
     font-size: 1.4rem;
   }
+
   .message__text {
     font-size: 0.95rem;
   }
@@ -292,11 +296,11 @@ ul {
 .feature-card {
   --card-bg: #fff;
   --radius: 14px;
-  --shadow: 0 10px 24px rgba(0,0,0,.08);
+  --shadow: 0 10px 24px rgba(0, 0, 0, .08);
   --num-size: 76px;
   --num-color: #ea4c89;
   --num-overlap: 46%;
-  
+
   background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -306,7 +310,7 @@ ul {
 
 .feature-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 16px 34px rgba(0,0,0,.12);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, .12);
 }
 
 .feature-card__media {
@@ -325,7 +329,7 @@ ul {
   color: var(--num-color);
   letter-spacing: .02em;
   pointer-events: none;
-  text-shadow: 0 2px 0 rgba(255,255,255,.75);
+  text-shadow: 0 2px 0 rgba(255, 255, 255, .75);
 }
 
 .feature-card__body {
@@ -404,7 +408,7 @@ ul {
   --ratio-w: 63;
   --ratio-h: 88;
   --visible: 2.25;
-  
+
   background: var(--bg-color);
   padding: clamp(10px, 2vw, 16px) 0;
   overflow: hidden;
@@ -475,8 +479,8 @@ ul {
   background: #fff;
   border-radius: 8px;
   padding: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
-  border: 1px solid rgba(0,0,0,0.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .comparison__img {
@@ -487,7 +491,7 @@ ul {
   object-fit: cover;
   border-radius: 6px;
   margin: 0 0 12px;
-  background: linear-gradient(180deg,#f5f5f5,#eee);
+  background: linear-gradient(180deg, #f5f5f5, #eee);
 }
 
 .comparison__list {
@@ -522,9 +526,9 @@ ul {
   --card-bg: var(--brand);
   --summary-ink: #fff;
   --radius: 14px;
-  --shadow: 0 6px 14px rgba(0,0,0,.10);
+  --shadow: 0 6px 14px rgba(0, 0, 0, .10);
   --maxw: 960px;
-  
+
   margin: 0 auto;
   max-width: var(--maxw);
   padding: 12px 16px;
@@ -606,10 +610,19 @@ ul {
   border-radius: 2px;
 }
 
-.faq__marker::before { width: 60%; height: 2px; }
-.faq__marker::after { width: 2px; height: 60%; }
+.faq__marker::before {
+  width: 60%;
+  height: 2px;
+}
 
-details[open] .faq__marker::after { display: none; }
+.faq__marker::after {
+  width: 2px;
+  height: 60%;
+}
+
+details[open] .faq__marker::after {
+  display: none;
+}
 
 .faq__answer {
   background: transparent;
@@ -638,7 +651,7 @@ details[open] .faq__marker::after { display: none; }
   --sp-time-pct: 28%;
   --sp-font: 12px;
   --sp-row-h: 44px;
-  
+
   margin: 4px 0;
   font-size: var(--sp-font);
   padding: 0 8px;
@@ -680,11 +693,18 @@ details[open] .faq__marker::after { display: none; }
     padding: 0 20px;
     font-size: 13px;
   }
+
   .hours__table {
     min-width: 100%;
   }
-  .hours__table col.colw-time { width: 140px; }
-  .hours__table col.colw-day { width: calc((100% - 140px) / 7); }
+
+  .hours__table col.colw-time {
+    width: 140px;
+  }
+
+  .hours__table col.colw-day {
+    width: calc((100% - 140px) / 7);
+  }
 }
 
 /* ==========================================================================
@@ -705,9 +725,9 @@ details[open] .faq__marker::after { display: none; }
   font-weight: 700;
   font-size: 15px;
   color: #fff;
-  background: linear-gradient(180deg,#ff6b92,#cd1f5b);
+  background: linear-gradient(180deg, #ff6b92, #cd1f5b);
   border-radius: 10px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
   transition: transform .12s ease;
 }
 
