@@ -174,7 +174,8 @@ ul {
   display: flex;
   flex-direction: row-reverse;
   /* Vertical text reads right-to-left */
-  gap: 24px;
+  gap: 6px;
+  /* Reduced gap */
   align-items: flex-start;
   /* Align top (start of vertical text) */
 }
@@ -182,16 +183,29 @@ ul {
 .hero__catch-line {
   writing-mode: vertical-rl;
   font-family: var(--font-serif);
-  font-size: clamp(32px, 3.5vw, 42px);
-  /* Larger font size */
-  font-weight: 700;
-  line-height: 1;
+  font-size: clamp(16px, 1.4vw, 18px);
+  /* Much smaller sizing */
+  font-weight: 400;
+  /* Thinner weight */
+  line-height: 1.4;
+  /* Tighter line-height */
   letter-spacing: 0.1em;
   color: #333;
   background: #fff;
-  padding: 24px 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 16px 8px;
+  /* Adjusted padding */
+  width: 44px;
+  /* Fixed width feel */
+  box-sizing: border-box;
+  box-shadow: none;
+  /* No shadow */
+  border-radius: 0;
+  /* Sharp edges */
   margin: 0;
+  display: flex;
+  align-items: center;
+  /* Center text in vertical box if width is fixed */
+  justify-content: center;
 }
 
 /* Staggered effect (Waterfall: Right is high, Left is low) */
@@ -225,13 +239,14 @@ ul {
     width: 100%;
     justify-content: center;
     /* Center horizontally */
-    gap: 12px;
+    gap: 4px;
   }
 
   .hero__catch-line {
-    font-size: clamp(24px, 6vw, 28px);
+    font-size: 16px;
     /* SP size */
-    padding: 16px 10px;
+    padding: 12px 6px;
+    width: 38px;
   }
 
   /* Reset stagger or adjust for mobile */
