@@ -134,24 +134,24 @@ ul {
 }
 
 .hero-image {
-  width: 60%;
-  /* 70% -> 60% */
+  width: 82%;
+  /* Much wider image area */
   background-image: url("../images/hero_bg.webp");
   background-size: cover;
   background-position: center;
 }
 
 .hero-pink {
-  width: 40%;
-  /* 30% -> 40% */
+  width: 18%;
+  /* Narrower sidebar from image reference */
   background: #CD1F5B;
 }
 
 .hero-overlay {
   position: absolute;
-  /* Pink bar is now 40%. Text should overlap boundary (40%). */
-  /* Setting right to around 36% to straddle the line */
-  right: 36%;
+  /* Align to bridge the image/pink boundary (at 18% from right) */
+  /* Setting right to around 15% to overlap slightly */
+  right: 15%;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
