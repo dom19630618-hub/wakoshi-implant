@@ -150,12 +150,14 @@ ul {
 .hero-overlay {
   position: absolute;
   /* Align to bridge the boundary (at 20% from right) */
-  right: 17%;
+  right: 15%;
+  /* Moved closer to the pink bar (17% -> 15%) */
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: row-reverse;
-  gap: 24px;
+  gap: 0.4rem;
+  /* Fixed small gap */
   z-index: 10;
 }
 
@@ -164,17 +166,17 @@ ul {
   text-orientation: upright;
   background: #fff;
   color: #222;
-  padding: 0.6rem 0.8rem;
-  /* Reduced padding */
-  border-radius: 2px;
-  /* Sharper radius */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-family: var(--font-serif);
-  font-size: clamp(16px, 2.0vw, 22px);
+  padding: 0.8rem 10px;
+  /* Vertical padding maintained, horizontal fixed to 10px */
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-family: "Noto Serif JP", "游明朝", "YuMincho", serif;
+  /* Updated font stack */
+  font-size: 1rem;
+  /* Fixed size */
   font-weight: 500;
-  /* 600 -> 500 */
   margin: 0;
-  letter-spacing: 0.05em;
+  /* Ensure consistent height visual if needed, but auto is fine for text */
 }
 
 @media (max-width: 900px) {
@@ -188,7 +190,7 @@ ul {
     right: 50%;
     transform: translate(50%, -50%);
     /* Center manually on mobile */
-    gap: 12px;
+    /* gap inherits 0.4rem */
   }
 }
 
@@ -198,7 +200,7 @@ ul {
   }
 
   .hero-line {
-    font-size: 16px;
+    font-size: 1rem;
     padding: 0.6rem 0.8rem;
   }
 }
