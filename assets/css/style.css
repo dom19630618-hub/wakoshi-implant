@@ -134,22 +134,24 @@ ul {
 }
 
 .hero-image {
-  width: 70%;
+  width: 60%;
+  /* 70% -> 60% */
   background-image: url("../images/hero_bg.webp");
   background-size: cover;
   background-position: center;
 }
 
 .hero-pink {
-  width: 30%;
+  width: 40%;
+  /* 30% -> 40% */
   background: #CD1F5B;
 }
 
 .hero-overlay {
   position: absolute;
-  /* Align to overlap the pink side bar slightly */
-  /* Pink bar is right 30% wide. Text should be around 25-28% right */
-  right: 24%;
+  /* Pink bar is now 40%. Text should overlap boundary (40%). */
+  /* Setting right to around 36% to straddle the line */
+  right: 36%;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -163,14 +165,17 @@ ul {
   text-orientation: upright;
   background: #fff;
   color: #222;
-  padding: 0.8rem 1.2rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  padding: 0.6rem 0.8rem;
+  /* Reduced padding */
+  border-radius: 2px;
+  /* Sharper radius */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-family: var(--font-serif);
-  font-size: clamp(16px, 2.2vw, 24px);
-  font-weight: 600;
+  font-size: clamp(16px, 2.0vw, 22px);
+  font-weight: 500;
+  /* 600 -> 500 */
   margin: 0;
-  /* Ensure consistent height visual if needed, but auto is fine for text */
+  letter-spacing: 0.05em;
 }
 
 @media (max-width: 900px) {
