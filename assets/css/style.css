@@ -174,8 +174,8 @@ ul {
   display: flex;
   flex-direction: row-reverse;
   /* Vertical text reads right-to-left */
-  gap: 6px;
-  /* Reduced gap */
+  gap: 3px;
+  /* Further reduced gap */
   align-items: flex-start;
   /* Align top (start of vertical text) */
 }
@@ -192,8 +192,8 @@ ul {
   letter-spacing: 0.1em;
   color: #333;
   background: #fff;
-  padding: 16px 8px;
-  /* Adjusted padding */
+  padding: 13px 8px;
+  /* Reduced vertical padding */
   width: 44px;
   /* Fixed width feel */
   box-sizing: border-box;
@@ -239,13 +239,13 @@ ul {
     width: 100%;
     justify-content: center;
     /* Center horizontally */
-    gap: 4px;
+    gap: 2px;
   }
 
   .hero__catch-line {
     font-size: 16px;
     /* SP size */
-    padding: 12px 6px;
+    padding: 10px 6px;
     width: 38px;
   }
 
