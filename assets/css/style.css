@@ -134,24 +134,23 @@ ul {
 }
 
 .hero-image {
-  width: 82%;
-  /* Much wider image area */
+  width: 80%;
+  /* Consistent 80/20 split */
   background-image: url("../images/hero_bg.webp");
   background-size: cover;
   background-position: center;
 }
 
 .hero-pink {
-  width: 18%;
-  /* Narrower sidebar from image reference */
+  width: 20%;
+  /* Consistent 80/20 split */
   background: #CD1F5B;
 }
 
 .hero-overlay {
   position: absolute;
-  /* Align to bridge the image/pink boundary (at 18% from right) */
-  /* Setting right to around 15% to overlap slightly */
-  right: 15%;
+  /* Align to bridge the boundary (at 20% from right) */
+  right: 17%;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
@@ -183,18 +182,12 @@ ul {
     height: 70vh;
   }
 
-  .hero-image {
-    width: 90%;
-  }
-
-  .hero-pink {
-    width: 10%;
-  }
+  /* Widths inherit 80%/20% from base styles */
 
   .hero-overlay {
     right: 50%;
     transform: translate(50%, -50%);
-    /* Center manually relative to screen, ignoring pink bar context */
+    /* Center manually on mobile */
     gap: 12px;
   }
 }
