@@ -122,148 +122,88 @@ ul {
 /* ==========================================================================
    Hero Section
    ========================================================================== */
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
 .hero {
-  --hero-h: 78vh;
-  --side-w: 24vw;
-  /* PC width 24vw */
-  --focus-x: 50%;
-  --focus-y: 35%;
-
   position: relative;
-  width: 100vw;
-  height: var(--hero-h);
+  display: flex;
+  width: 100%;
+  height: 85vh;
   overflow: hidden;
 }
 
-.hero__slide {
-  display: flex;
-  width: 100%;
-  height: 100%;
-  position: relative;
+.hero-image {
+  width: 70%;
+  background-image: url("../images/hero_bg.webp");
+  background-size: cover;
+  background-position: center;
 }
 
-.hero__image-wrap {
-  flex: 1 1 auto;
-  height: 100%;
+.hero-pink {
+  width: 30%;
+  background: #CD1F5B;
 }
 
-.hero__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: var(--focus-x) var(--focus-y);
-  display: block;
-}
-
-.hero__side {
-  background-color: #d63a6e;
-  flex: 0 0 var(--side-w);
-  height: 100%;
-}
-
-.hero__catch {
+.hero-overlay {
   position: absolute;
-  right: calc(24vw + 2vw);
-  /* Align adjacent to pink bar (24vw) + spacing */
-  left: auto;
-  top: 45%;
+  /* Align to overlap the pink side bar slightly */
+  /* Pink bar is right 30% wide. Text should be around 25-28% right */
+  right: 24%;
+  top: 50%;
   transform: translateY(-50%);
-  z-index: 2;
-  width: auto;
-  pointer-events: auto;
   display: flex;
   flex-direction: row-reverse;
-  /* Vertical text reads right-to-left */
-  gap: 3px;
-  /* Further reduced gap */
-  align-items: flex-start;
-  /* Align top (start of vertical text) */
+  gap: 24px;
+  z-index: 10;
 }
 
-.hero__catch-line {
+.hero-line {
   writing-mode: vertical-rl;
-  font-family: var(--font-serif);
-  font-size: clamp(16px, 1.4vw, 18px);
-  /* Much smaller sizing */
-  font-weight: 400;
-  /* Thinner weight */
-  line-height: 1.4;
-  /* Tighter line-height */
-  letter-spacing: 0.1em;
-  color: #333;
+  text-orientation: upright;
   background: #fff;
-  padding: 13px 8px;
-  /* Reduced vertical padding */
-  width: 44px;
-  /* Fixed width feel */
-  box-sizing: border-box;
-  box-shadow: none;
-  /* No shadow */
-  border-radius: 0;
-  /* Sharp edges */
+  color: #222;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 2.2vw, 24px);
+  font-weight: 600;
   margin: 0;
-  display: flex;
-  align-items: center;
-  /* Center text in vertical box if width is fixed */
-  justify-content: center;
+  /* Ensure consistent height visual if needed, but auto is fine for text */
 }
 
-/* Staggered effect (Waterfall: Right is high, Left is low) */
-/* Since it's row-reverse, line-1 is visually Rightmost */
-.hero__catch-line.line-1 {
-  margin-top: 0;
-}
-
-.hero__catch-line.line-2 {
-  margin-top: 80px;
-}
-
-.hero__catch-line.line-3 {
-  margin-top: 160px;
-}
-
-@media (max-width: 991px) {
+@media (max-width: 900px) {
   .hero {
-    --hero-h: 60vh;
-    --side-w: 0;
-    /* Hide or shrink side on mobile */
-    --focus-y: 30%;
+    height: 70vh;
   }
 
-  .hero__catch {
+  .hero-image {
+    width: 90%;
+  }
+
+  .hero-pink {
+    width: 10%;
+  }
+
+  .hero-overlay {
     right: 50%;
-    left: auto;
-    top: 50%;
     transform: translate(50%, -50%);
-    /* Center on mobile */
-    width: 100%;
-    justify-content: center;
-    /* Center horizontally */
-    gap: 2px;
-  }
-
-  .hero__catch-line {
-    font-size: 16px;
-    /* SP size */
-    padding: 10px 6px;
-    width: 38px;
-  }
-
-  /* Reset stagger or adjust for mobile */
-  .hero__catch-line.line-1 {
-    margin-top: 0;
-  }
-
-  .hero__catch-line.line-2 {
-    margin-top: 30px;
-  }
-
-  .hero__catch-line.line-3 {
-    margin-top: 60px;
+    /* Center manually relative to screen, ignoring pink bar context */
+    gap: 12px;
   }
 }
 
+@media (max-width: 600px) {
+  .hero {
+    height: 60vh;
+  }
 
+  .hero-line {
+    font-size: 16px;
+    padding: 0.6rem 0.8rem;
+  }
+}
 
 /* ==========================================================================
    Message Section
