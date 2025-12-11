@@ -187,9 +187,10 @@ ul {
   /* Widths inherit 80%/20% from base styles */
 
   .hero-overlay {
-    right: 50%;
-    transform: translate(50%, -50%);
-    /* Center manually on mobile */
+    /* Maintain right positioning from PC styles */
+    /* right: 15%; is inherited */
+    transform: translateY(-50%);
+    /* Only vertical center */
     /* gap inherits 0.4rem */
   }
 }
