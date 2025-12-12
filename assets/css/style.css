@@ -109,6 +109,10 @@ ul {
 }
 
 @media (max-width: 991px) {
+  .header__container {
+    height: 60px;
+  }
+
   .header__logo img {
     height: 30px;
   }
@@ -166,7 +170,8 @@ ul {
   text-orientation: upright;
   background: #fff;
   color: #222;
-  padding: 0.8rem 6px; /* Tighter horizontal padding as requested */
+  padding: 0.8rem 6px;
+  /* Tighter horizontal padding as requested */
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   font-family: "Noto Serif JP", "游明朝", "YuMincho", serif;
