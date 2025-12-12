@@ -166,8 +166,7 @@ ul {
   text-orientation: upright;
   background: #fff;
   color: #222;
-  padding: 0.8rem 10px;
-  /* Vertical padding maintained, horizontal fixed to 10px */
+  padding: 0.8rem 6px; /* Tighter horizontal padding as requested */
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   font-family: "Noto Serif JP", "游明朝", "YuMincho", serif;
