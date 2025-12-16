@@ -11,6 +11,12 @@
 
 async function parseAndLoadComponents() {
     // 1. FOUC Prevention: Hide content while parsing
+    // Failsafe: Force opacity restoration after 3000ms to prevent white screen of death
+    const failsafeTimer = setTimeout(() => {
+        document.body.style.opacity = '1';
+        console.warn('[Component Loader] Failsafe triggered: Restoring body visibility due to timeout.');
+    }, 3000);
+
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.2s ease';
 
@@ -61,11 +67,11 @@ async function parseAndLoadComponents() {
                 if (response.ok) {
                     moduleCache[name] = await response.text();
                 } else {
-                    console.warn(`[Component Loader] Module not found: ${name} (Ignored)`);
+                    console.warn(`[Component Loader] Component not found: "${name}" (Status: ${response.status})`);
                     moduleCache[name] = null; // Mark as missing
                 }
             } catch (err) {
-                console.warn(`[Component Loader] Failed to fetch ${name}`, err);
+                console.warn(`[Component Loader] Error loading "${name}":`, err);
                 moduleCache[name] = null;
             }
         }));
@@ -110,9 +116,10 @@ async function parseAndLoadComponents() {
                         fragment.appendChild(processed);
                     });
                 } else {
-                    // Component not found: insert nothing (effectively deleting the command)
-                    // Optionally insert a comment for debugging
-                    // fragment.appendChild(document.createComment(` Missing: ${componentName} `));
+                    // Component not found.
+                    // Warn in console as requested, but do NOT render text "use:XXX".
+                    // Leaving it empty removes the command from view.
+                    console.warn(`[Component Loader] Skipping replacement for missing component: ${componentName}`);
                 }
 
                 lastIndex = matchEnd;
@@ -137,7 +144,6 @@ async function parseAndLoadComponents() {
 
                 const parent = node.parentNode;
                 const isOnlyChild = parent.childNodes.length === 1 && parent.firstChild === node;
-                const isFullMatch = lastIndex === text.length && lastIndex === text.trim().length && node.nodeValue.trim().startsWith('use:');
                 // The above check is tricky because text might contain whitespace.
 
                 if (isOnlyChild && text.trim().match(/^use:[^\s]+$/)) {
@@ -156,7 +162,8 @@ async function parseAndLoadComponents() {
     } catch (e) {
         console.error('[Component Loader] Critical Error:', e);
     } finally {
-        // Reveal Body
+        // Ensure body is visible
+        clearTimeout(failsafeTimer);
         requestAnimationFrame(() => {
             document.body.style.opacity = '1';
         });
