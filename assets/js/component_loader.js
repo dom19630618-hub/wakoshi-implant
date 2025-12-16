@@ -116,10 +116,11 @@ async function parseAndLoadComponents() {
                         fragment.appendChild(processed);
                     });
                 } else {
-                    // Component not found.
-                    // Warn in console as requested, but do NOT render text "use:XXX".
-                    // Leaving it empty removes the command from view.
-                    console.warn(`[Component Loader] Skipping replacement for missing component: ${componentName}`);
+                    // Component not found or load failed.
+                    // Fallback: Retain the original text so it's visible that something went wrong.
+                    // This prevents "Empty Screen" when fetch fails (e.g. CORS on file://).
+                    console.warn(`[Component Loader] Failed to load ${componentName}, retaining placeholder text.`);
+                    fragment.appendChild(document.createTextNode(match[0]));
                 }
 
                 lastIndex = matchEnd;
