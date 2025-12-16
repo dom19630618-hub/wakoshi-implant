@@ -17,6 +17,15 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Tailwind CSS (No Preflight to avoid conflict) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false,
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -126,21 +135,7 @@
         </section>
 
         <!-- カード型ギャラリーコンポーネント -->
-        <section class="gallery" data-speed="60">
-            <div class="gallery__viewport">
-                <div class="gallery__mover">
-                    <ul class="gallery__list gallery__seed">
-                        <li class="gallery__item"><img src="assets/images/gallery_01.jpg" alt="ギャラリー画像1"></li>
-                        <li class="gallery__item"><img src="assets/images/gallery_02.jpg" alt="ギャラリー画像2"></li>
-                        <li class="gallery__item"><img src="assets/images/gallery_03.jpg" alt="ギャラリー画像3"></li>
-                        <li class="gallery__item"><img src="assets/images/gallery_04.jpg" alt="ギャラリー画像4"></li>
-                        <li class="gallery__item"><img src="assets/images/gallery_05.jpg" alt="ギャラリー画像5"></li>
-                        <li class="gallery__item"><img src="assets/images/feature_03.webp" alt="ギャラリー画像6"></li>
-                    </ul>
-                    <!-- Cloned list will be inserted by JS -->
-                </div>
-            </div>
-        </section>
+        <div class="gallery-placeholder">use:Gallery_CardCarousel</div>
 
         <!-- Comparison Section -->
         <section class="comparison">
@@ -309,6 +304,7 @@
     </div>
 
     <!-- JS -->
+    <script src="assets/js/gallery_loader.js"></script>
     <script src="assets/js/faq-item.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
