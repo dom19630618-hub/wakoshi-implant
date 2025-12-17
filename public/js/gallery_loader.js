@@ -58,6 +58,9 @@ document.addEventListener('componentsReady', async () => {
             return;
         }
 
+        console.log("track offsetWidth =", track.offsetWidth);
+        console.log("track child count =", track.children.length);
+
         // Apply settings
         if (data.settings && data.settings.duration) {
             track.style.setProperty('--gallery-duration', data.settings.duration);
