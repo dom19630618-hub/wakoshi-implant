@@ -81,21 +81,91 @@ document.addEventListener('componentsReady', async () => {
             track.style.width = track.scrollWidth + 'px';
         });
 
-        // Initialize Auto Scroll (JS-based)
-        if (window.__galleryAutoScroll) {
-            clearInterval(window.__galleryAutoScroll);
-        }
+        // Initialize Advanced Auto Scroll with User Interaction Support
+        const initAutoScrollGallery = (track, opts = {}) => {
+            const speed = opts.speed ?? 0.35;
+            const resumeDelay = opts.resumeDelay ?? 1400;
 
-        const startAutoScroll = () => {
-            window.__galleryAutoScroll = setInterval(() => {
-                track.scrollLeft += 1;
-                if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
-                    track.scrollLeft = 0;
-                }
-            }, 10);
+            // Infinite loop setup: clone children if not already done
+            if (!track.dataset.looped) {
+                const children = Array.from(track.children);
+                children.forEach(el => track.appendChild(el.cloneNode(true)));
+                track.dataset.looped = "1";
+            }
+
+            let rafId = null;
+            let paused = false;
+            let resumeTimer = null;
+            let isPointerDown = false;
+
+            const pause = () => {
+                paused = true;
+                if (rafId) cancelAnimationFrame(rafId);
+                rafId = null;
+                if (resumeTimer) clearTimeout(resumeTimer);
+                resumeTimer = null;
+            };
+
+            const scheduleResume = () => {
+                if (resumeTimer) clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(() => {
+                    paused = false;
+                    tick();
+                }, resumeDelay);
+            };
+
+            const tick = () => {
+                if (paused) return;
+
+                const half = track.scrollWidth / 2;
+                if (track.scrollLeft >= half) track.scrollLeft -= half;
+
+                track.scrollLeft += speed * 2;
+                rafId = requestAnimationFrame(tick);
+            };
+
+            const onUserStart = () => { pause(); };
+            const onUserEnd = () => { scheduleResume(); };
+
+            track.addEventListener("touchstart", onUserStart, { passive: true });
+            track.addEventListener("touchend", onUserEnd, { passive: true });
+            track.addEventListener("wheel", () => { pause(); scheduleResume(); }, { passive: true });
+            track.addEventListener("scroll", () => { pause(); scheduleResume(); }, { passive: true });
+
+            // PC Drag Logic
+            let startX = 0;
+            let startScrollLeft = 0;
+
+            track.addEventListener("pointerdown", (e) => {
+                isPointerDown = true;
+                track.setPointerCapture?.(e.pointerId);
+                startX = e.clientX;
+                startScrollLeft = track.scrollLeft;
+                track.style.cursor = 'grabbing';
+                onUserStart();
+            });
+
+            track.addEventListener("pointermove", (e) => {
+                if (!isPointerDown) return;
+                const dx = e.clientX - startX;
+                track.scrollLeft = startScrollLeft - dx;
+            });
+
+            const pointerUp = () => {
+                if (!isPointerDown) return;
+                isPointerDown = false;
+                track.style.cursor = 'grab';
+                onUserEnd();
+            };
+            track.addEventListener("pointerup", pointerUp);
+            track.addEventListener("pointercancel", pointerUp);
+            track.addEventListener("pointerleave", pointerUp);
+
+            paused = false;
+            tick();
         };
 
-        startAutoScroll();
+        initAutoScrollGallery(track);
 
         // Remove CSS animation if previously added
         track.classList.remove('gallery-track-animated');
