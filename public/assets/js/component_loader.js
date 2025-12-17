@@ -20,7 +20,7 @@ async function parseAndLoadComponents() {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.2s ease';
 
-    const MODULE_DIR = 'modules/';
+    const MODULE_DIR = '/modules/';
     const MODULE_EXT = '.html';
     const USE_REGEX = /use:([^\s]+)/g; // Matches "use:Name" until whitespace
 

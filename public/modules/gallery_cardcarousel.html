@@ -87,7 +87,7 @@
         // Load data once
         let data = null;
         try {
-            const res = await fetch('modules/gallery.json');
+            const res = await fetch('/modules/gallery.json');
             if (res.ok) data = await res.json();
         } catch (e) {
             console.error('Gallery data load failed', e);
