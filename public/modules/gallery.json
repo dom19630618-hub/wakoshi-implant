@@ -1,13 +1,37 @@
 {
   "items": [
-    { "src": "assets/images/gallery_01.jpg", "alt": "診療室の様子 - 清潔感のある空間" },
-    { "src": "assets/images/gallery_02.jpg", "alt": "最新の医療設備" },
-    { "src": "assets/images/gallery_03.jpg", "alt": "カウンセリングルーム" },
-    { "src": "assets/images/gallery_04.jpg", "alt": "待合室の雰囲気" },
-    { "src": "assets/images/gallery_05.jpg", "alt": "外観・入り口" },
-    { "src": "assets/images/gallery_01.jpg", "alt": "診療風景" },
-    { "src": "assets/images/gallery_02.jpg", "alt": "設備紹介" },
-    { "src": "assets/images/gallery_03.jpg", "alt": "院内風景" }
+    {
+      "src": "images/gallery_01.jpg",
+      "alt": "診療室の様子 - 清潔感のある空間"
+    },
+    {
+      "src": "images/gallery_02.jpg",
+      "alt": "最新の医療設備"
+    },
+    {
+      "src": "images/gallery_03.jpg",
+      "alt": "カウンセリングルーム"
+    },
+    {
+      "src": "images/gallery_04.jpg",
+      "alt": "待合室の雰囲気"
+    },
+    {
+      "src": "images/gallery_05.jpg",
+      "alt": "外観・入り口"
+    },
+    {
+      "src": "images/gallery_01.jpg",
+      "alt": "診療風景"
+    },
+    {
+      "src": "images/gallery_02.jpg",
+      "alt": "設備紹介"
+    },
+    {
+      "src": "images/gallery_03.jpg",
+      "alt": "院内風景"
+    }
   ],
   "settings": {
     "duration": "30s"
