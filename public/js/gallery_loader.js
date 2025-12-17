@@ -3,7 +3,8 @@
  * Handles "use:Gallery_CardCarousel" replacement and rendering.
  */
 
-document.addEventListener('DOMContentLoaded', async () => {
+console.log("[gallery_loader] loaded");
+document.addEventListener('componentsReady', async () => {
     // Configuration
     const COMPONENT_NAME = 'Gallery_CardCarousel';
     const USE_SYNTAX = `use:${COMPONENT_NAME}`;

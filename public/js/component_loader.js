@@ -139,7 +139,7 @@ async function parseAndLoadComponents() {
             }
         }
 
-        document.dispatchEvent(new Event('componentsLoaded'));
+        document.dispatchEvent(new CustomEvent('componentsReady'));
 
     } catch (e) {
         console.error('[Component Loader] Critical Error:', e);
