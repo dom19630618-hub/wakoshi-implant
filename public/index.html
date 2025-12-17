@@ -37,45 +37,7 @@
         use:Message_Intro
         use:Features_Grid
         use:Fullbleed_Image
-        <div class="w-full overflow-hidden bg-white py-8 relative group" id="gallery-container">
-            <div
-                class="gallery-track flex gap-4 w-max md:animate-none max-md:w-full max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:px-4 max-md:scrollbar-hide">
-            </div>
-            <template id="gallery-card-template">
-                <div
-                    class="gallery-card shrink-0 relative w-64 h-40 md:w-72 md:h-48 rounded-xl overflow-hidden shadow-lg snap-start transform transition-transform hover:scale-105 duration-300">
-                    <img src="" alt="" class="w-full h-full object-cover">
-                </div>
-            </template>
-        </div>
-        <style>
-            /* Custom Scrollbar hide for cross-browser */
-            .scrollbar-hide::-webkit-scrollbar {
-                display: none;
-            }
-
-            .scrollbar-hide {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-            }
-
-            /* Animation definition for PC */
-            @media (min-width: 768px) {
-                .gallery-track-animated {
-                    animation: gallerySlide var(--gallery-duration, 30s) linear infinite;
-                }
-            }
-
-            @keyframes gallerySlide {
-                0% {
-                    transform: translateX(0);
-                }
-
-                100% {
-                    transform: translateX(-50%);
-                }
-            }
-        </style>
+        use:Gallery_CardCarousel
         use:Compare_DentureImplant
         use:FAQ_即時荷重
         use:Access_和光
