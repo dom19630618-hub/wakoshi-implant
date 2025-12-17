@@ -14,95 +14,72 @@ document.addEventListener('DOMContentLoaded', async () => {
     // or scan DOM. To fit the requirement "use:Gallery_CardCarousel", we look for an element
     // acting as the placeholder.
 
-    // 1. Find the placeholder text nodes containing the syntax
-    const placeholders = [];
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-    let node;
-    while (node = walker.nextNode()) {
-        if (node.nodeValue.trim() === USE_SYNTAX) {
-            placeholders.push(node);
-        }
-    }
+    // 1. Find the already injected container (Hydration mode)
+    // Since component_loader.js runs first, it should have already injected the HTML structure.
+    const container = document.getElementById('gallery-container');
 
-    if (placeholders.length === 0) {
-        console.log(`[${COMPONENT_NAME}] No usage found.`);
+    if (!container) {
+        console.log(`[${COMPONENT_NAME}] No container found (#gallery-container). Skipping.`);
         return;
     }
 
-    console.log(`[${COMPONENT_NAME}] Found ${placeholders.length} placeholder(s). Initializing...`);
+    // Check if already initialized (to prevent double-init if called multiple times)
+    if (container.classList.contains('gallery-initialized')) {
+        return;
+    }
+
+    console.log(`[${COMPONENT_NAME}] Container found. Initializing...`);
 
     try {
-        // 2. Fetch resources
-        const [htmlResponse, jsonResponse] = await Promise.all([
-            fetch('/modules/gallery_cardcarousel.html'),
-            fetch('/modules/gallery.json')
-        ]);
+        // 2. Fetch data only (HTML is already there)
+        const jsonResponse = await fetch('/modules/gallery.json');
 
-        if (!htmlResponse.ok || !jsonResponse.ok) {
-            throw new Error('Failed to load component resources');
+        if (!jsonResponse.ok) {
+            throw new Error('Failed to load gallery data');
         }
 
-        const htmlTemplate = await htmlResponse.text();
         const data = await jsonResponse.json();
 
-        // 3. Render for each placeholder
-        placeholders.forEach(placeholder => {
-            // Parse template
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(htmlTemplate, 'text/html');
-            const container = doc.querySelector('#gallery-container');
-            const style = doc.querySelector('style');
-            const cardTemplate = doc.querySelector('#gallery-card-template');
+        // 3. Hydrate the component
+        const track = container.querySelector('.gallery-track');
+        // Template should be inside the container as per gallery_cardcarousel.html structure
+        const cardTemplate = document.getElementById('gallery-card-template');
 
-            if (!container || !cardTemplate) {
-                console.error(`[${COMPONENT_NAME}] Invalid HTML template structure.`);
-                return;
-            }
+        if (!track || !cardTemplate) {
+            console.error(`[${COMPONENT_NAME}] Invalid HTML structure: missing track or template.`);
+            return;
+        }
 
-            const track = container.querySelector('.gallery-track');
+        // Apply settings
+        if (data.settings && data.settings.duration) {
+            track.style.setProperty('--gallery-duration', data.settings.duration);
+        }
 
-            // Apply settings
-            if (data.settings && data.settings.duration) {
-                track.style.setProperty('--gallery-duration', data.settings.duration);
-            }
+        // Create Items
+        // For PC infinite loop effect
+        const originalItems = data.items;
+        let renderItems = [...originalItems, ...originalItems];
+        if (originalItems.length < 5) {
+            renderItems = [...renderItems, ...originalItems, ...originalItems];
+        }
 
-            // Create Items
-            // For PC infinite loop effect, we duplicate the items enough times to fill width + buffer
-            // Simple approach: Double the items for 50% translation loop
+        renderItems.forEach(item => {
+            const clone = cardTemplate.content.cloneNode(true);
+            const img = clone.querySelector('img');
 
-            const originalItems = data.items;
-            // Ensure we have enough items for smooth loop (at least double)
-            // If items are few, duplicate more
-            let renderItems = [...originalItems, ...originalItems];
-            if (originalItems.length < 5) {
-                renderItems = [...renderItems, ...originalItems, ...originalItems];
-            }
-
-            renderItems.forEach(item => {
-                const clone = cardTemplate.content.cloneNode(true);
-                const img = clone.querySelector('img');
-                const card = clone.querySelector('.gallery-card');
-
+            if (img) {
                 img.src = item.src;
                 img.alt = item.alt;
-
-                track.appendChild(clone);
-            });
-
-            // Add animation class for Desktop
-            // Since we use Tailwind 'md:...' classes, we also need to add the animation class
-            // But our CSS defines .gallery-track-animated inside media query
-            track.classList.add('gallery-track-animated');
-
-            // Inject Style if not already present in head
-            if (style && !document.getElementById('gallery-component-style')) {
-                style.id = 'gallery-component-style';
-                document.head.appendChild(style);
             }
 
-            // Replace placeholder with the new container
-            placeholder.replaceWith(container);
+            track.appendChild(clone);
         });
+
+        // Add animation class
+        track.classList.add('gallery-track-animated');
+
+        // Mark as initialized
+        container.classList.add('gallery-initialized');
 
     } catch (error) {
         console.error(`[${COMPONENT_NAME}] Error loading component:`, error);
