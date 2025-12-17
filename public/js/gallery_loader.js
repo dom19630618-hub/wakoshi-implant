@@ -14,9 +14,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     // or scan DOM. To fit the requirement "use:Gallery_CardCarousel", we look for an element
     // acting as the placeholder.
 
-    const placeholders = Array.from(document.querySelectorAll('*')).filter(el =>
-        el.textContent.trim() === USE_SYNTAX && el.children.length === 0
-    );
+    // 1. Find the placeholder text nodes containing the syntax
+    const placeholders = [];
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    let node;
+    while (node = walker.nextNode()) {
+        if (node.nodeValue.trim() === USE_SYNTAX) {
+            placeholders.push(node);
+        }
+    }
 
     if (placeholders.length === 0) {
         console.log(`[${COMPONENT_NAME}] No usage found.`);
