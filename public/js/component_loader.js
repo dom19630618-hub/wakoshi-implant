@@ -20,20 +20,9 @@ async function parseAndLoadComponents() {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.2s ease';
 
-    // Absolute Path Configuration
-    // Uses window.location.origin to ensure absolute path from root, vital for Cloudflare Pages.
-    // Note: On file:// protocol, this results in file:///modules/ which assumes modules is at system root.
-    // If running locally without a server, use a local server like 'Live Server' or 'wrangler dev'.
-    // Force localhost path as per user request to avoid file:// misinterpretation
-    let MODULE_DIR = 'http://localhost:3000/modules/';
-
-    // Fallback for file:// protocol if strictly needed (automagic fix)
-    // If strict compliance to user request is needed, removing this check is an option,
-    // but this ensures "always works" on file:// as requested.
-    if (window.location.protocol === 'file:') {
-        // For file protocol, we must use relative path assuming index.html is sibling to modules folder.
-        MODULE_DIR = 'modules/';
-    }
+    // Relative Path Configuration
+    // Works on both localhost and Cloudflare Pages (assuming root deployment)
+    let MODULE_DIR = './modules/';
 
     const MODULE_EXT = '.html';
     const USE_REGEX = /use:([^\s]+)/g; // Matches "use:Name" until whitespace

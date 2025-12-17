@@ -33,7 +33,7 @@ document.addEventListener('componentsReady', async () => {
 
     try {
         // 2. Fetch data only (HTML is already there)
-        const jsonResponse = await fetch('modules/gallery.json');
+        const jsonResponse = await fetch('./modules/gallery.json');
 
         if (!jsonResponse.ok) {
             throw new Error('Failed to load gallery data');
