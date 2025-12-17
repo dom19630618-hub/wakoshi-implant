@@ -86,13 +86,16 @@ document.addEventListener('componentsReady', async () => {
             clearInterval(window.__galleryAutoScroll);
         }
 
-        window.__galleryAutoScroll = setInterval(() => {
-            track.scrollLeft += 1;
-            // Loop back when reaching the end
-            if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
-                track.scrollLeft = 0;
-            }
-        }, 10);
+        const startAutoScroll = () => {
+            window.__galleryAutoScroll = setInterval(() => {
+                track.scrollLeft += 1;
+                if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
+                    track.scrollLeft = 0;
+                }
+            }, 10);
+        };
+
+        startAutoScroll();
 
         // Remove CSS animation if previously added
         track.classList.remove('gallery-track-animated');

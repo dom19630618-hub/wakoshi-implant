@@ -41,28 +41,6 @@
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
-
-    /* Animation definition for PC */
-    @media (min-width: 768px) {
-        .gallery-track-animated {
-            animation: gallerySlide var(--gallery-duration, 30s) linear infinite;
-        }
-
-        /* Stop animation on hover if desired (optional) */
-        /* .group:hover .gallery-track-animated {
-            animation-play-state: paused;
-        } */
-    }
-
-    @keyframes gallerySlide {
-        0% {
-            transform: translateX(0);
-        }
-
-        100% {
-            transform: translateX(-50%);
-        }
-    }
 </style>
 
 <script>
@@ -70,14 +48,12 @@
         const track = document.querySelector(".gallery-track");
         if (!track) return;
 
-        // すでに動いていたら2重起動を防ぐ
         if (window.__galleryAutoScroll) {
             clearInterval(window.__galleryAutoScroll);
         }
 
         window.__galleryAutoScroll = setInterval(() => {
             track.scrollLeft += 1;
-            // 端まで行ったら戻す
             if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
                 track.scrollLeft = 0;
             }
