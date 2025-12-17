@@ -47,68 +47,9 @@
     use:CTA_固定ヘッダー
 
     <!-- JS -->
+    <script src="js/gallery_loader.js" defer></script>
     <script src="js/component_loader.js"></script>
-    <!-- gallery_loader is now redundant or should be merged? 
-         Gallery uses complex logic. 
-         If component_loader handles replace, we need specific logic for gallery inside component_loader or specific script.
-         Currently component_loader replaces text. 
-         Gallery loader also replaces text. 
-         We should remove gallery_loader script tag if component_loader covers it, BUT gallery has JS logic.
-         For safety, I removed gallery_loader.js reference here and let's check component_loader.
-         
-         Wait, my component_loader just inserts HTML. It doesn't run the Gallery Logic (json loop).
-         The Gallery logic was in gallery_loader.js.
-         
-         I need to restore gallery_loader logic OR include it in component_loader.
-         Since I didn't port the logic to component_loader fully (just placeholder), 
-         I should keep gallery_loader.js separate OR include it.
-         However, use:Gallery_CardCarousel is already handled by gallery_loader.js?
-         
-         Let's check. gallery_loader.js searches for "use:Gallery_CardCarousel".
-         component_loader.js searches for "use:*".
-         
-         If both start, race condition.
-         
-         Better: modify gallery_loader.js to be compliant or just let component_loader handle it.
-         But component_loader is generic. Gallery needs JSON data.
-         
-         Solution: I will inject the <script src="js/gallery_loader.js"> INSIDE Gallery_CardCarousel.html?
-         No, scripts in templates need careful handling.
-         
-         Simplest fix for now:
-         Leave gallery_loader.js as is for Gallery.
-         component_loader.js handles everything else.
-         
-         But gallery_loader.js expects specific placeholder.
-         My component_loader might eat it first.
-         
-         I will keep gallery_loader.js but rename the placeholder in index.html to something component_loader won't touch?
-         Or just let component_loader ignore 'Gallery_CardCarousel' and let gallery_loader handle it?
-         
-         Actually, the user asked for "use:Gallery_CardCarousel".
-         I should update component_loader to detecting "Gallery_CardCarousel" and invoke the logic, 
-         OR update Gallery_CardCarousel.html to include its own logic script. 
-         
-         Let's try including the logic script in the HTML of Gallery_CardCarousel.html.
-         Wait, I already wrote Gallery_CardCarousel.html as just structure.
-         
-         Let's rewrite gallery_loader.js to be a module that initializes the gallery if found.
-         
-         I'll stick to: component_loader.js handles static HTML.
-         For Gallery, since it's dynamic, I'll let component_loader load the STATIC structure from .html 
-         (which I need to update to be the full structure, not just placeholder)
-         AND then run a script to populate it.
-         
-         Existing Gallery_CardCarousel.html IS the structure.
-         Existing gallery_loader.js fetches HTML and JSON.
-         
-         If I use component_loader for Gallery, it will just fetch HTML. It won't fetch JSON/populate items.
-         
-         So I will EXCLUDE Gallery from component_loader?
-         Or better, update Gallery_CardCarousel.html to include the script that populates it.
-         
-         Let's update Gallery_CardCarousel.html to include the script.
-    -->
+
 
     <script src="js/faq-item.js"></script>
     <script src="js/main.js"></script>

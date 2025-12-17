@@ -3,7 +3,7 @@
   PC: overflow-hidden for auto-scroll loop 
   SP: overflow-x-auto for swipe, standard scroll behavior
 -->
-<div class="w-full overflow-hidden bg-white py-8 relative group gallery-container-uninitialized" id="">
+<div class="w-full overflow-hidden bg-white py-8 relative group" id="gallery-container">
 
     <!-- Inner Track -->
     <!-- 
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Template for a single card -->
-    <template class="gallery-card-template">
+    <template id="gallery-card-template">
         <!-- Card Item -->
         <div class="gallery-card shrink-0 relative
                     w-64 h-40
@@ -64,72 +64,3 @@
         }
     }
 </style>
-
-<script>
-    (async function initGallery() {
-        // This script runs when inserted into the DOM by component_loader.
-        // The container is already in the document (documentFragment -> document).
-        // Or it might be running before insertion if using fragment?
-        // component_loader uses fragment. Scripts run when appended to document?
-        // Actually, component_loader creates new script elements and appends them.
-        // So this code runs in the global scope.
-        // We need to find the gallery container that was JUST added.
-        // Since there might be multiple galleries, we need a way to reference "this" component instance.
-        // But since HTML is static, we can look for uninitialized galleries?
-
-        // Better approach: Look for #gallery-container that doesn't have items yet.
-        // Note: ID must be unique. If we have multiple galleries, ID conflict.
-        // We should change ID to class.
-
-        const containers = document.querySelectorAll('.gallery-container-uninitialized');
-        if (containers.length === 0) return; // Already done or scanning too early?
-
-        // Load data once
-        let data = null;
-        try {
-            const res = await fetch('/modules/gallery.json');
-            if (res.ok) data = await res.json();
-        } catch (e) {
-            console.error('Gallery data load failed', e);
-            return;
-        }
-
-        if (!data) return;
-
-        containers.forEach(container => {
-            container.classList.remove('gallery-container-uninitialized');
-
-            // Remove ID to avoid conflicts if previously present
-            container.removeAttribute('id');
-
-            const track = container.querySelector('.gallery-track');
-            // Find template relative to this container (it might be inside or next to it?)
-            // In our HTML structure, template is inside the root div.
-            const template = container.querySelector('.gallery-card-template');
-
-            if (!track || !template) return;
-
-            // Settings
-            if (data.settings && data.settings.duration) {
-                track.style.setProperty('--gallery-duration', data.settings.duration);
-            }
-
-            // Items loop
-            const originalItems = data.items;
-            let renderItems = [...originalItems, ...originalItems];
-            if (originalItems.length < 5) {
-                renderItems = [...renderItems, ...originalItems, ...originalItems];
-            }
-
-            renderItems.forEach(item => {
-                const clone = template.content.cloneNode(true);
-                const img = clone.querySelector('img');
-                img.src = item.src;
-                img.alt = item.alt;
-                track.appendChild(clone);
-            });
-
-            track.classList.add('gallery-track-animated');
-        });
-    })();
-</script>
