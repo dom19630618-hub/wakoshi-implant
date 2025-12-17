@@ -7,6 +7,8 @@ console.log("[gallery_loader] loaded");
 console.log("[DEBUG] gallery_loader.js reloaded:", Date.now());
 
 document.addEventListener('componentsReady', async () => {
+    console.warn('[FIX] Forcing delayed hydration');
+    await new Promise(r => setTimeout(r, 50));
     // Configuration
     const COMPONENT_NAME = 'Gallery_CardCarousel';
     const USE_SYNTAX = `use:${COMPONENT_NAME}`;
@@ -84,6 +86,7 @@ document.addEventListener('componentsReady', async () => {
             }
 
             track.appendChild(clone);
+            track.style.width = track.scrollWidth + 'px';
         });
 
         // Add animation class
