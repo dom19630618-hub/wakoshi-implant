@@ -84,9 +84,9 @@ document.addEventListener('componentsReady', async () => {
         // Initialize Advanced Auto Scroll with User Interaction Support (Robust)
         const initAutoScrollGallery = (track, opts = {}) => {
             const speed = opts.speed ?? 0.5;
-            const resumeDelay = 2000; // Wait 2s after last interaction
+            const resumeDelay = 2000;
 
-            // Infinite loop setup: clone children if not already done
+            // Infinite loop setup
             if (!track.dataset.looped) {
                 const children = Array.from(track.children);
                 children.forEach(el => track.appendChild(el.cloneNode(true)));
@@ -94,37 +94,38 @@ document.addEventListener('componentsReady', async () => {
             }
 
             let rafId = null;
-            let paused = false;
+            let isPaused = false;
             let resumeTimer = null;
             let isPointerDown = false;
 
-            const pause = () => {
-                paused = true;
+            // Define control functions
+            const stopAutoScroll = () => {
+                isPaused = true;
                 if (rafId) cancelAnimationFrame(rafId);
                 rafId = null;
                 if (resumeTimer) clearTimeout(resumeTimer);
                 resumeTimer = null;
             };
 
-            const scheduleResume = () => {
+            const startAutoScroll = () => {
+                stopAutoScroll(); // Clear previous state
+                isPaused = false;
+                tick();
+            };
+
+            const resumeAutoScroll = () => {
                 if (resumeTimer) clearTimeout(resumeTimer);
                 resumeTimer = setTimeout(() => {
-                    paused = false;
-                    isPointerDown = false; // Force release lock
-                    tick();
+                    if (!isPointerDown) {
+                        startAutoScroll();
+                    }
                 }, resumeDelay);
             };
 
-            const onInteraction = () => {
-                pause();
-                scheduleResume();
-            };
-
             const tick = () => {
-                if (paused || isPointerDown) return;
+                if (isPaused || isPointerDown) return;
 
                 const half = track.scrollWidth / 2;
-                // Rewind loop
                 if (track.scrollLeft >= half) {
                     track.scrollLeft -= half;
                 } else if (track.scrollLeft <= 0) {
@@ -135,13 +136,25 @@ document.addEventListener('componentsReady', async () => {
                 rafId = requestAnimationFrame(tick);
             };
 
-            // Event Listeners for robust pause/resume
+            // Interaction Handlers
+            const onInteraction = () => {
+                stopAutoScroll();
+                resumeAutoScroll();
+            };
+
+            // Event Listeners
             track.addEventListener("touchstart", () => { isPointerDown = true; onInteraction(); }, { passive: true });
             track.addEventListener("touchend", () => { isPointerDown = false; onInteraction(); }, { passive: true });
             track.addEventListener("touchcancel", () => { isPointerDown = false; onInteraction(); }, { passive: true });
-
             track.addEventListener("wheel", onInteraction, { passive: true });
-            track.addEventListener("scroll", onInteraction, { passive: true });
+
+            // Critical fix: Only treat scroll as interaction if we are already paused or user is holding 
+            // (prevents auto-scroll from pausing itself)
+            track.addEventListener("scroll", () => {
+                if (isPaused || isPointerDown) {
+                    onInteraction();
+                }
+            }, { passive: true });
 
             // PC Drag Logic
             let startX = 0;
@@ -158,7 +171,7 @@ document.addEventListener('componentsReady', async () => {
 
             track.addEventListener("pointermove", (e) => {
                 if (!isPointerDown) return;
-                onInteraction(); // Extend pause
+                onInteraction();
                 const dx = e.clientX - startX;
                 track.scrollLeft = startScrollLeft - dx;
             });
@@ -173,9 +186,8 @@ document.addEventListener('componentsReady', async () => {
             track.addEventListener("pointercancel", pointerUp);
             track.addEventListener("pointerleave", pointerUp);
 
-            // Start initial scroll
-            paused = false;
-            tick();
+            // Mandatory Start
+            startAutoScroll();
         };
 
         initAutoScrollGallery(track);
