@@ -1,0 +1,11 @@
+{
+    "name": "wakoshi-implant",
+    "version": "1.0.0",
+    "description": "Static site for Wakoshi Implant with Universal Component System",
+    "scripts": {
+        "dev": "browser-sync start --server 'public' --files 'public/**/*' --port 3000 --no-open"
+    },
+    "devDependencies": {
+        "browser-sync": "^3.0.0"
+    }
+}
