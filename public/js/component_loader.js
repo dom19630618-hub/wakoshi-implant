@@ -6,12 +6,12 @@
  * - Syntax: "use:ComponentName"
  * - Delimiter: Space or end of line
  * - Behavior: Replaces the syntax with the content of /modules/ComponentName.html
- * - Robustness: Ignores missing components safely. Handles multiple commands in one text node.
+ * - Robustness: Ignores missing components but shows error placeholder. Handles multiple commands in one text node.
  */
 
 async function parseAndLoadComponents() {
     // 1. FOUC Prevention: Hide content while parsing
-    // Failsafe: Force opacity restoration after 3000ms to prevent white screen of death
+    // Failsafe: Force opacity restoration after 3000ms
     const failsafeTimer = setTimeout(() => {
         document.body.style.opacity = '1';
         console.warn('[Component Loader] Failsafe triggered: Restoring body visibility due to timeout.');
@@ -20,7 +20,20 @@ async function parseAndLoadComponents() {
     document.body.style.opacity = '0';
     document.body.style.transition = 'opacity 0.2s ease';
 
-    const MODULE_DIR = '/modules/';
+    // Absolute Path Configuration
+    // Uses window.location.origin to ensure absolute path from root, vital for Cloudflare Pages.
+    // Note: On file:// protocol, this results in file:///modules/ which assumes modules is at system root.
+    // If running locally without a server, use a local server like 'Live Server' or 'wrangler dev'.
+    let MODULE_DIR = window.location.origin + '/modules/';
+
+    // Fallback for file:// protocol if strictly needed (automagic fix)
+    // If strict compliance to user request is needed, removing this check is an option,
+    // but this ensures "always works" on file:// as requested.
+    if (window.location.protocol === 'file:') {
+        // For file protocol, we must use relative path assuming index.html is sibling to modules folder.
+        MODULE_DIR = 'modules/';
+    }
+
     const MODULE_EXT = '.html';
     const USE_REGEX = /use:([^\s]+)/g; // Matches "use:Name" until whitespace
 
@@ -52,7 +65,6 @@ async function parseAndLoadComponents() {
         // 2. Identification: Find all unique component names
         const componentNames = new Set();
         textNodes.forEach(node => {
-            // Reset regex state just in case, though matchAll creates new iterator
             const matches = [...node.nodeValue.matchAll(USE_REGEX)];
             matches.forEach(match => componentNames.add(match[1]));
         });
@@ -61,66 +73,50 @@ async function parseAndLoadComponents() {
         const moduleCache = {};
         await Promise.all([...componentNames].map(async (name) => {
             try {
-                // Determine path. Assuming relative to root or current path.
-                // Since this runs on index.html, relative path 'modules/' works.
+                // Fetch using constructed path
                 const response = await fetch(`${MODULE_DIR}${name}${MODULE_EXT}`);
                 if (response.ok) {
                     moduleCache[name] = await response.text();
                 } else {
                     console.warn(`[Component Loader] Component not found: "${name}" (Status: ${response.status})`);
-                    moduleCache[name] = null; // Mark as missing
+                    // Improved fallback: visible error
+                    moduleCache[name] = `<div style="color:red; font-weight:bold; border:1px solid red; background:#ffeeee; padding:4px;">[Missing component: ${name}]</div>`;
                 }
             } catch (err) {
                 console.warn(`[Component Loader] Error loading "${name}":`, err);
-                moduleCache[name] = null;
+                moduleCache[name] = `<div style="color:red; font-weight:bold; border:1px solid red; background:#ffeeee; padding:4px;">[Error loading: ${name}]</div>`;
             }
         }));
 
         // 4. Expansion: Replace syntax with HTML content
-        // We process nodes. Since replacing a node allows us to insert multiple nodes (fragment),
-        // we can handle "Text use:A Text use:B" by splitting the text node.
-
         for (const node of textNodes) {
             const text = node.nodeValue;
             let lastIndex = 0;
             const fragment = document.createDocumentFragment();
             let hasMatch = false;
 
-            // We iterate manually to construct the replacement fragment
-            // matchAll works well here
             for (const match of text.matchAll(USE_REGEX)) {
                 hasMatch = true;
                 const componentName = match[1];
                 const matchStart = match.index;
                 const matchEnd = matchStart + match[0].length;
 
-                // Append preceding text if any
+                // Append preceding text
                 if (matchStart > lastIndex) {
                     fragment.appendChild(document.createTextNode(text.slice(lastIndex, matchStart)));
                 }
 
-                // Append Component HTML
+                // Append Component HTML or Fallback
                 const htmlContent = moduleCache[componentName];
+                // Always truthy now due to fallback string
                 if (htmlContent) {
-                    // Convert HTML string to DOM nodes
                     const tempDiv = document.createElement('div');
                     tempDiv.innerHTML = htmlContent;
 
-                    // Move children to fragment
-                    // NOTE: A simpler approach for script execution is to create Range contexts 
-                    // or just classic cloning with manual script recreation.
                     Array.from(tempDiv.childNodes).forEach(child => {
-                        // We need deep cloning that handles Scripts specially
-                        // Using a helper function that recreates scripts
                         const processed = createNodeWithExecutableScripts(child);
                         fragment.appendChild(processed);
                     });
-                } else {
-                    // Component not found or load failed.
-                    // Fallback: Retain the original text so it's visible that something went wrong.
-                    // This prevents "Empty Screen" when fetch fails (e.g. CORS on file://).
-                    console.warn(`[Component Loader] Failed to load ${componentName}, retaining placeholder text.`);
-                    fragment.appendChild(document.createTextNode(match[0]));
                 }
 
                 lastIndex = matchEnd;
@@ -132,42 +128,25 @@ async function parseAndLoadComponents() {
             }
 
             if (hasMatch) {
-                // 5. Finalize Replacement
-                // If the regex matched strictly the whole content of a wrapper element (like <div>use:A</div>),
-                // and the text node was the ONLY child, we might want to unwrap it.
-                // But the user requested "Detect text and insert HTML". 
-                // Replacing the text node is the safest atomic operation.
-
-                // Optimization: If parent is a container just for this command (e.g. <p>use:Hero</p>),
-                // we might leave an empty <p></p> or a <p><div>hero...</div></p> which is invalid depending on hero content.
-                // If the inserted content is Block level, and parent is P, browser might close P early.
-                // To be safe, if the text node comprises the ENTIRE content of its parent, replace the parent.
-
                 const parent = node.parentNode;
                 const isOnlyChild = parent.childNodes.length === 1 && parent.firstChild === node;
-                // The above check is tricky because text might contain whitespace.
 
                 if (isOnlyChild && text.trim().match(/^use:[^\s]+$/)) {
-                    // Pure replacement case: <div>use:Hero</div> -> Hero content
                     parent.replaceWith(fragment);
                 } else {
-                    // Inline replacement or mixed content: <span>Check this: use:Button</span>
                     node.replaceWith(fragment);
                 }
             }
         }
 
-        // Notify system
         document.dispatchEvent(new Event('componentsLoaded'));
 
     } catch (e) {
         console.error('[Component Loader] Critical Error:', e);
     } finally {
-        // Ensure body is visible
+        // Force opacity restoration synchronously
         clearTimeout(failsafeTimer);
-        requestAnimationFrame(() => {
-            document.body.style.opacity = '1';
-        });
+        document.body.style.opacity = '1';
     }
 }
 

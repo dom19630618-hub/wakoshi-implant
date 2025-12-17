@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- Tailwind CSS (No Preflight to avoid conflict) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -47,7 +47,7 @@
     use:CTA_固定ヘッダー
 
     <!-- JS -->
-    <script src="assets/js/component_loader.js"></script>
+    <script src="js/component_loader.js"></script>
     <!-- gallery_loader is now redundant or should be merged? 
          Gallery uses complex logic. 
          If component_loader handles replace, we need specific logic for gallery inside component_loader or specific script.
@@ -72,7 +72,7 @@
          Better: modify gallery_loader.js to be compliant or just let component_loader handle it.
          But component_loader is generic. Gallery needs JSON data.
          
-         Solution: I will inject the <script src="assets/js/gallery_loader.js"> INSIDE Gallery_CardCarousel.html?
+         Solution: I will inject the <script src="js/gallery_loader.js"> INSIDE Gallery_CardCarousel.html?
          No, scripts in templates need careful handling.
          
          Simplest fix for now:
@@ -110,8 +110,8 @@
          Let's update Gallery_CardCarousel.html to include the script.
     -->
 
-    <script src="assets/js/faq-item.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="js/faq-item.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
