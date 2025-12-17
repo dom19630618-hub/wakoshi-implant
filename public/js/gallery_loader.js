@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Configuration
     const COMPONENT_NAME = 'Gallery_CardCarousel';
     const USE_SYNTAX = `use:${COMPONENT_NAME}`;
-    
+
     // 1. Find the placeholder element containing the syntax
     // We look for elements that have the text content exactly matching, or specific container
     // For specific implementation, we search for a div with specific ID first for safety,
     // or scan DOM. To fit the requirement "use:Gallery_CardCarousel", we look for an element
     // acting as the placeholder.
-    
-    const placeholders = Array.from(document.querySelectorAll('*')).filter(el => 
+
+    const placeholders = Array.from(document.querySelectorAll('*')).filter(el =>
         el.textContent.trim() === USE_SYNTAX && el.children.length === 0
     );
 
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         // 2. Fetch resources
         const [htmlResponse, jsonResponse] = await Promise.all([
-            fetch('modules/gallery_cardcarousel.html'),
-            fetch('modules/gallery.json')
+            fetch('/modules/gallery_cardcarousel.html'),
+            fetch('/modules/gallery.json')
         ]);
 
         if (!htmlResponse.ok || !jsonResponse.ok) {
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const container = doc.querySelector('#gallery-container');
             const style = doc.querySelector('style');
             const cardTemplate = doc.querySelector('#gallery-card-template');
-            
+
             if (!container || !cardTemplate) {
                 console.error(`[${COMPONENT_NAME}] Invalid HTML template structure.`);
                 return;
@@ -63,23 +63,23 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Create Items
             // For PC infinite loop effect, we duplicate the items enough times to fill width + buffer
             // Simple approach: Double the items for 50% translation loop
-            
+
             const originalItems = data.items;
             // Ensure we have enough items for smooth loop (at least double)
             // If items are few, duplicate more
             let renderItems = [...originalItems, ...originalItems];
             if (originalItems.length < 5) {
-                 renderItems = [...renderItems, ...originalItems, ...originalItems];
+                renderItems = [...renderItems, ...originalItems, ...originalItems];
             }
 
             renderItems.forEach(item => {
                 const clone = cardTemplate.content.cloneNode(true);
                 const img = clone.querySelector('img');
                 const card = clone.querySelector('.gallery-card');
-                
+
                 img.src = item.src;
                 img.alt = item.alt;
-                
+
                 track.appendChild(clone);
             });
 
