@@ -81,8 +81,21 @@ document.addEventListener('componentsReady', async () => {
             track.style.width = track.scrollWidth + 'px';
         });
 
-        // Add animation class
-        track.classList.add('gallery-track-animated');
+        // Initialize Auto Scroll (JS-based)
+        if (window.__galleryAutoScroll) {
+            clearInterval(window.__galleryAutoScroll);
+        }
+
+        window.__galleryAutoScroll = setInterval(() => {
+            track.scrollLeft += 1;
+            // Loop back when reaching the end
+            if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
+                track.scrollLeft = 0;
+            }
+        }, 10);
+
+        // Remove CSS animation if previously added
+        track.classList.remove('gallery-track-animated');
 
         // Mark as initialized
         console.log(`[${COMPONENT_NAME}] Hydration successful. Cards rendered.`);

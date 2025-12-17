@@ -64,3 +64,23 @@
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const track = document.querySelector(".gallery-track");
+        if (!track) return;
+
+        // すでに動いていたら2重起動を防ぐ
+        if (window.__galleryAutoScroll) {
+            clearInterval(window.__galleryAutoScroll);
+        }
+
+        window.__galleryAutoScroll = setInterval(() => {
+            track.scrollLeft += 1;
+            // 端まで行ったら戻す
+            if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
+                track.scrollLeft = 0;
+            }
+        }, 10);
+    });
+</script>
