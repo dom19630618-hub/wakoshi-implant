@@ -49,8 +49,12 @@ document.addEventListener('componentsReady', async () => {
         // Template should be inside the container as per gallery_cardcarousel.html structure
         const cardTemplate = document.getElementById('gallery-card-template');
 
+        console.log("[DEBUG] track found:", !!track);
+        console.log("[DEBUG] cardTemplate found:", !!cardTemplate);
+
         if (!track || !cardTemplate) {
             console.error(`[${COMPONENT_NAME}] Invalid HTML structure: missing track or template.`);
+            console.error("track:", track, "template:", cardTemplate);
             return;
         }
 
