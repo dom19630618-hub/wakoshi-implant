@@ -80,6 +80,7 @@ document.addEventListener('componentsReady', async () => {
         track.classList.add('gallery-track-animated');
 
         // Mark as initialized
+        console.log(`[${COMPONENT_NAME}] Hydration successful. Cards rendered.`);
         container.classList.add('gallery-initialized');
 
     } catch (error) {

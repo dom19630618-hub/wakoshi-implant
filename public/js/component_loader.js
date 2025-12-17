@@ -24,7 +24,8 @@ async function parseAndLoadComponents() {
     // Uses window.location.origin to ensure absolute path from root, vital for Cloudflare Pages.
     // Note: On file:// protocol, this results in file:///modules/ which assumes modules is at system root.
     // If running locally without a server, use a local server like 'Live Server' or 'wrangler dev'.
-    let MODULE_DIR = window.location.origin + '/modules/';
+    // Force localhost path as per user request to avoid file:// misinterpretation
+    let MODULE_DIR = 'http://localhost:3000/modules/';
 
     // Fallback for file:// protocol if strictly needed (automagic fix)
     // If strict compliance to user request is needed, removing this check is an option,
