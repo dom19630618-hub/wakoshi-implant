@@ -81,10 +81,10 @@ document.addEventListener('componentsReady', async () => {
             track.style.width = track.scrollWidth + 'px';
         });
 
-        // Initialize Advanced Auto Scroll with User Interaction Support
+        // Initialize Advanced Auto Scroll with User Interaction Support (Robust)
         const initAutoScrollGallery = (track, opts = {}) => {
-            const speed = opts.speed ?? 0.35;
-            const resumeDelay = opts.resumeDelay ?? 1400;
+            const speed = opts.speed ?? 0.5;
+            const resumeDelay = 2000; // Wait 2s after last interaction
 
             // Infinite loop setup: clone children if not already done
             if (!track.dataset.looped) {
@@ -110,27 +110,38 @@ document.addEventListener('componentsReady', async () => {
                 if (resumeTimer) clearTimeout(resumeTimer);
                 resumeTimer = setTimeout(() => {
                     paused = false;
+                    isPointerDown = false; // Force release lock
                     tick();
                 }, resumeDelay);
             };
 
+            const onInteraction = () => {
+                pause();
+                scheduleResume();
+            };
+
             const tick = () => {
-                if (paused) return;
+                if (paused || isPointerDown) return;
 
                 const half = track.scrollWidth / 2;
-                if (track.scrollLeft >= half) track.scrollLeft -= half;
+                // Rewind loop
+                if (track.scrollLeft >= half) {
+                    track.scrollLeft -= half;
+                } else if (track.scrollLeft <= 0) {
+                    track.scrollLeft += half;
+                }
 
-                track.scrollLeft += speed * 2;
+                track.scrollLeft += speed;
                 rafId = requestAnimationFrame(tick);
             };
 
-            const onUserStart = () => { pause(); };
-            const onUserEnd = () => { scheduleResume(); };
+            // Event Listeners for robust pause/resume
+            track.addEventListener("touchstart", () => { isPointerDown = true; onInteraction(); }, { passive: true });
+            track.addEventListener("touchend", () => { isPointerDown = false; onInteraction(); }, { passive: true });
+            track.addEventListener("touchcancel", () => { isPointerDown = false; onInteraction(); }, { passive: true });
 
-            track.addEventListener("touchstart", onUserStart, { passive: true });
-            track.addEventListener("touchend", onUserEnd, { passive: true });
-            track.addEventListener("wheel", () => { pause(); scheduleResume(); }, { passive: true });
-            track.addEventListener("scroll", () => { pause(); scheduleResume(); }, { passive: true });
+            track.addEventListener("wheel", onInteraction, { passive: true });
+            track.addEventListener("scroll", onInteraction, { passive: true });
 
             // PC Drag Logic
             let startX = 0;
@@ -142,11 +153,12 @@ document.addEventListener('componentsReady', async () => {
                 startX = e.clientX;
                 startScrollLeft = track.scrollLeft;
                 track.style.cursor = 'grabbing';
-                onUserStart();
+                onInteraction();
             });
 
             track.addEventListener("pointermove", (e) => {
                 if (!isPointerDown) return;
+                onInteraction(); // Extend pause
                 const dx = e.clientX - startX;
                 track.scrollLeft = startScrollLeft - dx;
             });
@@ -155,12 +167,13 @@ document.addEventListener('componentsReady', async () => {
                 if (!isPointerDown) return;
                 isPointerDown = false;
                 track.style.cursor = 'grab';
-                onUserEnd();
+                onInteraction();
             };
             track.addEventListener("pointerup", pointerUp);
             track.addEventListener("pointercancel", pointerUp);
             track.addEventListener("pointerleave", pointerUp);
 
+            // Start initial scroll
             paused = false;
             tick();
         };

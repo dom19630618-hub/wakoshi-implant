@@ -42,21 +42,3 @@
         scrollbar-width: none;
     }
 </style>
-
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const track = document.querySelector(".gallery-track");
-        if (!track) return;
-
-        if (window.__galleryAutoScroll) {
-            clearInterval(window.__galleryAutoScroll);
-        }
-
-        window.__galleryAutoScroll = setInterval(() => {
-            track.scrollLeft += 1;
-            if (track.scrollLeft >= track.scrollWidth - track.clientWidth) {
-                track.scrollLeft = 0;
-            }
-        }, 10);
-    });
-</script>
