@@ -3,12 +3,7 @@
  * Handles "use:Gallery_CardCarousel" replacement and rendering.
  */
 
-console.log("[gallery_loader] loaded");
-console.log("[DEBUG] gallery_loader.js reloaded:", Date.now());
-
 document.addEventListener('componentsReady', async () => {
-    console.warn('[FIX] Forcing delayed hydration');
-    await new Promise(r => setTimeout(r, 50));
     // Configuration
     const COMPONENT_NAME = 'Gallery_CardCarousel';
     const USE_SYNTAX = `use:${COMPONENT_NAME}`;
@@ -22,7 +17,6 @@ document.addEventListener('componentsReady', async () => {
     // 1. Find the already injected container (Hydration mode)
     // Since component_loader.js runs first, it should have already injected the HTML structure.
     const container = document.getElementById('gallery-container');
-    console.log("container =", container);
 
     if (!container) {
         console.log(`[${COMPONENT_NAME}] No container found (#gallery-container). Skipping.`);
@@ -51,8 +45,7 @@ document.addEventListener('componentsReady', async () => {
         // Template should be inside the container as per gallery_cardcarousel.html structure
         const cardTemplate = document.getElementById('gallery-card-template');
 
-        console.log("[DEBUG] track found:", !!track);
-        console.log("[DEBUG] cardTemplate found:", !!cardTemplate);
+
 
         if (!track || !cardTemplate) {
             console.error(`[${COMPONENT_NAME}] Invalid HTML structure: missing track or template.`);
@@ -60,8 +53,7 @@ document.addEventListener('componentsReady', async () => {
             return;
         }
 
-        console.log("track offsetWidth =", track.offsetWidth);
-        console.log("track child count =", track.children.length);
+
 
         // Apply settings
         if (data.settings && data.settings.duration) {
