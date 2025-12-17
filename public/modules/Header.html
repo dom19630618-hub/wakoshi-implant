@@ -14,4 +14,26 @@
             </ul>
         </nav>
     </div>
+    <!-- Version Display -->
+    <div id="version-display" style="
+        position: absolute;
+        bottom: 4px;
+        right: 15px;
+        font-size: 10px;
+        color: #ddd;
+        font-family: sans-serif;
+        pointer-events: none;
+        z-index: 50;
+    "></div>
+    <script>
+        try {
+            const d = new Date(document.lastModified);
+            const str = d.getFullYear() + '.' +
+                (d.getMonth() + 1).toString().padStart(2, '0') + '.' +
+                d.getDate().toString().padStart(2, '0') + ' ' +
+                d.getHours().toString().padStart(2, '0') + ':' +
+                d.getMinutes().toString().padStart(2, '0');
+            document.getElementById('version-display').innerText = 'Upd: ' + str;
+        } catch (e) { }
+    </script>
 </header>
