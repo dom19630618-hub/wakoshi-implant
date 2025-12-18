@@ -22,33 +22,43 @@ async function parseAndLoadComponents() {
 
     // Relative Path Configuration
     // Works on both localhost and Cloudflare Pages (assuming root deployment)
-    let MODULE_DIR = './modules/';
+    let MODULE_DIR = '/modules/';
 
     const MODULE_EXT = '.html';
     const USE_REGEX = /use:([^\s]+)/g; // Matches "use:Name" until whitespace
 
-    // Helper: Collect all text nodes that *might* contain the syntax
-    function collectCandidateNodes() {
+    // Helper: Collect all "commands" to process
+    function collectCommands() {
+        const textNodes = [];
         const walker = document.createTreeWalker(
             document.body,
             NodeFilter.SHOW_TEXT,
             null,
             false
         );
-        const nodes = [];
         let node;
         while (node = walker.nextNode()) {
             if (node.nodeValue.includes('use:')) {
-                nodes.push(node);
+                textNodes.push(node);
             }
         }
-        return nodes;
+
+        const elements = [];
+        const allElements = document.querySelectorAll('*');
+        allElements.forEach(el => {
+            for (const attr of el.attributes) {
+                if (attr.name.startsWith('use:')) {
+                    elements.push({ element: el, attrName: attr.name });
+                }
+            }
+        });
+
+        return { textNodes, elements };
     }
 
     try {
-        const textNodes = collectCandidateNodes();
-        if (textNodes.length === 0) {
-            // No work to do
+        const { textNodes, elements } = collectCommands();
+        if (textNodes.length === 0 && elements.length === 0) {
             return;
         }
 
@@ -57,6 +67,10 @@ async function parseAndLoadComponents() {
         textNodes.forEach(node => {
             const matches = [...node.nodeValue.matchAll(USE_REGEX)];
             matches.forEach(match => componentNames.add(match[1]));
+        });
+        elements.forEach(entry => {
+            const name = entry.attrName.split(':')[1];
+            if (name) componentNames.add(name);
         });
 
         // 3. Fetching: Load all required modules in parallel
@@ -78,7 +92,7 @@ async function parseAndLoadComponents() {
             }
         }));
 
-        // 4. Expansion: Replace syntax with HTML content
+        // 4. Expansion: Replace text syntax with HTML content
         for (const node of textNodes) {
             const text = node.nodeValue;
             let lastIndex = 0;
@@ -91,50 +105,67 @@ async function parseAndLoadComponents() {
                 const matchStart = match.index;
                 const matchEnd = matchStart + match[0].length;
 
-                // Append preceding text
                 if (matchStart > lastIndex) {
                     fragment.appendChild(document.createTextNode(text.slice(lastIndex, matchStart)));
                 }
 
-                // Append Component HTML or Fallback
-                const htmlContent = moduleCache[componentName];
-                // Always truthy now due to fallback string
-                if (htmlContent) {
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = htmlContent;
-
-                    Array.from(tempDiv.childNodes).forEach(child => {
-                        const processed = createNodeWithExecutableScripts(child);
-                        fragment.appendChild(processed);
-                    });
+                let htmlContent = moduleCache[componentName];
+                // Resolve placeholders from parent's data- attributes
+                const parent = node.parentElement;
+                if (htmlContent && parent) {
+                    for (const attr of parent.attributes) {
+                        if (attr.name.startsWith('data-')) {
+                            const key = attr.name.slice(5).toUpperCase();
+                            const val = attr.value;
+                            htmlContent = htmlContent.replace(new RegExp(`{{${key}}}`, 'g'), val);
+                        }
+                    }
                 }
 
+                if (htmlContent) {
+                    const temp = document.createElement('div');
+                    temp.innerHTML = htmlContent;
+                    Array.from(temp.childNodes).forEach(c => fragment.appendChild(createNodeWithExecutableScripts(c)));
+                }
                 lastIndex = matchEnd;
             }
-
-            // Append remaining text
-            if (lastIndex < text.length) {
-                fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
-            }
+            if (lastIndex < text.length) fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
 
             if (hasMatch) {
-                const parent = node.parentNode;
-                const isOnlyChild = parent.childNodes.length === 1 && parent.firstChild === node;
-
-                if (isOnlyChild && text.trim().match(/^use:[^\s]+$/)) {
-                    parent.replaceWith(fragment);
+                const p = node.parentNode;
+                if (p && p.childNodes.length === 1 && p.firstChild === node && text.trim().match(/^use:[^\s]+$/)) {
+                    p.replaceWith(fragment);
                 } else {
                     node.replaceWith(fragment);
                 }
             }
         }
 
-        document.dispatchEvent(new CustomEvent('componentsReady'));
+        // 5. Expansion: Process Element-based commands
+        for (const entry of elements) {
+            const componentName = entry.attrName.split(':')[1];
+            let htmlContent = moduleCache[componentName];
+            if (htmlContent) {
+                // Resolve placeholders from attributes of THIS element
+                for (const attr of entry.element.attributes) {
+                    if (attr.name.startsWith('data-')) {
+                        const key = attr.name.slice(5).toUpperCase();
+                        const val = attr.value;
+                        htmlContent = htmlContent.replace(new RegExp(`{{${key}}}`, 'g'), val);
+                    }
+                }
+                const temp = document.createElement('div');
+                temp.innerHTML = htmlContent;
+                const frag = document.createDocumentFragment();
+                Array.from(temp.childNodes).forEach(c => frag.appendChild(createNodeWithExecutableScripts(c)));
+                entry.element.replaceWith(frag);
+            }
+        }
 
+        document.dispatchEvent(new CustomEvent('componentsReady'));
     } catch (e) {
         console.error('[Component Loader] Critical Error:', e);
     } finally {
-        // Force opacity restoration synchronously
         clearTimeout(failsafeTimer);
         document.body.style.opacity = '1';
     }

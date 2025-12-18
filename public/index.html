@@ -5,63 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>和光市の即時荷重インプラント 仮歯をその日に</title>
-    <meta name="description" content="和光、練馬、光が丘 手術当日に仮歯をいれる即時荷重インプラント専門歯科クリニック">
+    <meta name="description" content="治療期間が短いインプラント治療 1日で抜歯から仮歯まで 通院回数を抑え、早く日常生活へ
+日本口腔インプラント学会認定医が対応">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- Tailwind CSS (No Preflight to avoid conflict) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            corePlugins: {
-                preflight: false,
-            }
-        }
-    </script>
+
 </head>
 
 <body>
 
-    use:Header
+    use:GlobalHeader
 
     <main>
         use:Hero_画像付き
         use:Message_Intro
         use:Features_Grid
         use:Fullbleed_Image
-        <div class="w-full overflow-hidden bg-white py-8 relative group" id="gallery-container">
-            <div class="gallery-track flex w-max gap-4
-                md:animate-none
-                max-md:w-full max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory max-md:px-4 max-md:scrollbar-hide"
-                style="overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; cursor: grab;">
+        <div id="gallery-container">
+            <div class="gallery-track">
             </div>
 
             <template id="gallery-card-template">
-                <div class="gallery-card shrink-0 relative
-                            w-64 h-40
-                            md:w-72 md:h-48
-                            rounded-xl overflow-hidden shadow-lg 
-                            snap-start
-                            transform transition-transform hover:scale-105 duration-300">
-                    <img src="" alt="" class="w-full h-full object-cover">
+                <div class="gallery-card">
+                    <img src="" alt="" class="gallery-img">
                 </div>
             </template>
         </div>
-        use:Compare_DentureImplant
+        use:Compare_インプラント比較
         use:FAQ_即時荷重
         use:Access_和光
     </main>
 
-    use:Footer
-    use:CTA_固定ヘッダー
+    use:最下部のフッター
+    use:ボトムナビゲーション
 
     <!-- JS -->
     <script src="js/component_loader.js"></script>

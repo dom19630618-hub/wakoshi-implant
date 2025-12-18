@@ -4,103 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>院長・スタッフ - Wakoshi Implant Replica</title>
-    <meta name="description" content="デンタルオフィス松川の院長・スタッフ紹介ページです。">
-
+    <title>院長・スタッフ紹介 | 和光市の即時荷重インプラント デンタルオフィス松川</title>
+    <meta name="description" content="デンタルオフィス松川の院長紹介、スタッフ紹介。私たちは患者さまとのコミュニケーションを大切にし、安心して治療を受けていただけるよう心がけています。">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-
     <!-- CSS -->
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/doctor.css">
 </head>
 
 <body>
-
-    <!-- Header -->
-    <header class="header">
-        <div class="container header__container">
-            <h1 class="header__logo">
-                <a href="../">
-                    <img src="../images/logo.svg" alt="デンタルオフィス松川">
-                </a>
-            </h1>
-            <nav class="nav">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="../">HOME</a></li>
-                    <li class="nav__item"><a href="./">院長・スタッフ</a></li>
-                    <li class="nav__item"><a href="#access">アクセス</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    use:GlobalHeader
 
     <main>
-        <div class="container" style="padding: 40px 16px;">
-            <h2>院長・スタッフ</h2>
-            <p>現在、コンテンツを準備中です。</p>
+        <!-- Page Header -->
+        <div use:PageHeader data-title="院長・スタッフ紹介" data-breadcrumb="院長・スタッフ紹介"></div>
 
-            <div id="access" style="margin-top: 60px;">
-                <h3>アクセス</h3>
-                <p>〒351-0114 埼玉県和光市本町X-X</p>
-                <!-- Map placeholder -->
-                <div style="background:#eee; height:300px; display:flex; align-items:center; justify-content:center;">
-                    Google Map Placeholder
+        <section class="section doctor-intro">
+            <div class="container">
+                <div class="doctor-profile">
+                    <figure class="doctor-profile__img">
+                        <img src="https://placehold.jp/600x800.png?text=Doctor+Matsukawa" alt="院長 松川 寿幸">
+                    </figure>
+                    <div class="doctor-profile__content">
+                        <h2 class="doctor-profile__name">
+                            <span class="doctor-profile__role">院長</span>
+                            松川 寿幸
+                            <span class="doctor-profile__en">Toshiyuki Matsukawa</span>
+                        </h2>
+                        <p class="doctor-profile__message">
+                            当院では、患者さま一人ひとりに合わせた最適な治療を提供することを心がけています。<br>
+                            特にインプラント治療においては、正確な診断と安全な手術を行うための設備を整え、多くの患者さまに「噛める喜び」を取り戻していただいております。<br>
+                            歯のお悩みがありましたら、どのようなことでもお気軽にご相談ください。
+                        </p>
+                        <dl class="doctor-profile__bio">
+                            <dt>経歴</dt>
+                            <dd>
+                                <ul>
+                                    <li>1990年 日本大学松戸歯学部 卒業</li>
+                                    <li>1990年 歯科医院 勤務</li>
+                                    <li>1995年 デンタルオフィス松川 開院</li>
+                                </ul>
+                            </dd>
+                            <dt>所属学会</dt>
+                            <dd>
+                                <ul>
+                                    <li>日本口腔インプラント学会 会員</li>
+                                    <li>国際インプラント学会 認定医</li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="section staff-list">
+            <div class="container">
+                <h2 class="section__title">スタッフ紹介</h2>
+                <div class="staff-grid">
+                    <article class="staff-card">
+                        <figure class="staff-card__img">
+                            <img src="https://placehold.jp/400x400.png?text=Hygienist+A" alt="歯科衛生士">
+                        </figure>
+                        <div class="staff-card__body">
+                            <h3 class="staff-card__role">歯科衛生士</h3>
+                            <p class="staff-card__text">
+                                患者さまのお口の健康を守るため、丁寧なクリーニングとブラッシング指導を心がけています。
+                            </p>
+                        </div>
+                    </article>
+                    <article class="staff-card">
+                        <figure class="staff-card__img">
+                            <img src="https://placehold.jp/400x400.png?text=Assistant+B" alt="歯科助手">
+                        </figure>
+                        <div class="staff-card__body">
+                            <h3 class="staff-card__role">歯科助手</h3>
+                            <p class="staff-card__text">
+                                治療中のサポートはもちろん、患者さまが安心して通院できるよう笑顔での対応を大切にしています。
+                            </p>
+                        </div>
+                    </article>
+                    <article class="staff-card">
+                        <figure class="staff-card__img">
+                            <img src="https://placehold.jp/400x400.png?text=Reception+C" alt="受付">
+                        </figure>
+                        <div class="staff-card__body">
+                            <h3 class="staff-card__role">受付</h3>
+                            <p class="staff-card__text">
+                                ご予約や診療に関するご質問など、何でもお気軽にお問い合わせください。
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__widget">
-                <h4 class="footer__widget-title">医院案内</h4>
-                <ul class="footer__menu">
-                    <li><a href="../">HOME</a></li>
-                    <li><a href="./">院長・スタッフ</a></li>
-                    <li><a href="#access">アクセス</a></li>
-                </ul>
-            </div>
-            <div class="footer__copyright">
-                <p>Copyright © All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bottom Navigation -->
-    <div class="bottom-nav">
-        <ul class="bottom-nav__list">
-            <li class="bottom-nav__item">
-                <a href="../" class="bottom-nav__link">
-                    <span class="material-icons-outlined bottom-nav__icon">home</span>
-                    <span>ホーム</span>
-                </a>
-            </li>
-            <li class="bottom-nav__item">
-                <a href="https://do-matsukawa.com/" target="_blank" class="bottom-nav__link">
-                    <span class="material-icons-outlined bottom-nav__icon">calendar_month</span>
-                    <span>公式サイト</span>
-                </a>
-            </li>
-            <li class="bottom-nav__item">
-                <a href="tel:048-461-7676" class="bottom-nav__link">
-                    <span class="material-icons-outlined bottom-nav__icon">call</span>
-                    <span>TEL</span>
-                </a>
-            </li>
-            <li class="bottom-nav__item">
-                <a href="https://plus.dentamap.jp/apl/netuser/?id=5898" target="_blank" class="bottom-nav__link">
-                    <span class="material-icons-outlined bottom-nav__icon">edit_calendar</span>
-                    <span>WEB予約</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+    use:最下部のフッター
+    use:ボトムナビゲーション
 
     <!-- JS -->
+    <script src="../js/component_loader.js"></script>
     <script src="../js/main.js"></script>
 </body>
 

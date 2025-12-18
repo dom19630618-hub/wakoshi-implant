@@ -19,9 +19,17 @@
 | **Background (White)** | `#fff4f6` | ほぼ白に近いピンク、カード背景など |
 
 ### スタイリング方針
-- **Framework**: Tailwind CSS を標準とする。
-- **原則**: コンポーネント固有のCSSファイルは作成せず、Utility Classで完結させること。
+- **Framework**: CSS設計は Vanilla CSS を基本とし、`style.css` および各ページ専用CSSファイルで管理する。
+- **原則**: 保守性を高めるため、共通パーツは UCS（Universal Component System）を用いてコンポーネント化する。
 - **例外**: アニメーション定義など、Tailwindで表現不可能な場合のみ `<style>` タグをコンポーネントHTML内に含めることを許可する。
+
+### 見出しデザイン定義（Typography）
+**H3 (Section Inner Heading)**
+- **Font**: Noto Sans JP (Weight: 400/Regular)
+- **Size**: 20px
+- **Accent**: Left Border (3px width, #cd1f5b, 110% height, vertically centered)
+- **Padding**: Left 14px, Top/Bottom 0px
+- **Margin**: Bottom 24px
 
 ---
 
@@ -32,6 +40,7 @@ LP（ランディングページ）の構築において、HTMLファイルへ�
 
 - **Component Loader**: `public/js/component_loader.js` がページロード時に `use:ComponentName` 構文を検出し、対応するHTMLファイルを `/modules/` から非同期に取得（Fetch）してDOMに注入する。
 - **Modules**: 全てのUI部品は `/public/modules/` ディレクトリに断片化されたHTMLファイルとして配置する。
+- **Dynamic Data Attributes**: `use:` 構文を使用するタグに `data-title="..."` などの属性を付与することで、コンポーネント内の `{{TITLE}}` といったプレースホルダーを動的に置換できる。これにより、同一コンポーネントでページごとに異なる内容を表示可能。
 
 ### 呼び出し構文（Syntax）
 `index.html` などのページファイルには、コンポーネントのプレースホルダーのみを記述する。
@@ -40,9 +49,11 @@ LP（ランディングページ）の構築において、HTMLファイルへ�
 <!-- 正しい記述例 -->
 <main>
     use:Hero_画像付き
+    <!-- 動的属性の使用例 -->
+    <div use:PageHeader data-title="医院情報" data-breadcrumb="アクセス"></div>
     use:Features_Grid
-    use:CTA_Box
 </main>
+use:ボトムナビゲーション
 use:Footer
 ```
 
@@ -117,14 +128,15 @@ project-root/
 | コンポーネント名 | ファイル名例 | 役割・概要 |
 | :--- | :--- | :--- |
 | **Hero** | `Hero_画像付き.html` | ファーストビュー。画像＋キャッチコピー。 |
-| **Header** | `Header.html` | サイト共通ヘッダー。ナビゲーション。 |
-| **Footer** | `Footer.html` | サイト共通フッター。コピーライト、リンク。 |
+| **PageHeader** | `PageHeader.html` | 下層ページ用見出し。`{{TITLE}}`, `{{BREADCRUMB}}` 置換に対応。 |
+| **Header** | `Header.html` | サイト共通ヘッダー（ロゴ、更新日時表示）。 |
+| **Footer** | `最下部のフッター.html` | サイト共通フッター。コピーライト、リンク。 |
 | **Message** | `Message_Intro.html` | 挨拶文やリード文のセクション。 |
 | **Features** | `Features_Grid.html` | 特徴をグリッドやリストで紹介するセクション。 |
-| **CTA** | `CTA_固定ヘッダー.html` | コンバージョン（予約・購入）への誘導エリア。 |
+| **BottomNav** | `ボトムナビゲーション.html` | モバイル固定ナビ。予約・TEL・ホタンなど。 |
 | **FAQ** | `FAQ_即時荷重.html` | よくある質問リスト（アコーディオン等）。 |
 | **Access** | `Access_和光.html` | 地図、住所、診療時間情報。 |
-| **Compare** | `Compare_DentureImplant.html` | 比較表（Before/After や プラン比較）。 |
+| **Compare** | `Compare_インプラント比較.html` | 従来法と即時荷重インプラントの比較表。 |
 | **Gallery** | *(直書き推奨)* | 症例写真や院内風景のスライダー。 |
 
 ---
