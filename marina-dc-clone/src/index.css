@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #00015D;
+    --accent: #FB0600;
+    --text-main: #33322F;
+    --bg-light: #F8F6F2;
+  }
+  
+  body {
+    @apply text-[var(--text-main)] font-sans antialiased;
+  }
+}
