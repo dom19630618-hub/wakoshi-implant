@@ -21,13 +21,11 @@
   }
 }
 
-@layer utilities {
-  .animate-infinite-slide {
-    animation: infinite-slide 30s linear infinite;
-  }
+.slide-loop {
+  animation: slide-loop 30s linear infinite;
 }
 
-@keyframes infinite-slide {
+@keyframes slide-loop {
   0% {
     transform: translateX(0);
   }
