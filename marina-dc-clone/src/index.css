@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap');
+@import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --font-sans: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  --font-montserrat: "Montserrat", sans-serif;
+}
 
 @layer base {
   :root {
@@ -13,6 +15,23 @@
   }
   
   body {
-    @apply text-[var(--text-main)] font-sans antialiased;
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .animate-infinite-slide {
+    animation: infinite-slide 30s linear infinite;
+  }
+}
+
+@keyframes infinite-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

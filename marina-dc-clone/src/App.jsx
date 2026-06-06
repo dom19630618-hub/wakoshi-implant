@@ -38,9 +38,26 @@ function App() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-4 max-w-[1260px] mx-auto min-h-[80vh] flex flex-col justify-center relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-2/3 h-full bg-[--bg-light] -z-10 rounded-l-[100px] opacity-50"></div>
         
-        <div className="max-w-2xl relative z-10">
+        {/* 無限スライダー背景 */}
+        <div className="absolute top-0 right-[-10%] md:right-0 w-[120%] md:w-[65%] h-full -z-10 md:rounded-l-[100px] overflow-hidden">
+          <div className="flex w-[200%] h-full animate-infinite-slide">
+            {/* 1セット目 */}
+            <div className="flex w-1/2 h-full">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <img key={`first-${num}`} src={`/images/gallery_0${num}.jpg`} alt="" className="w-1/5 h-full object-cover flex-shrink-0" />
+              ))}
+            </div>
+            {/* 2セット目（ループ用） */}
+            <div className="flex w-1/2 h-full">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <img key={`second-${num}`} src={`/images/gallery_0${num}.jpg`} alt="" className="w-1/5 h-full object-cover flex-shrink-0" />
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <div className="max-w-2xl relative z-10 bg-white/85 p-8 rounded-3xl backdrop-blur-md md:bg-transparent md:p-0 md:backdrop-blur-none mt-16 md:mt-0">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             予防・歯の保存を<br/>第一にした<br/>歯科治療
           </h2>
