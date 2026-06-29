@@ -1956,9 +1956,9 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
 
 .staff-history__item {
   display: flex;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .staff-history__year {
