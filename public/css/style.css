@@ -1737,4 +1737,115 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
   .c-information01__table-head {
     width: 110px;
   }
+
+/* ==========================================================================
+   Implant Recommend & Features (Added for /03)
+   ========================================================================== */
+.implant-recommend {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.c-layout10 {
+  background: #F8F6F2;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+}
+
+.c-layout10__head {
+  font-size: 24px;
+  font-weight: bold;
+  color: #B33F5A;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.c-layout10.is-list2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.c-layout10__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  text-align: left;
+  display: inline-block;
+}
+
+.c-layout10__list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.c-layout10__list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #B33F5A;
+  font-weight: bold;
+}
+
+.implant-features {
+  padding: 60px 0;
+}
+
+.c-bg02 {
+  background-color: #EBE8E0;
+}
+
+.c-bg02__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.implant-features .c-head01 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.implant-features__set {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.implant-features__set-img {
+  flex: 1 1 300px;
+  max-width: 400px;
+}
+
+.implant-features__set-img img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.implant-features__set-area-txt {
+  flex: 1 1 300px;
+}
+
+.implant-features__set-txt {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
+}
+
+@media (min-width: 768px) {
+  .c-layout10.is-list2 {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+  }
+}
 }
