@@ -1,0 +1,140 @@
+<!-- Header (マリーナ歯科スタイル) -->
+<header class="l-header js-header">
+    <div class="l-header__inner">
+
+        <!-- ロゴ -->
+        <div class="l-header-logo">
+            <a href="/03/" class="l-header-logo__link">
+                <img src="/images/logo.svg" alt="デンタルオフィス松川 インプラントサイト" class="l-header-logo__img">
+            </a>
+        </div>
+
+        <!-- 右側: ボタン群 + ハンバーガー -->
+        <div class="l-header__right">
+
+            <!-- PC用ナビ -->
+            <nav class="l-header__nav">
+                <ul class="l-header__nav-list">
+                    <li><a href="/implant/" class="l-header__nav-link">HOME</a></li>
+                    <li><a href="/implant/#information" class="l-header__nav-link">アクセス</a></li>
+                </ul>
+            </nav>
+
+            <!-- PC用: TEL + Web予約ボタン -->
+            <div class="l-header__btn-group">
+                <a href="tel:048-461-7676" class="l-header__tel-btn">
+                    <span class="l-header__tel-num">048-461-7676</span>
+                    <span class="l-header__tel-txt">電話予約・お問い合わせ</span>
+                </a>
+                <a href="https://plus.dentamap.jp/apl/netuser/?id=5898" class="l-header__reserve-btn" target="_blank" rel="noopener noreferrer">
+                    24時間<br>Web予約
+                </a>
+            </div>
+
+            <!-- ハンバーガーボタン (マリーナ式: 3本線 + "メニュー"テキスト) -->
+            <button class="l-nav-btn js-nav-btn" id="nav-menu-btn" aria-label="メニューを開く" aria-expanded="false">
+                <span class="l-nav-btn__line"></span>
+                <span class="l-nav-btn__line"></span>
+                <span class="l-nav-btn__line"></span>
+                <span class="l-nav-btn__txt js-nav-btn-txt">メニュー</span>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- スライドメニュー（モバイル用） -->
+    <nav class="l-drawer-nav js-drawer-nav" id="drawer-nav" aria-hidden="true">
+        <ul class="l-drawer-nav__list">
+            <li class="l-drawer-nav__item"><a href="/implant/" class="l-drawer-nav__link">HOME</a></li>
+            <li class="l-drawer-nav__item"><a href="/implant/#price" class="l-drawer-nav__link">料金表</a></li>
+            <li class="l-drawer-nav__item"><a href="/implant/#information" class="l-drawer-nav__link">診療時間・アクセス</a></li>
+        </ul>
+        <div class="l-drawer-nav__btns">
+            <a href="tel:048-461-7676" class="l-drawer-nav__tel">
+                <span class="l-drawer-nav__tel-num">048-461-7676</span>
+            </a>
+            <a href="https://plus.dentamap.jp/apl/netuser/?id=5898" class="l-drawer-nav__reserve" target="_blank" rel="noopener noreferrer">24時間 Web予約</a>
+        </div>
+    </nav>
+
+    <!-- オーバーレイ -->
+    <div class="l-nav-overlay js-nav-overlay" id="nav-overlay"></div>
+
+    <!-- Version Display -->
+    <div id="version-display" style="
+        position: absolute;
+        bottom: 4px;
+        right: 15px;
+        font-size: 10px;
+        color: rgba(0,0,0,0.3);
+        font-family: sans-serif;
+        pointer-events: none;
+        z-index: 50;
+    "></div>
+    <script>
+        try {
+            const d = new Date(document.lastModified);
+            const str = d.getFullYear() + '.' +
+                (d.getMonth() + 1).toString().padStart(2, '0') + '.' +
+                d.getDate().toString().padStart(2, '0') + ' ' +
+                d.getHours().toString().padStart(2, '0') + ':' +
+                d.getMinutes().toString().padStart(2, '0');
+            document.getElementById('version-display').innerText = 'Upd: ' + str;
+        } catch (e) { }
+    </script>
+</header>
+
+<!-- ドロワーナビ用JS -->
+<script>
+(function() {
+    function initDrawer() {
+        const btn = document.getElementById('nav-menu-btn');
+        const drawer = document.getElementById('drawer-nav');
+        const overlay = document.getElementById('nav-overlay');
+        const btnTxt = btn ? btn.querySelector('.js-nav-btn-txt') : null;
+
+        if (!btn || !drawer || !overlay) return;
+
+        function openMenu() {
+            btn.classList.add('is-active');
+            btn.setAttribute('aria-expanded', 'true');
+            drawer.classList.add('is-open');
+            drawer.setAttribute('aria-hidden', 'false');
+            overlay.classList.add('is-show');
+            if (btnTxt) btnTxt.textContent = '閉じる';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            btn.classList.remove('is-active');
+            btn.setAttribute('aria-expanded', 'false');
+            drawer.classList.remove('is-open');
+            drawer.setAttribute('aria-hidden', 'true');
+            overlay.classList.remove('is-show');
+            if (btnTxt) btnTxt.textContent = 'メニュー';
+            document.body.style.overflow = '';
+        }
+
+        btn.addEventListener('click', function() {
+            if (btn.classList.contains('is-active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        overlay.addEventListener('click', closeMenu);
+
+        // ドロワー内のリンクをクリックしたら閉じる
+        drawer.querySelectorAll('a').forEach(function(a) {
+            a.addEventListener('click', closeMenu);
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDrawer);
+    } else {
+        initDrawer();
+    }
+})();
+</script>
