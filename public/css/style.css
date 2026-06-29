@@ -1762,34 +1762,54 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
 }
 
 .c-layout10.is-list2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
+}
+
+.c-layout10__lists-wrapper {
+  display: inline-block;
+  text-align: left;
 }
 
 .c-layout10__list {
   list-style: none;
   padding: 0;
   margin: 0 0 16px 0;
-  text-align: left;
-  display: inline-block;
 }
 
 .c-layout10__list li {
   position: relative;
-  padding-left: 24px;
-  margin-bottom: 12px;
+  padding-left: 36px;
+  margin-bottom: 24px;
   font-size: 16px;
   font-weight: 500;
-  color: #333;
+  color: #555;
+  line-height: 1.6;
 }
 
 .c-layout10__list li::before {
-  content: "✔";
+  content: "";
   position: absolute;
   left: 0;
-  color: #B33F5A;
-  font-weight: bold;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid #C4A972;
+  border-radius: 4px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.c-layout10__list li::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  width: 6px;
+  height: 10px;
+  border-right: 2px solid #C4A972;
+  border-bottom: 2px solid #C4A972;
+  transform: rotate(45deg);
+  box-sizing: border-box;
 }
 
 .implant-features {
@@ -1841,11 +1861,10 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
 }
 
 @media (min-width: 768px) {
-  .c-layout10.is-list2 {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+  .c-layout10__lists-wrapper {
+    display: flex;
     gap: 40px;
+    align-items: flex-start;
   }
 }
 }
