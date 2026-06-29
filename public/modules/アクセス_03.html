@@ -1,0 +1,150 @@
+<!-- Information & Access Section (Marina DC デザイン完全再現 / 素のCSS版) -->
+<section id="information" class="c-information01">
+    <div class="c-information01__inner">
+
+        <!-- 見出し -->
+        <header class="c-head01">
+            <p class="c-head01__sub">INFORMATION</p>
+            <h2 class="c-head01__main">診療時間・アクセス</h2>
+        </header>
+
+        <!-- 2カラムコンテンツ -->
+        <div class="c-information01__content">
+
+            <!-- 左: ボタン群 + 診療時間テーブル -->
+            <div class="c-information01__time">
+
+                <!-- 電話ボタン -->
+                <div class="c-btn04">
+                    <a href="tel:048-461-7676" class="c-btn04__link">
+                        <span class="c-btn04__txt">電話予約・お問い合わせ</span>
+                        <span class="c-btn04__tel">TEL<span class="c-btn04__tel-num">048-461-7676</span></span>
+                    </a>
+                </div>
+
+                <!-- Web予約 / メール / LINE -->
+                <div class="c-information01__btns">
+                    <p class="c-information01__btn-reserve c-btn01">
+                        <a href="https://plus.dentamap.jp/apl/netuser/?id=5898" class="c-btn01__link" target="_blank" rel="noopener noreferrer">
+                            <span class="c-btn01__main">24時間Web予約</span>
+                        </a>
+                    </p>
+
+                </div>
+
+                <!-- 診療時間テーブル -->
+                <table class="c-information01__table">
+                    <tr>
+                        <th class="c-information01__table-head">診療時間</th>
+                        <th>月</th>
+                        <th>火</th>
+                        <th>水</th>
+                        <th>木</th>
+                        <th>金</th>
+                        <th>土</th>
+                        <th>日</th>
+                        <th>祝</th>
+                    </tr>
+                    <tr>
+                        <td class="c-information01__table-head">10:00～13:00<span class="small">最終受付 12:30</span></td>
+                        <td>●</td>
+                        <td>●</td>
+                        <td>－</td>
+                        <td>●</td>
+                        <td>●</td>
+                        <td>●</td>
+                        <td>－</td>
+                        <td>－</td>
+                    </tr>
+                    <tr>
+                        <td class="c-information01__table-head">15:00～19:00<span class="small">最終受付 18:30</span></td>
+                        <td>●</td>
+                        <td>●</td>
+                        <td>－</td>
+                        <td>●</td>
+                        <td>●</td>
+                        <td>▲</td>
+                        <td>－</td>
+                        <td>－</td>
+                    </tr>
+                </table>
+                <p class="c-information01__notes">
+                    休診日…水曜・日曜・祝日<br>
+                    ▲土曜は15:00～18:00
+                </p>
+
+                <!-- 特記事項チェックリスト (マリーナ歯科スタイル: アイコン付きカード) -->
+                <ul class="c-information01__checklist">
+                    <li class="c-information01__checklist-item">
+                        <span class="material-icons-outlined c-information01__checklist-icon">local_parking</span>
+                        <span class="c-information01__checklist-txt">駐車場あり</span>
+                    </li>
+                    <li class="c-information01__checklist-item">
+                        <span class="material-icons-outlined c-information01__checklist-icon">child_friendly</span>
+                        <span class="c-information01__checklist-txt">お子様連れ歓迎</span>
+                    </li>
+                </ul>
+
+            </div>
+
+            <!-- 右: マップ + 住所 -->
+            <div class="c-information01__access">
+
+                <!-- Googleマップ -->
+                <div class="c-information01__access-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.345!2d139.6054!3d35.7796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018927a5e6c4b4f%3A0x0!2z5Z2C546J5biC5Y2X77yR77yd77yW77ySMA!5e0!3m2!1sja!2sjp!4v1700000000000"
+                        width="600" height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+                <!-- 住所 -->
+                <p class="c-information01__access-address">
+                    〒351-0104　埼玉県和光市南1-6-20
+                </p>
+
+                <!-- 電車でのアクセス -->
+                <dl class="c-information01__access-info">
+                    <dt>
+                        <span class="material-icons-outlined" style="font-size:18px;color:#888;">train</span>
+                        電車
+                    </dt>
+                    <dd>
+                        東武東上線・東京メトロ有楽町線/副都心線<br>
+                        「和光市駅」南口より徒歩 約15分
+                    </dd>
+                </dl>
+
+                <!-- バス -->
+                <dl class="c-information01__access-info">
+                    <dt>
+                        <span class="material-icons-outlined" style="font-size:18px;color:#888;">directions_bus</span>
+                        バス
+                    </dt>
+                    <dd>
+                        和光市駅南口より国際興業バス<br>
+                        「南1丁目」停留所下車すぐ
+                    </dd>
+                </dl>
+
+                <!-- お車 -->
+                <dl class="c-information01__access-info">
+                    <dt>
+                        <span class="material-icons-outlined" style="font-size:18px;color:#888;">directions_car</span>
+                        お車
+                    </dt>
+                    <dd>
+                        駐車場完備<br>
+                        （医院敷地内をご利用ください）
+                    </dd>
+                </dl>
+
+            </div>
+
+        </div>
+    </div>
+</section>
