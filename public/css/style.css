@@ -900,7 +900,8 @@ details[open] .faq__marker::after {
    FAQ Design Test (First item only)
    ========================================================================== */
 faq-item:first-of-type .faq__item {
-  border: 1px solid #eaeaea; /* 極めて薄いグレーの枠線 */
+  /* 枠線の太さ（px）はこちらの数値を変えることで調整可能です */
+  border: 1px solid var(--faq-main);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); /* 柔らかい影 */
   color: var(--faq-text);
 }
