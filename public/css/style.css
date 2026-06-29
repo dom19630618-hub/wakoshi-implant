@@ -1966,10 +1966,12 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
   flex-shrink: 0;
   color: #C4A972;
   font-weight: bold;
+  margin: 0;
 }
 
 .staff-history__txt {
   color: #555;
+  margin: 0;
 }
 
 .staff-history__txt strong {
