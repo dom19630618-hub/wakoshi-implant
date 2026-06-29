@@ -7,9 +7,17 @@
   --color-primary: #cd1f5b;
   --color-primary-dark: #a41949;
   --color-primary-vivid: #e22264;
-  --color-text: #333;
+  --color-text: #33322F;
   --color-bg: #fff;
-  --font-base: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  /* ━━ フォント設定 (マリーナ歯科と同一) ━━
+     日本語: Zen Maru Gothic
+     英数字: Montserrat
+     明朝体: Noto Serif JP (見出し装飾のみ)
+  */
+  --font-base: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-sans: 'Zen Maru Gothic', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  --font-en: 'Montserrat', sans-serif;
+  --font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
 
   /* Original WP Variables (Selected) */
   --wp--preset--color--black: #000000;
@@ -51,8 +59,9 @@ body {
   font-family: var(--font-base);
   color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.6;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
@@ -92,56 +101,301 @@ ul {
 }
 
 /* ==========================================================================
-   Header
+   Header (マリーナ歯科スタイル)
    ========================================================================== */
-.header {
-  position: relative;
+
+.l-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
   background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
 
-.header__container {
+.l-header__inner {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 60px;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.header__logo img {
-  height: 40px;
+/* ロゴ */
+.l-header-logo__link {
+  display: block;
+}
+
+.l-header-logo__img {
+  height: 38px;
   width: auto;
 }
 
-.nav__list {
+/* 右側レイアウト */
+.l-header__right {
   display: flex;
-  gap: 20px;
+  align-items: center;
+  gap: 16px;
 }
 
-.nav__item a {
-  font-weight: 700;
-  color: #333;
-  transition: color 0.3s;
+/* PC ナビ */
+.l-header__nav {
+  display: none;
 }
 
-.nav__item a:hover {
+.l-header__nav-list {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.l-header__nav-link {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.l-header__nav-link:hover {
   color: var(--color-primary);
 }
 
-@media (max-width: 991px) {
-  .header__container {
-    height: 60px;
+/* PC用TEL・予約ボタン */
+.l-header__btn-group {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.l-header__tel-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.l-header__tel-num {
+  font-family: var(--font-en);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+.l-header__tel-txt {
+  font-size: 10px;
+  color: #888;
+}
+
+.l-header__reserve-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  line-height: 1.4;
+  transition: background 0.2s;
+}
+
+.l-header__reserve-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━
+   ハンバーガーボタン (マリーナ式)
+━━━━━━━━━━━━━━━━━━━━━━ */
+.l-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 52px;
+  height: 52px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  position: relative;
+  z-index: 210;
+}
+
+.l-nav-btn__line {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.l-nav-btn__txt {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+/* アクティブ時: ✕ マーク */
+.l-nav-btn.is-active .l-nav-btn__line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.l-nav-btn.is-active .l-nav-btn__line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.l-nav-btn.is-active .l-nav-btn__line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━
+   ドロワーナビ
+━━━━━━━━━━━━━━━━━━━━━━ */
+.l-drawer-nav {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background: #fff;
+  z-index: 205;
+  padding: 80px 0 40px;
+  overflow-y: auto;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.l-drawer-nav.is-open {
+  right: 0;
+}
+
+.l-drawer-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.l-drawer-nav__item {
+  border-bottom: 1px solid #f0ece4;
+}
+
+.l-drawer-nav__link {
+  display: block;
+  padding: 16px 24px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.l-drawer-nav__link:hover {
+  background: #f8f6f2;
+  color: var(--color-primary);
+}
+
+.l-drawer-nav__btns {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.l-drawer-nav__tel {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px;
+  border: 1px solid #d0c8b8;
+  border-radius: 4px;
+}
+
+.l-drawer-nav__tel-num {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.05em;
+}
+
+.l-drawer-nav__reserve {
+  display: block;
+  text-align: center;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.l-drawer-nav__reserve:hover {
+  background: var(--color-primary-dark);
+}
+
+/* オーバーレイ */
+.l-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.l-nav-overlay.is-show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━
+   レスポンシブ (PC 900px+)
+━━━━━━━━━━━━━━━━━━━━━━ */
+@media (min-width: 900px) {
+  .l-header__nav {
+    display: block;
   }
 
-  .header__logo img {
-    height: 30px;
+  .l-header__btn-group {
+    display: flex;
   }
 
-  .nav {
+  .l-nav-btn {
     display: none;
-    /* Mobile nav handles this */
   }
 }
+
+/* ページ本文をヘッダー分押し下げる */
+body {
+  padding-top: 64px;
+}
+
 
 /* ==========================================================================
    Hero Section
@@ -194,8 +448,8 @@ ul {
   /* Tighter horizontal padding as requested */
   border-radius: 4px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-  font-family: "Noto Serif JP", "游明朝", "YuMincho", serif;
-  /* Updated font stack */
+  font-family: var(--font-base);
+  /* Updated font stack to Zen Maru Gothic */
   font-size: 1rem;
   /* Fixed size */
   font-weight: 500;
@@ -963,5 +1217,469 @@ details[open] .faq__marker::after {
     /* w-72 */
     height: 12rem;
     /* h-48 */
+  }
+}
+
+/* ==========================================================================
+   Price Section (料金表 / Marina DC デザイン準拠)
+   ========================================================================== */
+
+.c-price01 {
+  background: #8a7a5a;
+  padding: 80px 0;
+  font-family: var(--font-sans);
+}
+
+.c-price01__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 見出し (料金表用オーバーライド) */
+.c-head01--price .c-head01__sub {
+  color: #e8e0d0;
+}
+
+.c-head01--price .c-head01__main {
+  color: #fff;
+}
+
+/* テーブル */
+.c-price01__table-wrap {
+  margin-top: 32px;
+}
+
+.c-price01__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.c-price01__row {
+  border-bottom: 1px solid #d0c8b8;
+}
+
+.c-price01__row:nth-child(odd) {
+  background: #f7f4ef;
+}
+
+.c-price01__row:nth-child(even) {
+  background: #fff;
+}
+
+.c-price01__item {
+  padding: 20px 24px;
+  font-size: 14px;
+  color: #33322F;
+  line-height: 1.6;
+  width: 65%;
+}
+
+.c-price01__item small {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.c-price01__price {
+  padding: 20px 24px;
+  font-size: 14px;
+  color: #33322F;
+  text-align: right;
+  white-space: nowrap;
+  font-family: var(--font-en);
+  letter-spacing: 0.03em;
+}
+
+.c-price01__note {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #e8e0d0;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .c-price01 {
+    padding: 48px 0;
+  }
+
+  .c-price01__item {
+    padding: 14px 16px;
+    font-size: 13px;
+    width: auto;
+  }
+
+  .c-price01__price {
+    padding: 14px 16px;
+    font-size: 13px;
+    white-space: normal;
+  }
+
+  .c-price01__table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* ==========================================================================
+   Information & Access Section (Marina DC デザイン準拠)
+   ========================================================================== */
+
+/* フォント (style.css の先頭 @charset の直後に移動すべきだが、ここで定義) */
+/* ※ Zen Maru Gothic + Montserrat は 02/index.html の <head> で読み込み済み */
+
+.c-information01 {
+  position: relative;
+  background: #F8F6F2;
+  padding: 80px 0;
+  font-family: var(--font-sans);
+}
+
+.c-information01__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* 見出し (c-head01) */
+.c-head01 {
+  margin-bottom: 48px;
+}
+
+.c-head01__sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #33322F;
+  margin: 0 0 8px;
+}
+
+.c-head01__main {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #33322F;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* コンテンツ2カラム */
+.c-information01__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.c-information01__time {
+  width: calc(50% - 30px);
+  min-width: 280px;
+}
+
+.c-information01__access {
+  width: calc(50% - 30px);
+  min-width: 280px;
+}
+
+/* 電話ボタン (c-btn04) */
+.c-btn04 {
+  margin-bottom: 12px;
+}
+
+.c-btn04__link {
+  display: block;
+  background: #fff;
+  border: 1px solid #e6e2d8;
+  border-radius: 4px;
+  padding: 20px 24px;
+  text-align: center;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.c-btn04__link:hover {
+  opacity: 0.8;
+}
+
+.c-btn04__txt {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #6b5c43;
+  margin-bottom: 6px;
+}
+
+.c-btn04__tel {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-en);
+  color: #33322F;
+  font-size: 14px;
+}
+
+@media (min-width: 900px) {
+  .c-btn04__tel {
+    font-size: 15px;
+  }
+}
+
+.c-btn04__tel-num {
+  font-size: clamp(24px, 3.2vw, 32px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+/* ボタングループ (c-btn01) */
+.c-information01__btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.c-btn01 {
+  display: block;
+  text-align: center;
+  border-radius: 4px;
+  font-weight: 700;
+  font-family: var(--font-sans);
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.c-information01__btn-reserve {
+  width: calc(50% - 4px);
+}
+
+.c-information01__btn-reserve .c-btn01__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  background: #a38e5d;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: background 0.2s;
+}
+
+.c-information01__btn-reserve .c-btn01__link:hover {
+  background: #8f7a4b;
+}
+
+.c-information01__btn-small-wrap {
+  display: flex;
+  gap: 8px;
+  width: calc(50% - 4px);
+}
+
+.c-information01__btn-small {
+  flex: 1;
+}
+
+.c-information01__btn-small .c-btn01__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.c-information01__btn-small.is-mail .c-btn01__link {
+  background: #a38e5d;
+}
+
+.c-information01__btn-small.is-mail .c-btn01__link:hover {
+  background: #8f7a4b;
+}
+
+.c-information01__btn-small.is-line .c-btn01__link {
+  background: #06C755;
+}
+
+.c-information01__btn-small.is-line .c-btn01__link:hover {
+  background: #05b34c;
+}
+
+/* 診療時間テーブル */
+.c-information01__table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+  line-height: 1.4;
+}
+
+.c-information01__table tr {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.c-information01__table th,
+.c-information01__table td {
+  padding: 14px 4px;
+  text-align: right;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+.c-information01__table-head {
+  width: 150px;
+  font-weight: 500;
+  text-align: left !important;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+}
+
+.c-information01__table .small {
+  font-size: 11px;
+  font-weight: 400;
+  display: block;
+}
+
+.c-information01__notes {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.8;
+  font-weight: 500;
+  color: #555;
+}
+
+/* チェックリスト (c-information01__checklist) */
+.c-information01__checklist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 32px;
+  border-right: 1px solid #d3d3d3;
+}
+
+.c-information01__checklist li {
+  width: 50%;
+  padding: 40px 0 24px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+  border-left: 1px solid #d3d3d3;
+  position: relative;
+}
+
+/* アクセスマップ */
+.c-information01__access-map {
+  position: relative;
+  padding-bottom: 420px;
+  background-color: #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.c-information01__access-map iframe {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.c-information01__access-address {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #33322F;
+}
+
+.c-information01__access-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.c-information01__access-info + .c-information01__access-info {
+  margin-top: 4px;
+}
+
+.c-information01__access-info dt {
+  width: 90px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 12px;
+  color: #33322F;
+}
+
+.c-information01__access-info dd {
+  width: calc(100% - 90px);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 12px 12px 12px 20px;
+  line-height: 1.7;
+  position: relative;
+  color: #555;
+}
+
+.c-information01__access-info dd::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 1px;
+  height: calc(100% - 20px);
+  background: #d3d3d3;
+}
+
+/* レスポンシブ */
+@media (max-width: 900px) {
+  .c-information01__time,
+  .c-information01__access {
+    width: 100%;
+  }
+
+  .c-information01__btn-reserve {
+    width: 100%;
+  }
+
+  .c-information01__btn-small-wrap {
+    width: 100%;
+  }
+
+  .c-information01__access-map {
+    padding-bottom: 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  .c-information01 {
+    padding: 48px 0;
+  }
+
+  .c-information01__table th,
+  .c-information01__table td {
+    padding: 10px 2px;
+    font-size: 12px;
+  }
+
+  .c-information01__table-head {
+    width: 110px;
   }
 }
