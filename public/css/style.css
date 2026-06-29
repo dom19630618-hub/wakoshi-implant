@@ -897,6 +897,33 @@ details[open] .faq__marker::after {
 }
 
 /* ==========================================================================
+   FAQ Design Test (First item only)
+   ========================================================================== */
+faq-item:first-of-type .faq__item {
+  border: 1px solid #eaeaea; /* 極めて薄いグレーの枠線 */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); /* 柔らかい影 */
+  color: var(--faq-text);
+}
+
+faq-item:first-of-type .faq__item .faq__summary {
+  background-color: var(--faq-accent); /* 薄いピンク */
+}
+
+faq-item:first-of-type .faq__item .faq__q-label,
+faq-item:first-of-type .faq__item .faq__q-text {
+  color: var(--faq-main); /* 文字は濃いピンク */
+}
+
+faq-item:first-of-type .faq__item .faq__marker {
+  border-color: var(--faq-main);
+}
+
+faq-item:first-of-type .faq__item .faq__marker::before,
+faq-item:first-of-type .faq__item .faq__marker::after {
+  background: var(--faq-main); /* プラス/マイナスアイコンを濃いピンクに */
+}
+
+/* ==========================================================================
    Hours Section
    ========================================================================== */
 .hours {
