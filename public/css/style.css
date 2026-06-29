@@ -1746,18 +1746,25 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
   background-color: #fff;
 }
 
+.implant-recommend__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
 .c-layout10 {
   background: #F8F6F2;
   border-radius: 8px;
-  padding: 40px;
+  padding: 40px 48px;
   text-align: center;
 }
 
 .c-layout10__head {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: bold;
   color: #B33F5A;
-  margin-bottom: 24px;
+  margin-top: 0;
+  margin-bottom: 28px;
   line-height: 1.5;
 }
 
@@ -1773,13 +1780,13 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
 .c-layout10__list {
   list-style: none;
   padding: 0;
-  margin: 0 0 16px 0;
+  margin: 0;
 }
 
 .c-layout10__list li {
   position: relative;
   padding-left: 36px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
   font-size: 16px;
   font-weight: 500;
   color: #555;
@@ -1812,6 +1819,19 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
   box-sizing: border-box;
 }
 
+@media (min-width: 768px) {
+  .c-layout10__lists-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .c-layout10__list {
+    min-width: 280px;
+  }
+}
+
 .implant-features {
   padding: 60px 0;
 }
@@ -1823,7 +1843,7 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
 .c-bg02__inner {
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 .implant-features .c-head01 {
@@ -1833,14 +1853,13 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
 
 .implant-features__set {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 30px;
   align-items: center;
-  justify-content: center;
 }
 
 .implant-features__set-img {
-  flex: 1 1 300px;
+  width: 100%;
   max-width: 400px;
 }
 
@@ -1851,20 +1870,30 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
 }
 
 .implant-features__set-area-txt {
-  flex: 1 1 300px;
+  width: 100%;
 }
 
 .implant-features__set-txt {
   font-size: 16px;
   line-height: 1.8;
   color: #333;
+  margin: 0;
 }
 
 @media (min-width: 768px) {
-  .c-layout10__lists-wrapper {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
+  .implant-features__set {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+  }
+
+  .implant-features__set-img {
+    flex: 0 0 340px;
+  }
+
+  .implant-features__set-area-txt {
+    flex: 1;
   }
 }
 
@@ -1987,13 +2016,18 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
     flex-direction: row;
     align-items: flex-start;
   }
-  
+
   .staff-dentist-set__areaImg {
-    flex: 0 0 300px;
+    flex: 0 0 260px;
+    max-width: 260px;
   }
-  
+
+  .staff-dentist-set__img img {
+    max-width: 100%;
+  }
+
   .staff-dentist-set__textarea {
     flex: 1;
+    min-width: 0;
   }
-}
 }
