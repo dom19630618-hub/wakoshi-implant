@@ -53,6 +53,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* Offset for fixed header */
+}
+
 body {
   margin: 0;
   padding: 0;
