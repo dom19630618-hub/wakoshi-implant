@@ -1655,7 +1655,7 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
   font-weight: 500;
   font-size: 14px;
   line-height: 1.7;
-  color: #33322F;
+  color: #555; /* 他の説明文（dd）の色と合わせる */
 }
 
 .c-information01__access-info {
