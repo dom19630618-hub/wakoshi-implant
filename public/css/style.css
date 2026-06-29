@@ -925,6 +925,33 @@ faq-item:first-of-type .faq__item .faq__marker::after {
 }
 
 /* ==========================================================================
+   FAQ Design Test (Second item only - Black text variation)
+   ========================================================================== */
+faq-item:nth-of-type(2) .faq__item {
+  border: 1px solid var(--faq-main);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  color: var(--faq-text);
+}
+
+faq-item:nth-of-type(2) .faq__item .faq__summary {
+  background-color: var(--faq-accent); /* 薄いピンク */
+}
+
+faq-item:nth-of-type(2) .faq__item .faq__q-label,
+faq-item:nth-of-type(2) .faq__item .faq__q-text {
+  color: #333333; /* 黒とまではいかない黒（ダークグレー） */
+}
+
+faq-item:nth-of-type(2) .faq__item .faq__marker {
+  border-color: var(--faq-main);
+}
+
+faq-item:nth-of-type(2) .faq__item .faq__marker::before,
+faq-item:nth-of-type(2) .faq__item .faq__marker::after {
+  background: var(--faq-main);
+}
+
+/* ==========================================================================
    Hours Section
    ========================================================================== */
 .hours {
