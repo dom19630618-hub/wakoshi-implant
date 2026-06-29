@@ -1737,6 +1737,7 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
   .c-information01__table-head {
     width: 110px;
   }
+}
 
 /* ==========================================================================
    Implant Recommend & Features (Added for /03)
@@ -1991,5 +1992,4 @@ faq-item:nth-of-type(2) .faq__item .faq__marker::after {
   .staff-dentist-set__textarea {
     flex: 1;
   }
-}
 }
