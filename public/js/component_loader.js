@@ -168,6 +168,16 @@ async function parseAndLoadComponents() {
     } finally {
         clearTimeout(failsafeTimer);
         document.body.style.opacity = '1';
+        
+        // コンポーネント読み込み完了後にURLハッシュ(#ID)が存在すればスクロールする
+        if (window.location.hash) {
+            setTimeout(() => {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        }
     }
 }
 
