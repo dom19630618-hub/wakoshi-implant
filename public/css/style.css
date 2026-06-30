@@ -724,6 +724,15 @@ body {
   color: var(--comp-text);
 }
 
+.comparison__lead {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 32px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #555;
+}
+
 .comparison__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
