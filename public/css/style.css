@@ -466,6 +466,29 @@ body {
   /* Consistent 80/20 split */
   background: #A32E48;
   position: relative;
+  overflow: hidden; /* クラスターが横にはみ出さないように */
+}
+
+.particle-cluster {
+  position: absolute;
+  left: -50%;
+  width: 200%; /* 少し広めにとって画面外からの繋がりを演出 */
+  height: 35%; /* 各塊の高さを制限して独立させる */
+  pointer-events: none;
+  z-index: 2;
+}
+
+.particle-cluster--top {
+  top: -10%; /* 画面上部に見切れる配置 */
+}
+
+.particle-cluster--mid {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.particle-cluster--bot {
+  bottom: -10%; /* 画面下部に見切れる配置 */
 }
 
 .hero-pink::before {
@@ -1164,14 +1187,16 @@ details[open] .faq__marker::after {
 }
 
 .bottom-nav__tel-number {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 700;
   font-family: var(--font-sans);
+  letter-spacing: 0.08em; /* 文字と文字の間隔を広げて洗練された印象に */
+  color: #222;
 }
 
 .bottom-nav__tel-sub {
-  font-size: 9px;
-  color: #777;
+  color: #444;    
+  font-weight: 500;
   margin-top: 2px;
 }
 

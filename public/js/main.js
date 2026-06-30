@@ -76,11 +76,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // === Particles.js Initialization for Hero Section ===
 document.addEventListener('componentsReady', function () {
-  if (document.getElementById('particles-js') && window.particlesJS) {
-    particlesJS("particles-js", {
+  if (window.particlesJS) {
+    const particleConfig = {
       "particles": {
         "number": {
-          "value": 120, // コンテナが細長いため、少し多めに設定して密度を上げる
+          "value": 40, // 1つの塊あたりの数（×3箇所）
           "density": { "enable": true, "value_area": 800 }
         },
         "color": { "value": "#ffffff" },
@@ -89,7 +89,7 @@ document.addEventListener('componentsReady', function () {
           "stroke": { "width": 0, "color": "#000000" }
         },
         "opacity": {
-          "value": 0.3, // 5%だと薄すぎて見えないため30%に変更
+          "value": 0.3,
           "random": false
         },
         "size": {
@@ -100,28 +100,34 @@ document.addEventListener('componentsReady', function () {
           "enable": true,
           "distance": 150,
           "color": "#ffffff",
-          "opacity": 0.3, // 線の不透明度30%
+          "opacity": 0.3,
           "width": 1
         },
         "move": {
           "enable": true,
-          "speed": 0.8, // ゆっくり浮遊させる
+          "speed": 0.8,
           "direction": "none",
           "random": true,
           "straight": false,
-          "out_mode": "out",
-          "bounce": false
+          "out_mode": "bounce", // 枠から出ずに跳ね返る（塊を維持する）
+          "bounce": true
         }
       },
       "interactivity": {
         "detect_on": "canvas",
         "events": {
-          "onhover": { "enable": false }, // パフォーマンス重視のためマウスホバー無効
+          "onhover": { "enable": false },
           "onclick": { "enable": false },
           "resize": true
         }
       },
       "retina_detect": true
+    };
+
+    ['particles-top', 'particles-mid', 'particles-bot'].forEach(id => {
+      if (document.getElementById(id)) {
+        particlesJS(id, particleConfig);
+      }
     });
   }
 });
