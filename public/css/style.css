@@ -1610,12 +1610,21 @@ details[open] .faq__marker::after {
 .c-information01__access-info {
   display: block;
   background: #fff;
-  margin-bottom: 16px;
-  border-radius: 4px;
+  border-bottom: 1px solid #EBE8E0;
+  border-left: 1px solid #EBE8E0;
+  border-right: 1px solid #EBE8E0;
 }
 
-.c-information01__access-info:last-child {
-  margin-bottom: 0;
+.c-information01__access-info:first-of-type {
+  border-top: 1px solid #EBE8E0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.c-information01__access-info:last-of-type {
+  border-bottom: 1px solid #EBE8E0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 .c-information01__access-info dt {
@@ -1645,6 +1654,29 @@ details[open] .faq__marker::after {
   width: 1px;
   height: calc(100% - 40px);
   background: #d3d3d3;
+}
+
+@media (min-width: 768px) {
+  .c-information01__access-info {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .c-information01__access-info dt {
+    width: 150px;
+    flex-shrink: 0;
+    padding: 24px 24px;
+  }
+
+  .c-information01__access-info dd {
+    flex: 1;
+    padding: 24px 24px 24px 32px;
+    border-left: 1px solid #EBE8E0;
+  }
+
+  .c-information01__access-info dd::before {
+    display: none;
+  }
 }
 
 /* レスポンシブ */
