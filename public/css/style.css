@@ -1166,7 +1166,7 @@ details[open] .faq__marker::after {
 .bottom-nav__tel-number {
   font-size: 20px;
   font-weight: 700;
-  font-family: var(--font-en);
+  font-family: var(--font-sans);
 }
 
 .bottom-nav__tel-sub {
