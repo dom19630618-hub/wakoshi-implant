@@ -73,3 +73,55 @@ document.addEventListener('DOMContentLoaded', function () {
     viewport.addEventListener('focusout', start);
   }
 });
+
+// === Particles.js Initialization for Hero Section ===
+document.addEventListener('componentsReady', function () {
+  if (document.getElementById('particles-js') && window.particlesJS) {
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 30, // 動作を軽くするため少なめに設定
+          "density": { "enable": true, "value_area": 800 }
+        },
+        "color": { "value": "#ffffff" },
+        "shape": {
+          "type": "circle",
+          "stroke": { "width": 0, "color": "#000000" }
+        },
+        "opacity": {
+          "value": 0.05, // 不透明度5%
+          "random": false
+        },
+        "size": {
+          "value": 2,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.05, // 線の不透明度5%
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 0.8, // ゆっくり浮遊させる
+          "direction": "none",
+          "random": true,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": false }, // パフォーマンス重視のためマウスホバー無効
+          "onclick": { "enable": false },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+  }
+});
