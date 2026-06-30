@@ -1608,7 +1608,8 @@ details[open] .faq__marker::after {
 }
 
 .c-information01__access-info {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
   align-items: stretch;
   background: #fff;
   border-bottom: 1px solid #EBE8E0;
@@ -1627,52 +1628,44 @@ details[open] .faq__marker::after {
   border-bottom-right-radius: 4px;
 }
 
-.c-information01__access-info dt {
+.c-information01__access-dt {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 12px;
-  font-size: 16px;
+  gap: 10px;
+  font-size: 15px;
   font-weight: 700;
-  padding: 20px 24px;
+  padding: 20px 16px;
   color: #33322F;
-  width: 130px;
+  width: 120px;
+  min-width: 120px;
   flex-shrink: 0;
 }
 
-.c-information01__access-info dd {
+.c-information01__access-dd {
   flex: 1;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  padding: 20px 24px;
+  padding: 20px 20px;
   line-height: 1.8;
   color: #555;
   border-left: 1px solid #EBE8E0;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .c-information01__access-info {
-    display: block;
+    flex-direction: column !important;
   }
 
-  .c-information01__access-info dt {
+  .c-information01__access-dt {
     width: auto;
-    padding: 16px 20px 0 20px;
+    min-width: 0;
+    padding: 14px 16px 0 16px;
   }
 
-  .c-information01__access-info dd {
-    padding: 12px 20px 20px 44px;
+  .c-information01__access-dd {
     border-left: none;
-    position: relative;
-  }
-
-  .c-information01__access-info dd::before {
-    content: "";
-    position: absolute;
-    top: 12px;
-    left: 28px;
-    width: 1px;
-    height: calc(100% - 28px);
-    background: #d3d3d3;
+    padding: 8px 16px 16px 16px;
   }
 }
 
