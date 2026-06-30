@@ -438,6 +438,9 @@ body {
 
 .hero-image__item--2 {
   background-image: url("../images/gallery_02.jpg");
+  /* ↓ 2枚目の画像の水平位置を数値で調整（数値を大きくするとさらに左へ移動します） */
+  background-position: calc(50% - 80px) center;
+  
   /* 左上から右下へのグラデーションワイプ */
   -webkit-mask-image: linear-gradient(to bottom right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 60%);
   mask-image: linear-gradient(to bottom right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 60%);
