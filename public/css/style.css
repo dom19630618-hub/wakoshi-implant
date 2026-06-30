@@ -1662,12 +1662,20 @@ details[open] .faq__marker::after {
 .c-information01__checklist li {
   width: 50%;
   padding: 40px 0 24px;
-  text-align: center;
-  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px; /* 少し見やすくサイズアップ */
   font-weight: 500;
   line-height: 1.6;
   border-left: 1px solid #d3d3d3;
   position: relative;
+}
+
+.c-information01__checklist-icon {
+  font-size: 32px; /* アイコンサイズを明示的に指定してバランスを取る */
+  display: block;
 }
 
 /* アクセスマップ */
