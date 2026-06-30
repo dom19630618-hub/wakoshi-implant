@@ -886,7 +886,7 @@ body {
   column-gap: 16px;
   padding: 16px 24px;
   cursor: pointer;
-  background-color: var(--faq-accent);
+  background-color: #A32E48;
   transition: background-color 0.3s;
 }
 
@@ -898,14 +898,14 @@ body {
   font-weight: 700;
   font-size: 16px;
   line-height: 1;
-  color: #A32E48;
+  color: #ffffff;
 }
 
 .faq__q-text {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.6;
-  color: #A32E48;
+  color: #ffffff;
 }
 
 .faq__marker {
@@ -913,7 +913,7 @@ body {
   height: 24px;
   display: inline-grid;
   place-items: center;
-  border: 1px solid var(--faq-main);
+  border: 1px solid #ffffff;
   border-radius: 50%;
   position: relative;
   opacity: 0.8;
@@ -923,7 +923,7 @@ body {
 .faq__marker::after {
   content: "";
   position: absolute;
-  background: var(--faq-main);
+  background: #ffffff;
   border-radius: 2px;
 }
 
