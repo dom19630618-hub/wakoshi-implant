@@ -89,7 +89,7 @@ document.addEventListener('componentsReady', function () {
           "stroke": { "width": 0, "color": "#000000" }
         },
         "opacity": {
-          "value": 0.05, // 不透明度5%
+          "value": 0.3, // 5%だと薄すぎて見えないため30%に変更
           "random": false
         },
         "size": {
@@ -100,7 +100,7 @@ document.addEventListener('componentsReady', function () {
           "enable": true,
           "distance": 150,
           "color": "#ffffff",
-          "opacity": 0.05, // 線の不透明度5%
+          "opacity": 0.3, // 線の不透明度30%
           "width": 1
         },
         "move": {
