@@ -1559,7 +1559,7 @@ details[open] .faq__marker::after {
   align-items: center;
   justify-content: center;
   padding: 18px 12px;
-  background: #a38e5d;
+  background: #A32E48;
   color: #fff;
   border-radius: 4px;
   font-size: 15px;
@@ -1569,7 +1569,7 @@ details[open] .faq__marker::after {
 }
 
 .c-information01__btn-reserve .c-btn01__link:hover {
-  background: #8f7a4b;
+  background: #8a253a;
 }
 
 .c-information01__btn-small-wrap {
