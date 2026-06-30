@@ -1194,7 +1194,7 @@ details[open] .faq__marker::after {
   font-weight: 700;
   font-family: var(--font-sans);
   letter-spacing: 0.08em; /* 文字と文字の間隔を広げて洗練された印象に */
-  color: #222;
+  color: #333; /* 真っ黒(#222)から少し柔らかいチャコールグレーに */
   line-height: 1;
 }
 
