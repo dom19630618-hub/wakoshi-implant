@@ -1387,6 +1387,10 @@ details[open] .faq__marker::after {
   margin-bottom: 48px;
 }
 
+.c-head01.is-center {
+  text-align: center;
+}
+
 .c-head01__sub {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
