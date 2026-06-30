@@ -1959,3 +1959,214 @@ details[open] .faq__marker::after {
     flex: 1;
   }
 }
+
+/* ==========================================================================
+   Case Study Section (症例紹介 / 03ページ専用)
+   ========================================================================== */
+.implant-case {
+  padding: 60px 0;
+  background-color: #fff;
+}
+
+.implant-case__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.implant-case__list {
+  margin-top: 40px;
+}
+
+/* アコーディオン見出し */
+.implant-case__item {
+  border: 2px solid #C4A972;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.implant-case__head {
+  list-style: none;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  cursor: pointer;
+  background-color: #F8F6F2;
+  transition: background-color 0.2s;
+}
+
+.implant-case__head::-webkit-details-marker {
+  display: none;
+}
+
+.implant-case__head:hover {
+  background-color: #EFE9DF;
+}
+
+.implant-case__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #C4A972;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.implant-case__num {
+  font-size: 18px;
+}
+
+.implant-case__title-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #33322F;
+  line-height: 1.5;
+}
+
+.implant-case__marker {
+  width: 24px;
+  height: 24px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid #C4A972;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.implant-case__marker::before,
+.implant-case__marker::after {
+  content: "";
+  position: absolute;
+  background: #C4A972;
+  border-radius: 2px;
+}
+
+.implant-case__marker::before {
+  width: 50%;
+  height: 2px;
+}
+
+.implant-case__marker::after {
+  width: 2px;
+  height: 50%;
+  transition: transform 0.2s;
+}
+
+details[open] .implant-case__marker::after {
+  display: none;
+}
+
+/* ボディ（展開エリア） */
+.implant-case__body {
+  padding: 28px 24px 32px;
+  background: #fff;
+}
+
+.implant-case__age {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 24px;
+}
+
+.implant-case__age strong {
+  color: #B33F5A;
+  font-weight: 700;
+}
+
+/* 写真エリア */
+.implant-case__photos {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.implant-case__photo-wrap {
+  flex: 1 1 200px;
+  text-align: center;
+}
+
+.implant-case__photo-placeholder {
+  background: #F8F6F2;
+  border: 2px dashed #d3d3d3;
+  border-radius: 6px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #bbb;
+  font-size: 12px;
+  gap: 8px;
+}
+
+.implant-case__photo-tag {
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+}
+
+/* 詳細テーブル */
+.implant-case__table-wrap {
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #EBE8E0;
+}
+
+.implant-case__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.implant-case__table th {
+  background: #F8F6F2;
+  color: #6b5c43;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 14px 20px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #EBE8E0;
+  white-space: nowrap;
+  width: 130px;
+}
+
+.implant-case__table td {
+  padding: 14px 20px;
+  color: #444;
+  line-height: 1.7;
+  vertical-align: top;
+  border-bottom: 1px solid #EBE8E0;
+}
+
+.implant-case__table tr:last-child th,
+.implant-case__table tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 600px) {
+  .implant-case__head {
+    padding: 16px 16px;
+    gap: 12px;
+  }
+
+  .implant-case__body {
+    padding: 20px 16px 24px;
+  }
+
+  .implant-case__table th {
+    width: 90px;
+    font-size: 12px;
+    padding: 12px 12px;
+  }
+
+  .implant-case__table td {
+    padding: 12px 12px;
+    font-size: 13px;
+  }
+}
