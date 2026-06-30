@@ -1443,6 +1443,84 @@ details[open] .faq__marker::after {
   line-height: 1.6;
 }
 
+/* ==========================================================================
+   追加：総額目安＆CTAエリア (料金表)
+   ========================================================================== */
+.c-price01__total-estimate {
+  background: #fff;
+  border: 2px solid #8a7a5a;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.c-price01__total-label {
+  color: #33322F;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.c-price01__total-price {
+  color: #8a7a5a;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--font-en);
+}
+
+.c-price01__total-price span {
+  font-size: 16px;
+  font-family: var(--font-sans);
+}
+
+.c-price01__cta {
+  background: #f7f4ef;
+  border-radius: 8px;
+  padding: 32px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.c-price01__cta-text {
+  color: #33322F;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.c-price01__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #8a7a5a;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.c-price01__btn:hover {
+  opacity: 0.8;
+}
+
+.c-price01__tel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #33322F;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  margin-top: 16px;
+  display: block;
+}
+
 @media (max-width: 640px) {
   .c-price01 {
     padding: 48px 0;
@@ -1463,6 +1541,18 @@ details[open] .faq__marker::after {
   .c-price01__table {
     width: 100%;
     display: table;
+  }
+
+  .c-price01__total-price {
+    font-size: 24px;
+  }
+  .c-price01__cta {
+    padding: 24px 16px;
+  }
+  .c-price01__btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 14px;
   }
 }
 
