@@ -1348,6 +1348,7 @@ details[open] .faq__marker::after {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
+  table-layout: fixed; /* テーブル幅の計算を固定し、読み込み時の崩れを防ぐ */
 }
 
 .c-price01__row {
