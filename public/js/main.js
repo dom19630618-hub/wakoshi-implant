@@ -80,7 +80,7 @@ document.addEventListener('componentsReady', function () {
     particlesJS("particles-js", {
       "particles": {
         "number": {
-          "value": 30, // 動作を軽くするため少なめに設定
+          "value": 120, // コンテナが細長いため、少し多めに設定して密度を上げる
           "density": { "enable": true, "value_area": 800 }
         },
         "color": { "value": "#ffffff" },
