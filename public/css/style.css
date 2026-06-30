@@ -1091,6 +1091,11 @@ details[open] .faq__marker::after {
   font-size: 10px;
 }
 
+.bottom-nav__link--reserve {
+  background-color: #A32E48; /* 品の良い落ち着いた赤（ボルドー系） */
+  color: #ffffff;
+}
+
 /* ==========================================================================
 /* ==========================================================================
    Page Header (Shared)
@@ -1666,7 +1671,7 @@ details[open] .faq__marker::after {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  font-size: 15px; /* 少し見やすくサイズアップ */
+  font-size: 13px;
   font-weight: 500;
   line-height: 1.6;
   border-left: 1px solid #d3d3d3;
