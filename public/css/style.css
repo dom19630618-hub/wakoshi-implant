@@ -2199,6 +2199,19 @@ details[open] .implant-case__marker::after {
   text-align: center;
 }
 
+.implant-case__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  border: 1px solid #EBE8E0;
+}
+
+.implant-case__photo--filtered {
+  /* Warm monochrome filter to reduce the harshness of the medical photo */
+  filter: grayscale(80%) sepia(20%) brightness(1.05);
+}
+
 .implant-case__photo-placeholder {
   background: #F8F6F2;
   border: 2px dashed #d3d3d3;
