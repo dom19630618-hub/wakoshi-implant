@@ -1912,7 +1912,7 @@ details[open] .faq__marker::after {
   top: 2px;
   width: 20px;
   height: 20px;
-  border: 1.5px solid #C4A972;
+  border: 1.5px solid #A32E48;
   border-radius: 4px;
   background-color: #fff;
   box-sizing: border-box;
@@ -1925,8 +1925,8 @@ details[open] .faq__marker::after {
   top: 5px;
   width: 6px;
   height: 10px;
-  border-right: 2px solid #C4A972;
-  border-bottom: 2px solid #C4A972;
+  border-right: 2px solid #A32E48;
+  border-bottom: 2px solid #A32E48;
   transform: rotate(45deg);
   box-sizing: border-box;
 }
