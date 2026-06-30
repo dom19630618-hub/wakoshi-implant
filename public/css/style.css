@@ -1608,35 +1608,31 @@ details[open] .faq__marker::after {
 }
 
 .c-information01__access-info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
   background: #fff;
-  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 16px;
+  border-radius: 4px;
 }
 
-.c-information01__access-info:first-child {
-  border-top: 1px solid #f0f0f0;
+.c-information01__access-info:last-child {
+  margin-bottom: 0;
 }
 
 .c-information01__access-info dt {
-  width: 120px;
   display: flex;
   align-items: center;
   gap: 12px;
   font-size: 16px;
   font-weight: 700;
-  padding: 24px 16px;
+  padding: 20px 24px 0 24px;
   color: #33322F;
 }
 
 .c-information01__access-info dd {
-  width: calc(100% - 120px);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  padding: 24px 16px 24px 24px;
-  line-height: 1.7;
+  padding: 16px 24px 24px 60px;
+  line-height: 1.8;
   position: relative;
   color: #555;
 }
@@ -1644,10 +1640,10 @@ details[open] .faq__marker::after {
 .c-information01__access-info dd::before {
   content: "";
   position: absolute;
-  top: 24px;
-  left: 0;
+  top: 16px;
+  left: 35px;
   width: 1px;
-  height: calc(100% - 48px);
+  height: calc(100% - 40px);
   background: #d3d3d3;
 }
 
