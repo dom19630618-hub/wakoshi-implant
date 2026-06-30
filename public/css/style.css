@@ -810,10 +810,10 @@ body {
   background: transparent;
   border: 2px solid var(--faq-main);
   border-radius: var(--faq-radius);
-  box-shadow: none;
-  margin-bottom: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  margin-bottom: 22px; /* reduced by 2px */
   overflow: hidden;
-  color: #fff;
+  color: var(--faq-text);
 }
 
 .faq__summary {
@@ -823,9 +823,8 @@ body {
   align-items: center;
   column-gap: 16px;
   padding: 16px 24px;
-  /* More padding for readability */
   cursor: pointer;
-  background-color: var(--faq-main);
+  background-color: var(--faq-accent);
   transition: background-color 0.3s;
 }
 
@@ -837,12 +836,14 @@ body {
   font-weight: 700;
   font-size: 16px;
   line-height: 1;
+  color: #333333;
 }
 
 .faq__q-text {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.6;
+  color: #333333;
 }
 
 .faq__marker {
@@ -850,8 +851,7 @@ body {
   height: 24px;
   display: inline-grid;
   place-items: center;
-  border: 1px solid var(--faq-accent);
-  /* Subtle border */
+  border: 1px solid var(--faq-main);
   border-radius: 50%;
   position: relative;
   opacity: 0.8;
@@ -861,8 +861,7 @@ body {
 .faq__marker::after {
   content: "";
   position: absolute;
-  background: var(--faq-accent);
-  /* Soft color */
+  background: var(--faq-main);
   border-radius: 2px;
 }
 
@@ -899,61 +898,6 @@ details[open] .faq__marker::after {
   color: var(--faq-main);
   font-weight: 700;
   font-size: 18px;
-}
-
-/* ==========================================================================
-   FAQ Design Test (First item only)
-   ========================================================================== */
-faq-item:first-of-type .faq__item {
-  /* 枠線の太さ（px）はこちらの数値を変えることで調整可能です */
-  border: 2px solid var(--faq-main);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03); /* 柔らかい影 */
-  color: var(--faq-text);
-}
-
-faq-item:first-of-type .faq__item .faq__summary {
-  background-color: var(--faq-accent); /* 薄いピンク */
-}
-
-faq-item:first-of-type .faq__item .faq__q-label,
-faq-item:first-of-type .faq__item .faq__q-text {
-  color: var(--faq-main); /* 文字は濃いピンク */
-}
-
-faq-item:first-of-type .faq__item .faq__marker {
-  border-color: var(--faq-main);
-}
-
-faq-item:first-of-type .faq__item .faq__marker::before,
-faq-item:first-of-type .faq__item .faq__marker::after {
-  background: var(--faq-main); /* プラス/マイナスアイコンを濃いピンクに */
-}
-
-/* ==========================================================================
-   FAQ Design Test (Second item only - Black text variation)
-   ========================================================================== */
-faq-item:nth-of-type(2) .faq__item {
-  border: 2px solid var(--faq-main);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-  color: var(--faq-text);
-}
-
-faq-item:nth-of-type(2) .faq__item .faq__summary {
-  background-color: var(--faq-accent); /* 薄いピンク */
-}
-
-faq-item:nth-of-type(2) .faq__item .faq__q-label,
-faq-item:nth-of-type(2) .faq__item .faq__q-text {
-  color: #333333; /* 黒とまではいかない黒（ダークグレー） */
-}
-
-faq-item:nth-of-type(2) .faq__item .faq__marker {
-  border-color: var(--faq-main);
-}
-
-faq-item:nth-of-type(2) .faq__item .faq__marker::before,
-faq-item:nth-of-type(2) .faq__item .faq__marker::after {
-  background: var(--faq-main);
 }
 
 /* ==========================================================================
