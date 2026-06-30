@@ -433,11 +433,11 @@ body {
 }
 
 .hero-image__item--1 {
-  background-image: url("../images/hero_bg.webp");
+  background-image: url("../images/gallery_01.jpg");
 }
 
 .hero-image__item--2 {
-  background-image: url("../images/gallery_01.jpg");
+  background-image: url("../images/gallery_03.jpg");
   /* 左上から右下へのグラデーションワイプ */
   -webkit-mask-image: linear-gradient(to bottom right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 60%);
   mask-image: linear-gradient(to bottom right, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 60%);
