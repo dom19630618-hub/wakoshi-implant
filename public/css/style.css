@@ -1819,7 +1819,7 @@ details[open] .faq__marker::after {
    Implant Recommend & Features (Added for /03)
    ========================================================================== */
 .implant-recommend {
-  padding: 60px 0;
+  padding: 0 0 60px;
   background-color: #fff;
 }
 
@@ -1828,6 +1828,10 @@ details[open] .faq__marker::after {
   border-radius: 8px;
   padding: 40px;
   text-align: center;
+  position: relative;
+  margin-top: -50px; /* メインビジュアルに少し被せるモダンなレイアウト */
+  z-index: 20;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
 .c-layout10__head {
