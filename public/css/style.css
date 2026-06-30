@@ -1128,6 +1128,10 @@ details[open] .faq__marker::after {
   text-align: center;
 }
 
+.bottom-nav__item--tel-area {
+  flex: 2; /* 2/3 of the width */
+}
+
 .bottom-nav__link {
   display: flex;
   flex-direction: column;
@@ -1136,6 +1140,39 @@ details[open] .faq__marker::after {
   height: 100%;
   color: #cd1f5b;
   font-size: 10px;
+}
+
+.bottom-nav__link-tel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #33322F;
+  text-decoration: none;
+}
+
+.bottom-nav__tel-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bottom-nav__icon-small {
+  font-size: 18px;
+  color: #cd1f5b;
+}
+
+.bottom-nav__tel-number {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: var(--font-en);
+}
+
+.bottom-nav__tel-sub {
+  font-size: 9px;
+  color: #777;
+  margin-top: 2px;
 }
 
 .bottom-nav__link--reserve {
