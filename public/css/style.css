@@ -1066,7 +1066,6 @@ details[open] .faq__marker::after {
 .footer {
   background-color: #f5f5f5;
   padding: 40px 0 80px; /* ボトムナビの高さ分だけ余白を確保 */
-  margin-top: 40px;
   font-size: 14px;
 }
 
