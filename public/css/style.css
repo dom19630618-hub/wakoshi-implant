@@ -2088,32 +2088,21 @@ details[open] .faq__marker::after {
   margin-top: 40px;
 }
 
-/* アコーディオン見出し */
+/* 症例紹介カード全体 */
 .implant-case__item {
   border: 2px solid #C4A972;
   border-radius: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   overflow: hidden;
 }
 
 .implant-case__head {
-  list-style: none;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
   gap: 16px;
   padding: 18px 24px;
-  cursor: pointer;
   background-color: #F8F6F2;
-  transition: background-color 0.2s;
-}
-
-.implant-case__head::-webkit-details-marker {
-  display: none;
-}
-
-.implant-case__head:hover {
-  background-color: #EFE9DF;
+  border-bottom: 1px solid #EBE8E0;
 }
 
 .implant-case__label {
@@ -2133,40 +2122,6 @@ details[open] .faq__marker::after {
   font-weight: 700;
   color: #33322F;
   line-height: 1.5;
-}
-
-.implant-case__marker {
-  width: 24px;
-  height: 24px;
-  display: inline-grid;
-  place-items: center;
-  border: 1px solid #C4A972;
-  border-radius: 50%;
-  position: relative;
-  flex-shrink: 0;
-}
-
-.implant-case__marker::before,
-.implant-case__marker::after {
-  content: "";
-  position: absolute;
-  background: #C4A972;
-  border-radius: 2px;
-}
-
-.implant-case__marker::before {
-  width: 50%;
-  height: 2px;
-}
-
-.implant-case__marker::after {
-  width: 2px;
-  height: 50%;
-  transition: transform 0.2s;
-}
-
-details[open] .implant-case__marker::after {
-  display: none;
 }
 
 /* ボディ（展開エリア） */
