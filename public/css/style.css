@@ -1133,9 +1133,11 @@ details[open] .faq__marker::after {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(248, 248, 248, 0.9);
+  background-color: rgba(255, 255, 255, 0.95); /* より白く不透明に近づける */
+  backdrop-filter: blur(10px); /* すりガラス効果で背後のテキストを完全にぼかす */
+  -webkit-backdrop-filter: blur(10px);
   height: 60px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08); /* 影を少し柔らかく */
   z-index: 1000;
   display: flex;
 }
@@ -1182,8 +1184,9 @@ details[open] .faq__marker::after {
 }
 
 .bottom-nav__icon-small {
-  font-size: 18px;
+  font-size: 19px; /* アイコンを文字サイズに少し近づける */
   color: #cd1f5b;
+  line-height: 1;
 }
 
 .bottom-nav__tel-number {
@@ -1192,6 +1195,7 @@ details[open] .faq__marker::after {
   font-family: var(--font-sans);
   letter-spacing: 0.08em; /* 文字と文字の間隔を広げて洗練された印象に */
   color: #222;
+  line-height: 1;
 }
 
 .bottom-nav__tel-sub {
