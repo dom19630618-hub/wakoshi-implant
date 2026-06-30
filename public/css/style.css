@@ -1613,30 +1613,29 @@ details[open] .faq__marker::after {
   justify-content: space-between;
   align-items: center;
   background: #fff;
-  margin-top: 10px;
-  border-radius: 2px;
+  border-bottom: 1px solid #f0f0f0;
 }
 
-.c-information01__access-info + .c-information01__access-info {
-  margin-top: 4px;
+.c-information01__access-info:first-child {
+  border-top: 1px solid #f0f0f0;
 }
 
 .c-information01__access-info dt {
-  width: 90px;
+  width: 120px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 13px;
+  gap: 12px;
+  font-size: 16px;
   font-weight: 700;
-  padding: 12px;
+  padding: 24px 16px;
   color: #33322F;
 }
 
 .c-information01__access-info dd {
-  width: calc(100% - 90px);
-  font-size: 12px;
+  width: calc(100% - 120px);
+  font-size: 15px;
   font-weight: 500;
-  padding: 12px 12px 12px 20px;
+  padding: 24px 16px 24px 24px;
   line-height: 1.7;
   position: relative;
   color: #555;
@@ -1645,10 +1644,10 @@ details[open] .faq__marker::after {
 .c-information01__access-info dd::before {
   content: "";
   position: absolute;
-  top: 10px;
+  top: 24px;
   left: 0;
   width: 1px;
-  height: calc(100% - 20px);
+  height: calc(100% - 48px);
   background: #d3d3d3;
 }
 
