@@ -828,7 +828,7 @@ body {
 }
 
 .comparison__lead {
-  text-align: center;
+  text-align: left;
   max-width: 720px;
   margin: 0 auto 32px;
   font-size: 15px;
