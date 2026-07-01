@@ -43,6 +43,9 @@
   --text-shadow-hero: 0 2px 10px rgba(0, 0, 0, 0.15), 0 0 20px rgba(255, 255, 255, 0.6);
   --font-serif: "Noto Serif JP", serif;
 
+  /* 各セクション（外箱）の上下余白一括調整用変数 */
+  --section-padding-y: 80px;
+
   /* 見出し (c-head01) の上下余白一括調整用変数 */
   --c-head01-margin-top: 0px;
   --c-head01-margin-bottom: 48px;
@@ -812,7 +815,7 @@ body {
 
   max-width: 960px;          /* コンテンツ最大幅を960pxに統一 */
   margin: 0 auto;
-  padding: 40px 16px;
+  padding: var(--section-padding-y) 16px;
   color: var(--comp-text);
 }
 
@@ -907,7 +910,7 @@ body {
 
   margin: 0 auto;
   max-width: var(--maxw);
-  padding: 12px 16px;
+  padding: var(--section-padding-y) 16px;
 }
 
 .faq__item {
@@ -1470,7 +1473,7 @@ details[open] .faq__marker::after {
 
 .c-price01 {
   background: #8a7a5a;
-  padding: 80px 0;
+  padding: var(--section-padding-y) 0;
 }
 
 .c-price01__inner {
@@ -1668,7 +1671,7 @@ details[open] .faq__marker::after {
 .c-information01 {
   position: relative;
   background: #F8F6F2;
-  padding: 80px 0;
+  padding: var(--section-padding-y) 0;
   font-family: var(--font-sans);
 }
 
@@ -2054,7 +2057,7 @@ details[open] .faq__marker::after {
    Implant Recommend & Features (Added for /03)
    ========================================================================== */
 .implant-recommend {
-  padding: 0 0 60px;
+  padding: var(--section-padding-y) 0;
   background-color: #fff;
 }
 
@@ -2129,7 +2132,7 @@ details[open] .faq__marker::after {
 }
 
 .implant-features {
-  padding: 60px 0;
+  padding: var(--section-padding-y) 0;
 }
 
 .c-bg02 {
@@ -2187,7 +2190,7 @@ details[open] .faq__marker::after {
    Doctor Profile Section
    ========================================================================== */
 .staff-dentist {
-  padding: 60px 0;
+  padding: var(--section-padding-y) 0;
   background-color: #F8F6F2;
 }
 
@@ -2312,7 +2315,7 @@ details[open] .faq__marker::after {
    Case Study Section (症例紹介 / 03ページ専用)
    ========================================================================== */
 .implant-case {
-  padding: 60px 0;
+  padding: var(--section-padding-y) 0;
   background-color: #fff;
 }
 
