@@ -25,99 +25,194 @@
         <!-- Page Header -->
         <div data-title="院長・スタッフ紹介" data-breadcrumb="院長・スタッフ紹介">use:PageHeader</div>
 
-        <section class="section doctor-intro">
-            <div class="container">
-                <div class="doctor-profile">
-                    <figure class="doctor-profile__img">
-                        <img src="https://do-matsukawa.com/img/greeting_img.jpg" alt="院長 松川 寿幸">
-                    </figure>
-                    <div class="doctor-profile__content">
-                        <h2 class="doctor-profile__name">
-                            <span class="doctor-profile__role">院長</span>
-                            松川 寿幸
-                            <span class="doctor-profile__en">Toshiyuki Matsukawa</span>
-                        </h2>
-                        <h3 class="doctor-profile__subtitle" style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem; color: var(--color-primary);">通いやすい歯科医院であるために</h3>
-                        <p class="doctor-profile__message">
-                            当院では、患者さまとのカウンセリングを通じて積極的にコミュニケーションを図り、治療への恐怖心を和らげられるよう努めております。歯科医療に対するマイナスイメージを払拭していただけるよう、ご相談しやすい雰囲気づくりに重点を置いております。<br>
-                            また、歯周病・インプラント・矯正歯科・審美歯科・顎関節症などを得意とし、お口の健康と全身の健康の関係を意識して治療を行なっております。小児歯科では、できる限りご協力を得られるよう、お子さまの気持ちを尊重して接しております。<br>
+        <!-- ① 院長ご挨拶 (staff-msg) -->
+        <section class="staff-msg">
+            <div class="staff-msg__inner">
+                <header class="c-head01">
+                    <p class="c-head01__sub">GREETING</p>
+                    <h2 class="c-head01__main">院長ご挨拶</h2>
+                </header>
+
+                <div class="staff-msg-set">
+                    <div class="staff-msg-set__imgs">
+                        <img class="staff-msg-set__img1" src="https://do-matsukawa.com/img/greeting_img.jpg" alt="院長 松川 寿幸">
+                        <img class="staff-msg-set__img2" src="https://do-matsukawa.com/img/greeting_img.jpg" alt="院長 松川 寿幸 サブ">
+                        <span class="staff-msg-set__img-bg1"></span>
+                        <span class="staff-msg-set__img-bg2"></span>
+                    </div>
+                    <div class="staff-msg-set__textarea">
+                        <h3 class="staff-msg-set__head">通いやすい歯科医院であるために</h3>
+                        <p class="staff-msg-set__txt">
+                            当院では、患者さまとのカウンセリングを通じて積極的にコミュニケーションを図り、治療への恐怖心を和らげられるよう努めております。歯科医療に対するマイナスイメージを払拭していただけるよう、ご相談しやすい雰囲気づくりに重点を置いております。<br><br>
+                            また、歯周病・インプラント・矯正歯科・審美歯科・顎関節症などを得意とし、お口の健康と全身の健康の関係を意識して治療を行なっております。小児歯科では、できる限りご協力を得られるよう、お子さまの気持ちを尊重して接しております。<br><br>
                             お口に関するお悩みのある方は、ぜひご来院ください。
                         </p>
-                        <dl class="doctor-profile__bio">
-                            <dt>略歴</dt>
-                            <dd>
-                                <ul>
-                                    <li>1988年 鶴見大学歯学部 卒業 / 同大学第一口腔外科 入局</li>
-                                    <li>開業医での勤務医を経て</li>
-                                    <li>1995年 デンタルオフィス松川 開業</li>
-                                    <li>1997年 医療法人社団松寿会 設立</li>
-                                </ul>
-                            </dd>
-                            <dt>所属学会</dt>
-                            <dd>
-                                <ul>
-                                    <li>日本歯周病学会会員</li>
-                                    <li>日本口腔インプラント学会認定医</li>
-                                    <li>即時荷重研究会理事</li>
-                                    <li>WDSC（スタディグループ「Weekend Dental Study Club」）所属</li>
-                                    <li>和光市立第5小学校 学校運営協議員</li>
-                                    <li>大和すみれ幼稚園 園歯科医</li>
-                                </ul>
-                            </dd>
-                        </dl>
+                        <p class="staff-msg-set__name">
+                            医療法人社団松寿会 デンタルオフィス松川
+                            <span>院長 松川 寿幸</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 略歴タイムライン -->
+                <div class="staff-msg__history staff-history">
+                    <div class="staff-history__wrap">
+                        <div>
+                            <h4 class="c-head02">略歴</h4>
+                            <ul class="staff-history__list">
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">1988年</span>
+                                    <span class="staff-history__txt">鶴見大学歯学部 卒業 / 同大学第一口腔外科 入局</span>
+                                </li>
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">1995年</span>
+                                    <span class="staff-history__txt">デンタルオフィス松川 開業</span>
+                                </li>
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">1997年</span>
+                                    <span class="staff-history__txt">医療法人社団松寿会 設立</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="c-head02">所属学会・資格</h4>
+                            <ul class="staff-history__list">
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">学会</span>
+                                    <span class="staff-history__txt">日本歯周病学会 会員</span>
+                                </li>
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">認定医</span>
+                                    <span class="staff-history__txt"><strong>日本口腔インプラント学会 認定医</strong></span>
+                                </li>
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">理事</span>
+                                    <span class="staff-history__txt">即時荷重研究会 理事</span>
+                                </li>
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">所属</span>
+                                    <span class="staff-history__txt">WDSC（Weekend Dental Study Club）</span>
+                                </li>
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">役職</span>
+                                    <span class="staff-history__txt">和光市立第5小学校 学校運営協議員 / 大和すみれ幼稚園 園歯科医</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section staff-list">
-            <div class="container">
-                <h2 class="section__title">スタッフ紹介</h2>
-                <div class="staff-grid">
-                    <article class="staff-card">
-                        <figure class="staff-card__img">
-                            <img src="https://do-matsukawa.com/staff/img/staff_01_img.jpg" alt="登坂 美由紀">
-                        </figure>
-                        <div class="staff-card__body">
-                            <h3 class="staff-card__role">歯科衛生士</h3>
-                            <p class="staff-card__text" style="font-size: 1.125rem; font-weight: bold; text-align: center; margin-top: 0.5rem;">
-                                登坂 美由紀
-                            </p>
+        <!-- ② 歯科医師紹介 (staff-dentist) — ダーク背景セクション -->
+        <section class="staff-dentist">
+            <div class="staff-dentist__inner">
+                <header class="c-head01 is-white is-center">
+                    <p class="c-head01__sub">dentist</p>
+                    <h2 class="c-head01__main">歯科医師紹介</h2>
+                </header>
+
+                <div class="staff-dentist-set">
+                    <div class="staff-dentist-set__areaImg">
+                        <div class="staff-dentist-set__img">
+                            <img src="https://do-matsukawa.com/img/greeting_img.jpg" alt="院長 松川 寿幸">
                         </div>
-                    </article>
-                    <article class="staff-card">
-                        <figure class="staff-card__img">
-                            <img src="https://do-matsukawa.com/staff/img/staff_02_img.jpg" alt="野村 真紀">
-                        </figure>
-                        <div class="staff-card__body">
-                            <h3 class="staff-card__role">歯科衛生士</h3>
-                            <p class="staff-card__text" style="font-size: 1.125rem; font-weight: bold; text-align: center; margin-top: 0.5rem;">
-                                野村 真紀
-                            </p>
+                    </div>
+                    <div class="staff-dentist-set__textarea">
+                        <div class="staff-dentist-set__header">
+                            <h3 class="staff-dentist-set__name">松川 寿幸</h3>
+                            <span class="staff-dentist-set__name-en">Toshiyuki Matsukawa</span>
+                            <span class="staff-dentist-set__label">院長 / 口腔インプラント学会認定医</span>
                         </div>
-                    </article>
-                    <article class="staff-card">
-                        <figure class="staff-card__img">
-                            <img src="https://do-matsukawa.com/staff/img/staff_03_img.jpg" alt="内堀 恵美子">
-                        </figure>
-                        <div class="staff-card__body">
-                            <h3 class="staff-card__role">歯科助手</h3>
-                            <p class="staff-card__text" style="font-size: 1.125rem; font-weight: bold; text-align: center; margin-top: 0.5rem;">
-                                内堀 恵美子
-                            </p>
+                        <p class="staff-dentist-set__txt">
+                            患者さまお一人おひとりと真剣に向き合い、最新の知見と技術に基づいた最適なインプラント治療をご提案いたします。特に骨量が少なく他院で断られたような難症例に対しても、即時荷重インプラントなどを駆使して患者さまの負担を抑えつつ、噛める喜びをその日に取り戻すための精密なアプローチを行っております。
+                        </p>
+                        <div class="staff-dentist-set__history staff-history">
+                            <p class="staff-history__label">clinical focus</p>
+                            <ul class="staff-history__list is-dark">
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">得意分野</span>
+                                    <span class="staff-history__txt">即時荷重インプラント、低侵襲フラップレス手術、難症例における骨造成治療</span>
+                                </li>
+                                <li class="staff-history__item">
+                                    <span class="staff-history__year">理念</span>
+                                    <span class="staff-history__txt">「患者さまの身体的・精神的な負担を限りなくゼロに」し、安心・納得できる医療を提供すること</span>
+                                </li>
+                            </ul>
                         </div>
-                    </article>
-                    <article class="staff-card">
-                        <figure class="staff-card__img">
-                            <img src="https://do-matsukawa.com/staff/img/staff_04_img.jpg" alt="宮内 恵子">
-                        </figure>
-                        <div class="staff-card__body">
-                            <h3 class="staff-card__role">歯科助手</h3>
-                            <p class="staff-card__text" style="font-size: 1.125rem; font-weight: bold; text-align: center; margin-top: 0.5rem;">
-                                宮内 恵子
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ③ スタッフ紹介 (staff-member) -->
+        <section class="staff-member">
+            <div class="staff-member__inner">
+                <header class="c-head01 is-center">
+                    <p class="c-head01__sub">hygienist & assistant</p>
+                    <h2 class="c-head01__main">スタッフ紹介</h2>
+                </header>
+
+                <!-- 歯科衛生士セクション -->
+                <div class="staff-member-sec">
+                    <div class="staff-member-sec__img">
+                        <img src="https://www.marina-dc.com/cms_xY5nBXhZ/wp-content/themes/marina-dc/img/staff/img_staff_hygienist.jpg" alt="歯科衛生士チーム">
+                    </div>
+                    <ul class="staff-member-sec__list">
+                        <li class="staff-member-sec__item">
+                            <h3 class="staff-member-sec__item-name">登坂 美由紀</h3>
+                            <p class="staff-member-sec__item-txt">
+                                患者さまの不安に寄り添い、丁寧な説明と優しく心地よいメンテナンスを心がけています。お口の健康を長く保てるよう、些細な変化にも気づける衛生士でありたいと思っています。
                             </p>
-                        </div>
-                    </article>
+                            <ul class="staff-member-sec__cat">
+                                <li class="staff-member-sec__cat-item">歯科衛生士</li>
+                                <li class="staff-member-sec__cat-item">丁寧な指導</li>
+                                <li class="staff-member-sec__cat-item">笑顔でお迎え</li>
+                            </ul>
+                        </li>
+                        <li class="staff-member-sec__item">
+                            <h3 class="staff-member-sec__item-name">野村 真紀</h3>
+                            <p class="staff-member-sec__item-txt">
+                                歯医者さんが苦手な方でもリラックスして受診していただけるよう、丁寧かつアットホームなコミュニケーションを大切にしています。お気軽に何でもご相談ください。
+                            </p>
+                            <ul class="staff-member-sec__cat">
+                                <li class="staff-member-sec__cat-item">歯科衛生士</li>
+                                <li class="staff-member-sec__cat-item">予防歯科得意</li>
+                                <li class="staff-member-sec__cat-item">親身なサポート</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 歯科助手・受付セクション -->
+                <div class="staff-member-sec">
+                    <div class="staff-member-sec__img">
+                        <img src="https://www.marina-dc.com/cms_xY5nBXhZ/wp-content/themes/marina-dc/img/staff/img_staff_assistant.jpg" alt="歯科助手・受付チーム">
+                    </div>
+                    <ul class="staff-member-sec__list">
+                        <li class="staff-member-sec__item">
+                            <h3 class="staff-member-sec__item-name">内堀 恵美子</h3>
+                            <p class="staff-member-sec__item-txt">
+                                スムーズな診療サポート and 常にクリニック全体に気を配ることで、気持ちの良い院内環境づくりを心がけています。患者さまが安心して過ごせるように笑顔でサポートいたします。
+                            </p>
+                            <ul class="staff-member-sec__cat">
+                                <li class="staff-member-sec__cat-item">歯科助手・受付</li>
+                                <li class="staff-member-sec__cat-item">迅速な対応</li>
+                                <li class="staff-member-sec__cat-item">気配り上手</li>
+                            </ul>
+                        </li>
+                        <li class="staff-member-sec__item">
+                            <h3 class="staff-member-sec__item-name">宮内 恵子</h3>
+                            <p class="staff-member-sec__item-txt">
+                                患者さまが最初に接する窓口として、親しみやすく丁寧な対応を心がけています。不安を少しでも和らげてお帰りいただけるようお手伝いいたします。
+                            </p>
+                            <ul class="staff-member-sec__cat">
+                                <li class="staff-member-sec__cat-item">歯科助手・受付</li>
+                                <li class="staff-member-sec__cat-item">丁寧なご案内</li>
+                                <li class="staff-member-sec__cat-item">明るい笑顔</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
