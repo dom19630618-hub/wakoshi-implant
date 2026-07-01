@@ -1253,7 +1253,7 @@ details[open] .faq__marker::after {
 }
 
 .bottom-nav__link--reserve {
-  background-color: #A32E48; /* 品の良い落ち着いた赤（ボルドー系） */
+  background: linear-gradient(180deg, var(--color-primary), #A32E48); /* 上部を暗め（新プライマリー）、下部を従来のボルドーにして立体感を演出 */
   color: #ffffff;
 }
 
