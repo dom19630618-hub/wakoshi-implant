@@ -15,10 +15,10 @@
 ### ブランドカラー（Brand Colors）
 | 用途 | カラーコード | 役割・説明 |
 | :--- | :--- | :--- |
-| **Primary (Main)** | <span style="color:#A32E48">■</span> `#A32E48` | メインテーマカラー（落ち着いた上品なボルドー赤） |
-| **Secondary (Vivid)** | <span style="color:#B33F5A">■</span> `#B33F5A` | アクセント・ホバー用（華やかなローズレッド） |
-| **Primary Dark** | <span style="color:#A32E48">■</span> `#A32E48` | 濃色部分用（さらに深いダークワイン） |
-| **Background (Light)** | <span style="color:#F8F6F2">■</span> `#F8F6F2` | セクション背景等の薄いピンクベージュ |
+| **Primary (Main)** | 🟥 `#A32E48` | メインテーマカラー（落ち着いた上品なボルドー赤） |
+| **Secondary (Vivid)** | 🟥 `#B33F5A` | アクセント・ホバー用（華やかなローズレッド） |
+| **Primary Dark** | 🟥 `#A32E48` | 濃色部分用（さらに深いダークワイン） |
+| **Background (Light)** | ⬜ `#F8F6F2` | セクション背景等の薄いピンクベージュ |
 
 ### スタイリング方針
 - **Framework**: Vanilla CSS (`public/css/style.css`) を使用する。
