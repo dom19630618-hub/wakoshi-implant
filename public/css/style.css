@@ -1,5 +1,22 @@
 @charset "UTF-8";
 
+/* ━━ アオハルマーカーWebフォント定義 ━━ */
+@font-face {
+  font-family: 'AoharuMarker';
+  src: url('/fonts/aoharu-marker-mini.otf') format('opentype');
+  font-display: swap;
+}
+
+/* アオハルマーカー用ユーティリティクラス */
+.u-font-aoharu {
+  font-family: 'AoharuMarker', var(--font-base) !important;
+}
+/* 擬似ボールド（太字）化クラス */
+.u-font-aoharu-bold {
+  font-family: 'AoharuMarker', var(--font-base) !important;
+  -webkit-text-stroke: 0.5px currentColor;
+}
+
 /* ==========================================================================
    Reset & Base
    ========================================================================== */
