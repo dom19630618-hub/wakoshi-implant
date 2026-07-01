@@ -80,7 +80,7 @@ document.addEventListener('componentsReady', function () {
     const particleConfig = {
       "particles": {
         "number": {
-          "value": 20, // 縦長の空間に合わせて「品のある余白」を保ちつつ少しだけ増やす
+          "value": 15, // さらに5個減らしてよりスッキリ上品に
           "density": { "enable": false } 
         },
         "color": { "value": "#ffffff" },
