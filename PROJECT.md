@@ -15,9 +15,9 @@
 ### ブランドカラー（Brand Colors）
 | 用途 | カラーコード | 役割・説明 |
 | :--- | :--- | :--- |
-| **Primary (Main)** | `#8c2e43` | メインテーマカラー（落ち着いた上品なボルドー赤） |
+| **Primary (Main)** | `#A32E48` | メインテーマカラー（落ち着いた上品なボルドー赤） |
 | **Secondary (Vivid)** | `#B33F5A` | アクセント・ホバー用（華やかなローズレッド） |
-| **Primary Dark** | `#6b2131` | 濃色部分用（さらに深いダークワイン） |
+| **Primary Dark** | `#A32E48` | 濃色部分用（さらに深いダークワイン） |
 | **Background (Light)** | `#FCECEF` | セクション背景等の薄いピンクベージュ |
 
 ### スタイリング方針
@@ -30,22 +30,28 @@
 ## 🧩 2. UCS (Universal Component System)
 
 ### 概要
-`public/js/component_loader.js` を使用し、`use:ComponentName` 構文で外部HTMLを動的に読み込む。
+`public/js/component_loader.js` を使用し、HTMLドキュメント内のテキストノードまたは属性に `use:サブフォルダ/コンポーネント名` を記述することで、外部のHTMLモジュールを動的に読み込み展開する仕組み。
 
 #### 呼び出し例:
-```html
-<div use:PageHeader data-title="医院情報"></div>
-```
+- **テキストノード直書き形式 (メイン仕様)**:
+  ```html
+  use:03/ヒーロー
+  use:ボトムナビゲーション
+  ```
+- **HTML属性形式 (PageHeaderなどで使用)**:
+  ```html
+  <div use:PageHeader data-title="医院情報"></div>
+  ```
 
 ### ⚠️ クリティカル例外規定 (Critical Exceptions)
 **ギャラリーコンポーネント (`Gallery_CardCarousel`) の取り扱い**:
-- **動的読み込みの完全禁止**: JavaScriptの初期化タイミングの問題（スライダー機能の不具合）を避けるため、必ず `index.html` に直接HTML構造を記述（直書き）すること。
+- **動的読み込みの完全禁止**: JavaScriptの初期化タイミングの問題（スライダーの動作不具合）を避けるため、必ず `index.html` に直接HTML構造を記述（直書き）すること。
 
 ---
 
 ## 📂 3. ディレクトリ構造
 - `/public/index.html`: エントリーポイント
-- `/public/modules/`: UCSコンポーネント（PascalCase.html）
+- `/public/modules/`: UCSコンポーネント（日本語.html、共通部品および `03/` などのページ別サブフォルダ）
 - `/public/css/`: デザインシステムCSS
 - `/public/js/`: ローダー、スライダー等のロジック
 - `/public/images/`: 画像資産
@@ -54,9 +60,10 @@
 ---
 
 ## 🚀 4. コンポーネント開発ルール
-1. **ファイル名**: PascalCase (`Header.html`, `Hero_Image.html`)
-2. **HTMLレス**: ページファイルには構造を極力書かず、`use:` のみを記述する。
-3. **カプセル化**: スタイルが特定のコンポーネントに強く依存する場合のみ、コンポーネント内に `<style>` を許可するが、可能な限り共通CSSで管理する。
+1. **ファイル名とコンポーネント名**: 原則として**日本語**（`よくある質問.html`, `アクセス.html`）とし、英語のPascalCaseは例外（`PageHeader.html`, `GlobalHeader.html` など既存の共通コンポーネント）を除き使用しない。
+2. **呼び出しパスの指定**: モジュールが `public/modules/03/` などのサブフォルダに配置されている場合は、`use:03/ヒーロー` のようにフォルダ名を含めて呼び出す。
+3. **HTMLレス**: ページファイルには構造を極力書かず、`use:` のみを記述する。
+4. **カプセル化**: スタイルが特定のコンポーネントに強く依存する場合のみ、コンポーネント内に `<style>` を許可するが、可能な限り共通CSSで管理する。
 
 ---
 
