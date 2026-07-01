@@ -101,7 +101,7 @@ document.addEventListener('componentsReady', function () {
           "distance": 150,
           "color": "#ffffff",
           "opacity": 0.3,
-          "width": 1
+          "width": 2 // 線を1px太くして2pxに
         },
         "move": {
           "enable": true,
