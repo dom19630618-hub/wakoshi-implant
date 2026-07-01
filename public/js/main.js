@@ -98,7 +98,7 @@ document.addEventListener('componentsReady', function () {
         },
         "line_linked": {
           "enable": true,
-          "distance": 150,
+          "distance": 110, // 150から110に減らし、近づいた時だけ線が繋がるようにして線の総数を減らす
           "color": "#ffffff",
           "opacity": 0.3,
           "width": 2 // 線を1px太くして2pxに
