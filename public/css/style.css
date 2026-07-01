@@ -2071,8 +2071,7 @@ details[open] .faq__marker::after {
 }
 
 .c-layout10 {
-  background: #FAF9F6 url('/assets/images/paper_texture.png') repeat;
-  background-blend-mode: multiply; /* 背景色と紙の質感を綺麗にブレンド */
+  background: #FAF9F6;
   border-radius: 8px;
   padding: 40px;
   text-align: center;
@@ -2080,6 +2079,20 @@ details[open] .faq__marker::after {
   margin-top: -50px; /* メインビジュアルに少し被せるモダンなレイアウト */
   z-index: 20;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.c-layout10::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/assets/images/paper_texture.png') repeat;
+  opacity: 0.5; /* 紙の質感を50%の薄さに調整 */
+  z-index: -1; /* テキストの背面に配置 */
+  border-radius: inherit; /* 親の角丸を継承 */
+  pointer-events: none;
 }
 
 .c-layout10__head {
