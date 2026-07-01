@@ -54,8 +54,8 @@
 - `/public/modules/`: UCSコンポーネント（日本語.html、共通部品および `03/` などのページ別サブフォルダ）
 - `/public/css/`: デザインシステムCSS
 - `/public/js/`: ローダー、スライダー等のロジック
-- `/public/images/`: 画像資産
-- `/public/fonts/`: ブランドフォント資産 (`aoharu-marker-mini.otf` 等)
+- `/public/assets/images/`: 統合された画像パーツ群
+- `/public/assets/fonts/`: 統合されたフォント資産 (`aoharu-marker-mini.otf` 等)
 
 ---
 
