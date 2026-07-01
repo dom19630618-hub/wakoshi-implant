@@ -881,24 +881,28 @@ body {
 .faq {
   --faq-main: #B33F5A;
   --faq-accent: #FCECEF;
-  --faq-text: #333;
-  --faq-radius: 8px;
-  --maxw: 960px;
+  --faq-text: #444;
+  --maxw: 800px; /* 縦長に見えすぎないよう幅をスリムに調整 */
 
   margin: 0 auto;
   max-width: var(--maxw);
   padding: 12px 16px;
 }
 
-
 .faq__item {
   background: transparent;
-  border: 2px solid var(--faq-main);
-  border-radius: var(--faq-radius);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-  margin-bottom: 22px; /* reduced by 2px */
+  border: none;
+  border-bottom: 1px solid #e8e8e8; /* 四方の太い枠線をやめ、ボトムの細いラインに */
+  box-shadow: none; /* 影をなくしてフラットに */
+  margin-bottom: 0;
   overflow: hidden;
   color: var(--faq-text);
+  transition: background-color 0.25s ease;
+}
+
+/* ホバー時に優しく反応 */
+.faq__item:hover {
+  background-color: rgba(252, 236, 239, 0.25); /* ほんのりピンクベージュのホバー */
 }
 
 .faq__summary {
@@ -907,10 +911,9 @@ body {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   column-gap: 16px;
-  padding: 16px 24px;
+  padding: 24px 8px; /* パディングをすっきりさせて余白を美しく */
   cursor: pointer;
-  background-color: #A32E48;
-  transition: background-color 0.3s;
+  background-color: transparent; /* ベタ塗りを廃止して背景透過に */
 }
 
 .faq__summary::-webkit-details-marker {
@@ -919,16 +922,16 @@ body {
 
 .faq__q-label {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1;
-  color: #ffffff;
+  color: var(--faq-main); /* Qは白からアクセントのボルドーに変更 */
 }
 
 .faq__q-text {
   font-size: 16px;
   font-weight: 600;
   line-height: 1.6;
-  color: #ffffff;
+  color: #222; /* 質問テキストを読みやすいダークグレーに */
 }
 
 .faq__marker {
@@ -936,18 +939,19 @@ body {
   height: 24px;
   display: inline-grid;
   place-items: center;
-  border: 1px solid #ffffff;
+  border: 1.5px solid var(--faq-main); /* 枠線もボルドーにして細く洗練 */
   border-radius: 50%;
   position: relative;
-  opacity: 0.8;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .faq__marker::before,
 .faq__marker::after {
   content: "";
   position: absolute;
-  background: #ffffff;
+  background: var(--faq-main); /* プラスマークもボルドーに */
   border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .faq__marker::before {
@@ -960,29 +964,41 @@ body {
   height: 50%;
 }
 
+/* 開いたときのマーカーアニメーション（回転しつつ縦棒を消す） */
+details[open] .faq__marker {
+  transform: rotate(180deg);
+  border-color: #999;
+}
+details[open] .faq__marker::before {
+  background: #999;
+}
 details[open] .faq__marker::after {
-  display: none;
+  transform: rotate(90deg);
+  opacity: 0;
 }
 
 .faq__answer {
-  background: #fff;
+  background: transparent;
   padding: 0;
 }
 
 .faq__answer-body {
-  background: #fff;
+  background: rgba(252, 236, 239, 0.2); /* 開いた回答エリアをほんの少しソフトな色合いに */
   color: var(--faq-text);
-  padding: 24px;
+  padding: 20px 24px 28px 48px; /* 左側に十分なインデントを確保 */
   display: flex;
   gap: 16px;
   margin: 0;
   line-height: 1.8;
+  border-radius: 6px;
+  margin-bottom: 16px;
 }
 
 .faq__a-label {
-  color: var(--faq-main);
+  color: #c78f9b; /* Aのラベルを少し柔らかいボルドーにして主張を抑える */
   font-weight: 700;
   font-size: 18px;
+  line-height: 1;
 }
 
 /* ==========================================================================
