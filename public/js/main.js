@@ -81,7 +81,7 @@ document.addEventListener('componentsReady', function () {
       "particles": {
         "number": {
           "value": 40, // 1つの塊あたりの数（×3箇所）
-          "density": { "enable": true, "value_area": 800 }
+          "density": { "enable": false } // 画面サイズ（スマホ等）によって減らさないように無効化
         },
         "color": { "value": "#ffffff" },
         "shape": {
