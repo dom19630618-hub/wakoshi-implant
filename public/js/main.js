@@ -80,8 +80,8 @@ document.addEventListener('componentsReady', function () {
     const particleConfig = {
       "particles": {
         "number": {
-          "value": 40, // 歯のシルエットを浮かび上がらせるため、密度を少し戻す
-          "density": { "enable": false } // 画面サイズ（スマホ等）によって減らさないように無効化
+          "value": 20, // 縦長の空間に合わせて「品のある余白」を保ちつつ少しだけ増やす
+          "density": { "enable": false } 
         },
         "color": { "value": "#ffffff" },
         "shape": {
