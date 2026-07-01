@@ -2327,6 +2327,11 @@ details[open] .faq__marker::after {
   background-color: #fff;
 }
 
+/* 比較セクション（白背景）の直後に来た場合、上部パディングを0にして間延びを防止 */
+.comparison + .implant-case {
+  padding-top: 0;
+}
+
 .implant-case__inner {
   max-width: 960px;
   margin: 0 auto;
