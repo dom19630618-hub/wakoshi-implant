@@ -2057,7 +2057,7 @@ details[open] .faq__marker::after {
    Implant Recommend & Features (Added for /03)
    ========================================================================== */
 .implant-recommend {
-  padding: var(--section-padding-y) 0;
+  padding: 0 0 var(--section-padding-y);
   background-color: #fff;
 }
 
