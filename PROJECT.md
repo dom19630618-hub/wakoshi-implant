@@ -15,14 +15,14 @@
 ### ブランドカラー（Brand Colors）
 | 用途 | カラーコード | 役割・説明 |
 | :--- | :--- | :--- |
-| **Primary (Main)** | `#A32E48` | メインテーマカラー（落ち着いた上品なボルドー赤） |
-| **Secondary (Vivid)** | `#B33F5A` | アクセント・ホバー用（華やかなローズレッド） |
-| **Primary Dark** | `#A32E48` | 濃色部分用（さらに深いダークワイン） |
-| **Background (Light)** | `#FCECEF` | セクション背景等の薄いピンクベージュ |
+| **Primary (Main)** | <span style="color:#A32E48">■</span> `#A32E48` | メインテーマカラー（落ち着いた上品なボルドー赤） |
+| **Secondary (Vivid)** | <span style="color:#B33F5A">■</span> `#B33F5A` | アクセント・ホバー用（華やかなローズレッド） |
+| **Primary Dark** | <span style="color:#A32E48">■</span> `#A32E48` | 濃色部分用（さらに深いダークワイン） |
+| **Background (Light)** | <span style="color:#F8F6F2">■</span> `#F8F6F2` | セクション背景等の薄いピンクベージュ |
 
 ### スタイリング方針
 - **Framework**: Vanilla CSS (`public/css/style.css`) を使用する。
-- **コンポーネント背景**: 白に近いピンク（`#fff4f6` や `#FCECEF` のブレンド）などを活用し、単調な白を避ける。
+- **コンポーネント背景**: #F8F6F2または#ffffffが基本だがセクションによっては違う色を使うことがある
 - **余白の一括管理**: セクション（外箱）の上下余白は `--section-padding-y`（PC: 60px / スマホ: 35px）変数を用いてサイト全体で統一する。
 
 ---
