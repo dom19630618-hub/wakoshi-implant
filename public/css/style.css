@@ -1235,7 +1235,7 @@ details[open] .faq__marker::after {
   font-size: 19px; /* アイコンを文字サイズに少し近づける */
   color: var(--color-primary);
   line-height: 1;
-  transform: translateY(1px); /* 縦位置を微調整して数字のベースラインに合わせる */
+  transform: translateY(2px); /* 縦位置を微調整して数字のベースラインに合わせる */
 }
 
 .bottom-nav__tel-number {
