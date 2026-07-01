@@ -44,7 +44,7 @@
   --font-serif: "Noto Serif JP", serif;
 
   /* 各セクション（外箱）の上下余白一括調整用変数 */
-  --section-padding-y: 60px;
+  --section-padding-y: 80px;
 
   /* 見出し (c-head01) の上下余白一括調整用変数 */
   --c-head01-margin-top: 0px;
