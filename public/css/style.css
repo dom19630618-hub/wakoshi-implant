@@ -1434,7 +1434,6 @@ details[open] .faq__marker::after {
 .c-price01 {
   background: #8a7a5a;
   padding: 80px 0;
-  font-family: var(--font-sans);
 }
 
 .c-price01__inner {
