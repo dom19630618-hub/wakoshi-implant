@@ -44,11 +44,11 @@
   --font-serif: "Noto Serif JP", serif;
 
   /* 各セクション（外箱）の上下余白一括調整用変数 */
-  --section-padding-y: 80px;
+  --section-padding-y: 60px;
 
   /* 見出し (c-head01) の上下余白一括調整用変数 */
   --c-head01-margin-top: 0px;
-  --c-head01-margin-bottom: 48px;
+  --c-head01-margin-bottom: 36px; /* 48pxから36pxにして見出し下をすっきり */
 
   /* Page Header Design Format (Unifed Management) */
   --ph-bg: #fff;
@@ -69,6 +69,14 @@
   --h3-border-height: 110%;
   --h3-padding-left: 14px;
   --h3-margin-bottom: 24px;
+}
+
+/* スマホ・タブレット（横幅が狭い画面）用の余白調整 */
+@media (max-width: 768px) {
+  :root {
+    --section-padding-y: 35px; /* スマホでは上下余白を35pxに詰めて間延びを解消 */
+    --c-head01-margin-bottom: 20px; /* 見出し下の余白も20pxに縮小 */
+  }
 }
 
 *,
