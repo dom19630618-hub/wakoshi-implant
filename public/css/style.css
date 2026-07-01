@@ -2071,7 +2071,7 @@ details[open] .faq__marker::after {
 }
 
 .c-layout10 {
-  background: #F8F6F2 url('/assets/images/paper_texture.png') repeat;
+  background: #FAF9F6 url('/assets/images/paper_texture.png') repeat;
   background-blend-mode: multiply; /* 背景色と紙の質感を綺麗にブレンド */
   border-radius: 8px;
   padding: 40px;
