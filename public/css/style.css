@@ -21,9 +21,9 @@
    Reset & Base
    ========================================================================== */
 :root {
-  --color-primary: #B33F5A;
-  --color-primary-dark: #8c2e43;
-  --color-primary-vivid: #d64f6d;
+  --color-primary: #8c2e43;
+  --color-primary-dark: #6b2131;
+  --color-primary-vivid: #B33F5A;
   --color-text: #33322F;
   --color-bg: #fff;
   /* ━━ フォント設定 (マリーナ歯科と同一) ━━
@@ -816,7 +816,7 @@ body {
    Comparison Section (比較 / 03専用)
    ========================================================================== */
 .comparison {
-  --comp-main: #B33F5A;      /* メインテーマカラー（落ち着いた赤） */
+  --comp-main: var(--color-primary);      /* メインテーマカラー（落ち着いた赤） */
   --comp-accent: #FFF4F6;    /* アラート背景などの薄いピンク */
   --comp-text: #33322F;      /* 基本文字色 */
   --comp-border: #EBE8E0;    /* 境界線 */
@@ -911,7 +911,7 @@ body {
    FAQ Section
    ========================================================================== */
 .faq {
-  --faq-main: #B33F5A;
+  --faq-main: var(--color-primary);
   --faq-accent: #FCECEF;
   --faq-text: #444;
   --maxw: 800px; /* 縦長に見えすぎないよう幅をスリムに調整 */
@@ -2083,7 +2083,7 @@ details[open] .faq__marker::after {
 .c-layout10__head {
   font-size: 24px;
   font-weight: bold;
-  color: #B33F5A;
+  color: var(--color-primary);
   margin-bottom: 24px;
   line-height: 1.5;
 }
@@ -2252,7 +2252,7 @@ details[open] .faq__marker::after {
 
 .staff-dentist-set__message-head {
   font-size: 18px;
-  color: #B33F5A;
+  color: var(--color-primary);
   margin-bottom: 16px;
   border-bottom: 2px solid #EBE8E0;
   padding-bottom: 8px;
@@ -2301,7 +2301,7 @@ details[open] .faq__marker::after {
 }
 
 .staff-history__txt strong {
-  color: #B33F5A;
+  color: var(--color-primary);
 }
 
 @media (min-width: 768px) {
@@ -2391,7 +2391,7 @@ details[open] .faq__marker::after {
 }
 
 .implant-case__age strong {
-  color: #B33F5A;
+  color: var(--color-primary);
   font-weight: 700;
 }
 

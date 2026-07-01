@@ -21,7 +21,7 @@
     margin-bottom: 20px;
     /* Reduced from 30px */
     padding-left: 12px;
-    border-left: 5px solid #B33F5A;
+    border-left: 5px solid #8c2e43;
 }
 
 @media (min-width: 768px) {
@@ -239,7 +239,7 @@
     gap: 8px;
     font-size: 18px;
     font-weight: 700;
-    color: #B33F5A;
+    color: #8c2e43;
     margin-bottom: 20px;
     border-bottom: 1px solid #ddd;
     padding-bottom: 10px;
@@ -293,7 +293,7 @@
 
 .access__note {
     font-size: 13px;
-    color: #B33F5A;
+    color: #8c2e43;
     margin-top: 10px;
 }
 
@@ -375,7 +375,7 @@
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 16px;
-    color: #B33F5A;
+    color: #8c2e43;
 }
 
 .intro-card__text {
