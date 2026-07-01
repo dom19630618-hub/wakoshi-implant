@@ -80,7 +80,7 @@ document.addEventListener('componentsReady', function () {
     const particleConfig = {
       "particles": {
         "number": {
-          "value": 15, // 40個だと多すぎて品が損なわれるため、15個に厳選して「上品な余白」を演出
+          "value": 40, // 歯のシルエットを浮かび上がらせるため、密度を少し戻す
           "density": { "enable": false } // 画面サイズ（スマホ等）によって減らさないように無効化
         },
         "color": { "value": "#ffffff" },
