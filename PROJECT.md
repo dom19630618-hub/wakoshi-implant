@@ -13,12 +13,10 @@
 ## 🎨 1. デザインシステム定義
 
 ### ブランドカラー（Brand Colors）
-| 用途 | カラーコード | 役割・説明 |
-| :--- | :--- | :--- |
-| **Primary (Main)** | #A32E48 | メインテーマカラー（落ち着いた上品なボルドー赤） |
-| **Secondary (Vivid)** | #B33F5A | アクセント・ホバー用（華やかなローズレッド） |
-| **Primary Dark** | #A32E48 | 濃色部分用（さらに深いダークワイン） |
-| **Background (Light)** | #F8F6F2 | セクション背景等の薄いピンクベージュ |
+- **Primary**: #A32E48 (メイン ボルドー赤)
+- **Secondary**: #B33F5A (アクセント ローズレッド)
+- **Primary Dark**: #A32E48 (濃色 ダークワイン)
+- **Background**: #F8F6F2 (背景 ピンクベージュ)
 
 ### スタイリング方針
 - **Framework**: Vanilla CSS (`public/css/style.css`) を使用する。
@@ -49,13 +47,9 @@
 
 ---
 
-## 📂 3. ディレクトリ構造
-- `/public/index.html`: エントリーポイント
-- `/public/modules/`: UCSコンポーネント（日本語.html、共通部品および `03/` などのページ別サブフォルダ）
-- `/public/css/`: デザインシステムCSS
-- `/public/js/`: ローダー、スライダー等のロジック
-- `/public/assets/images/`: 統合された画像パーツ群
-- `/public/assets/fonts/`: 統合されたフォント資産 (`aoharu-marker-mini.otf` 等)
+## 📂 3. 独自ディレクトリ構造
+- `/public/modules/`: UCSコンポーネント。日本語ファイル名可、ページ別サブフォルダ(例:`03/`)を利用。
+  ※ css, js, assets等は標準的な静的構成のため割愛。
 
 ---
 
