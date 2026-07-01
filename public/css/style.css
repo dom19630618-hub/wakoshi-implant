@@ -454,7 +454,7 @@ body {
 }
 
 .hero-image__item--2 {
-  background-image: url("../images/gallery_02.jpg");
+  background-image: url("../images/gallery_03.jpg");
   /* ↓ 2枚目の画像の水平位置を数値で調整（数値を大きくするとさらに左へ移動します） */
   background-position: calc(50% - 80px) center;
   
