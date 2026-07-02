@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+/* ============================================================
+   clinic.css — 院内・設備紹介専用スタイル (マリーナ調)
+   ============================================================ */
+
+.clinic-intro {
+  padding: 80px 0 100px;
+  background-color: #faf8f5; /* 優しい極薄ベージュ背景 */
+}
+
+.clinic-intro__inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* グリッドレイアウト */
+.clinic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 32px;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .clinic-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 40px;
+  }
+}
+
+/* 設備カード */
+.clinic-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(140, 130, 115, 0.05); /* 温かみのある影 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.clinic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(140, 130, 115, 0.1);
+}
+
+.clinic-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 10.5; /* 添付画像の比率に合わせた少しゆったりめの横長 */
+  overflow: hidden;
+  background-color: #eaeaea;
+}
+
+.clinic-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.clinic-card__body {
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.clinic-card__title {
+  font-family: var(--font-base);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 16px;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* 下線デザイン */
+.clinic-card__title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32px;
+  height: 2px;
+  background-color: var(--color-primary); /* ボルドーの下線 */
+  opacity: 0.7;
+}
+
+.clinic-card__txt {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin: 0;
+}
