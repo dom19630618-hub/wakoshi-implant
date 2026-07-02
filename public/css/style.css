@@ -62,7 +62,7 @@
   /* H3 Heading Design Format (Unified Management) */
   --h3-font-size: 20px;
   --h3-font-weight: 400;
-  --h3-text-color: #575757;
+  --h3-text-color: #595959;
   --h3-line-height: 1.2;
   --h3-border-width: 3px;
   --h3-border-color: var(--color-primary);
@@ -1288,14 +1288,14 @@ details[open] .faq__marker::after {
 
 .breadcrumbs {
   font-size: 11px;
-  color: #575757;
+  color: #595959;
   margin-bottom: 16px;
   text-align: left;
   font-family: var(--font-base);
   letter-spacing: 0.03em;
 }
 .breadcrumbs a {
-  color: #575757;
+  color: #595959;
   text-decoration: none;
 }
 .breadcrumbs a:hover {
@@ -1315,7 +1315,7 @@ details[open] .faq__marker::after {
 .page-header__title {
   font-size: var(--ph-title-size);
   font-weight: var(--ph-font-weight);
-  color: #575757; /* 濃い黒(#111)からテーマの共通テキスト色へ */
+  color: #595959; /* 濃い黒(#111)からテーマの共通テキスト色へ */
   margin: 0 auto;
   display: inline-block;
   position: relative;
@@ -1746,7 +1746,7 @@ details[open] .faq__marker::after {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.2em;
-  color: #575757;
+  color: #595959;
   margin: 0 0 8px;
   text-transform: uppercase; /* 小文字で入力されても自動的に大文字に統一 */
 }
@@ -1755,7 +1755,7 @@ details[open] .faq__marker::after {
   font-size: clamp(24px, 3vw, 32px);
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #575757;
+  color: #595959;
   margin: 0;
   line-height: 1.3;
 }
