@@ -1250,7 +1250,7 @@ details[open] .faq__marker::after {
 
 .bottom-nav__tel-number {
   font-size: 21px;
-  font-weight: 500;
+  font-weight: 400;
   font-family: var(--font-en);
   letter-spacing: 0.08em; /* 文字と文字の間隔を広げて洗練された印象に */
   color: #333; /* 真っ黒(#222)から少し柔らかいチャコールグレーに */
