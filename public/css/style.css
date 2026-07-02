@@ -1869,35 +1869,37 @@ details[open] .faq__marker::after {
 
 /* Telephone Button */
 .c-cta-marina-tel {
-  background: #E8E4D9;
+  background: #EAE6DD; /* 少し柔らかめのマリーナ風ベージュ */
   color: #33322F;
 }
 .c-cta-marina-tel:hover {
   opacity: 0.85;
 }
 .c-cta-marina-tel__sub {
-  font-size: clamp(13px, 1.8vw, 15px);
+  font-size: clamp(12px, 1.6vw, 14px);
   font-weight: 500;
   letter-spacing: 0.05em;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
   color: #555;
 }
 .c-cta-marina-tel__main {
   display: flex;
   align-items: baseline;
   justify-content: center;
-  gap: 8px;
+  gap: 4px; /* TELと数字の隙間を狭く */
 }
 .c-cta-marina-tel__label {
-  font-size: clamp(18px, 2.5vw, 22px);
-  font-weight: 500;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
   font-family: var(--font-en);
+  color: #666;
 }
 .c-cta-marina-tel__num {
-  font-size: clamp(28px, 4.5vw, 42px);
+  font-size: clamp(28px, 4.5vw, 40px);
   font-weight: 500;
   font-family: var(--font-en);
   letter-spacing: 0.05em;
+  color: #333;
 }
 
 /* Web Reserve Button */
@@ -1918,13 +1920,14 @@ details[open] .faq__marker::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 8px; /* アイコンと文字の隙間を調整 */
 }
-.c-cta-marina-web__main .material-icons-outlined {
-  font-size: clamp(28px, 4.5vw, 42px);
+.c-cta-marina-web__icon {
+  font-size: clamp(28px, 4.5vw, 36px);
+  display: block;
 }
 .c-cta-marina-web__txt {
-  font-size: clamp(28px, 4.5vw, 42px);
+  font-size: clamp(28px, 4.5vw, 36px);
   font-weight: 500;
   letter-spacing: 0.1em;
 }
