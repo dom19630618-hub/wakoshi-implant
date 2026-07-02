@@ -2232,7 +2232,7 @@ details[open] .faq__marker::after {
    ========================================================================== */
 .staff-dentist {
   padding: var(--section-padding-y) 0;
-  background-color: #F8F6F2;
+  background-color: #B3A58B; /* ベージュ背景 */
 }
 
 .staff-dentist__inner {
@@ -2242,13 +2242,9 @@ details[open] .faq__marker::after {
 }
 
 .staff-dentist-set {
-  background: #fff;
-  border-radius: 8px;
-  padding: 32px 24px; /* スマホではパディングを少し狭く */
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
-  gap: 20px; /* スマホでの写真とテキスト間の余白を詰める */
+  gap: 32px;
 }
 
 .staff-dentist-set__img {
@@ -2257,54 +2253,76 @@ details[open] .faq__marker::after {
 
 .staff-dentist-set__img img {
   width: 100%;
-  max-width: 300px;
-  border-radius: 8px;
-  border: 1px solid #EBE8E0;
+  max-width: 100%;
+  border-radius: 4px;
 }
 
-.staff-dentist-set__label {
-  font-size: 14px;
-  color: #C4A972;
-  font-weight: bold;
-  margin-bottom: 4px;
+.staff-dentist-set__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
+
+.staff-dentist-set__name-box {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
 }
 
 .staff-dentist-set__name {
   font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 2px;
+  font-weight: normal;
+  color: #fff;
+  letter-spacing: 0.1em;
 }
 
 .staff-dentist-set__name-en {
-  font-size: 12px;
-  color: #999;
-  letter-spacing: 0.05em;
-  margin-bottom: 16px; /* 英語表記の下の余白を詰める */
+  font-size: 13px;
+  color: #fff;
+  letter-spacing: 0.1em;
+  font-family: var(--font-en);
 }
 
-.staff-dentist-set__message-head {
-  font-size: 18px;
-  color: var(--color-primary);
-  margin-bottom: 16px;
-  border-bottom: 2px solid #EBE8E0;
-  padding-bottom: 8px;
+.staff-dentist-set__label {
+  background: #fff;
+  color: #B3A58B;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 12px;
+  border-radius: 4px;
 }
 
 .staff-dentist-set__txt {
   font-size: 15px;
   line-height: 1.8;
-  color: #555;
-  margin-bottom: 32px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.staff-dentist-set__history {
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px;
+}
+
+.staff-history__head-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.staff-history__icon {
+  color: #B3A58B;
 }
 
 .staff-history__head {
   font-size: 16px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 16px;
-  padding-left: 12px;
-  border-left: 3px solid #C4A972;
 }
 
 .staff-history__list {
@@ -2315,15 +2333,15 @@ details[open] .faq__marker::after {
 
 .staff-history__item {
   display: flex;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .staff-history__year {
   width: 80px;
   flex-shrink: 0;
-  color: #C4A972;
+  color: #B3A58B;
   font-weight: bold;
   margin: 0;
 }
@@ -2333,20 +2351,15 @@ details[open] .faq__marker::after {
   margin: 0;
 }
 
-.staff-history__txt strong {
-  color: var(--color-primary);
-}
-
 @media (min-width: 768px) {
   .staff-dentist-set {
     flex-direction: row;
     align-items: flex-start;
-    gap: 40px; /* PCでは広い余白を維持 */
-    padding: 40px;
+    gap: 40px;
   }
   
   .staff-dentist-set__areaImg {
-    flex: 0 0 300px;
+    flex: 0 0 350px;
   }
   
   .staff-dentist-set__textarea {
