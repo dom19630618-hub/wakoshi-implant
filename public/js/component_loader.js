@@ -77,9 +77,11 @@ async function parseAndLoadComponents() {
         const moduleCache = {};
         await Promise.all([...componentNames].map(async (name) => {
             try {
-                // Fetch using constructed path with index.html's CSS version as cache buster
+                // Fetch using constructed path with index.html's CSS version or timestamp (for local dev) as cache buster
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
                 const styleSheet = document.querySelector('link[href*="style.css"]');
-                const version = styleSheet ? styleSheet.getAttribute('href').split('?')[1] : '';
+                const cssVersion = styleSheet ? styleSheet.getAttribute('href').split('?')[1] : '';
+                const version = isLocal ? `t=${Date.now()}` : cssVersion;
                 const url = `${MODULE_DIR}${name}${MODULE_EXT}${version ? '?' + version : ''}`;
                 const response = await fetch(url);
                 if (response.ok) {
