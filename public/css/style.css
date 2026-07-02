@@ -1274,42 +1274,40 @@ details[open] .faq__marker::after {
    ========================================================================== */
 .page-header {
   --ph-bg: #fff;
-  --ph-padding-v: 10px;
-  --ph-title-size: 25px;
-  --ph-font-weight: 300;
-  --ph-title-line-gap: 12px;
-  --ph-line-thickness: 2px;
+  --ph-padding-v: 16px; /* 少し余白を広げてゆとりを持たせる */
+  --ph-title-size: 26px;
+  --ph-font-weight: 700; /* 細字(300)から太字(700)へ */
+  --ph-title-line-gap: 0px;
+  --ph-line-thickness: 0px;
 
   background: var(--ph-bg);
   padding: var(--ph-padding-v) 0;
-  /* Finalized: Top 10px, Bottom 10px */
   margin-bottom: 0;
   text-align: center;
 }
 
 .breadcrumbs {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--color-primary);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   text-align: left;
+  font-family: var(--font-base);
+  letter-spacing: 0.03em;
 }
 
 .page-header__title {
   font-size: var(--ph-title-size);
   font-weight: var(--ph-font-weight);
-  color: #111;
+  color: var(--color-text); /* 濃い黒(#111)からテーマの共通テキスト色へ */
   margin: 0 auto;
   display: inline-block;
   position: relative;
-  padding-bottom: var(--ph-title-line-gap);
-  /* Title-Line gap */
+  font-family: var(--font-base); /* グローバル共通フォントに強制 */
+  letter-spacing: 0.05em;
 }
 
 .page-header__line {
-  width: 60px;
-  height: var(--ph-line-thickness);
-  background: var(--color-primary);
-  margin: 0 auto;
+  display: none; /* 古いアンダーラインは非表示に */
 }
 
 /* ... */
