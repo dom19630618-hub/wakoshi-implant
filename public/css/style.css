@@ -2260,9 +2260,9 @@ details[open] .faq__marker::after {
 .staff-dentist-set__header {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between;
   border-bottom: 1px solid rgba(140, 46, 67, 0.15);
-  padding-bottom: 16px;
+  padding-bottom: 12px;
   margin-bottom: 24px;
 }
 
@@ -2273,40 +2273,45 @@ details[open] .faq__marker::after {
 }
 
 .staff-dentist-set__name {
-  font-size: 24px;
-  font-weight: normal;
+  font-size: 30px; /* 本家に合わせた大きめのサイズ */
+  font-weight: 500; /* 太すぎず上品なウェイト */
   color: var(--color-text);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
+  line-height: 1;
 }
 
 .staff-dentist-set__name-en {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 400;
   color: var(--color-primary);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.05em;
   font-family: var(--font-en);
 }
 
 .staff-dentist-set__label {
-  background: var(--color-primary);
-  color: #fff;
-  font-size: 13px;
-  font-weight: bold;
-  padding: 4px 12px;
-  border-radius: 4px;
+  background: #fff; /* 本家同様の白背景の丸タグ */
+  color: var(--color-primary);
+  border: 1px solid rgba(140, 46, 67, 0.15);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
 }
 
 .staff-dentist-set__txt {
   font-size: 15px;
-  line-height: 1.8;
+  line-height: 2.0; /* 本家に合わせたゆったりとした行間 */
   color: var(--color-text);
   margin-bottom: 40px;
+  letter-spacing: 0.03em;
 }
 
 .staff-dentist-set__history {
   background: #fff;
   border-radius: 8px;
   padding: 32px;
-  box-shadow: 0 4px 15px rgba(140, 46, 67, 0.05);
+  box-shadow: 0 4px 15px rgba(140, 46, 67, 0.04);
 }
 
 .staff-history__head-box {
@@ -2318,12 +2323,14 @@ details[open] .faq__marker::after {
 
 .staff-history__icon {
   color: var(--color-primary);
+  font-size: 18px;
 }
 
 .staff-history__head {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--color-text);
+  letter-spacing: 0.05em;
 }
 
 .staff-history__list {
@@ -2335,15 +2342,15 @@ details[open] .faq__marker::after {
 .staff-history__item {
   display: flex;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 13px; /* 本家に合わせた少し小さめの文字サイズ */
   line-height: 1.6;
 }
 
 .staff-history__year {
-  width: 80px;
+  width: 70px;
   flex-shrink: 0;
   color: var(--color-primary);
-  font-weight: bold;
+  font-weight: 500; /* 太字を解除し、スマートなウェイトに変更 */
   margin: 0;
 }
 
