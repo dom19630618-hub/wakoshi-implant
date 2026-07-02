@@ -12,10 +12,6 @@
   background: #faf8f5; /* インプラントサイト特有の優しい背景色 */
 }
 
-/* PageHeaderとの重複を避けるため、モジュール側の見出しを非表示 */
-.staff-member .c-head01 {
-  display: none;
-}
 
 .staff-member__inner {
     max-width: 1100px;
