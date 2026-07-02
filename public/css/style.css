@@ -1578,7 +1578,7 @@ details[open] .faq__marker::after {
 .c-price01__note {
   margin-top: 16px;
   font-size: 12px;
-  color: #e8e0d0;
+  color: #595959;
   line-height: 1.6;
 }
 
@@ -1646,7 +1646,7 @@ details[open] .faq__marker::after {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: #8a7a5a;
+  background: var(--color-primary);
   color: #fff;
   padding: 16px 32px;
   border-radius: 999px;
