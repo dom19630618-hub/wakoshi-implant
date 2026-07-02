@@ -88,7 +88,7 @@
     font-family: var(--font-base);
     font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: 700;
-    color: #1a1a1a;
+    color: #575757;
     margin-bottom: 12px;
     letter-spacing: 0.05em;
 }
