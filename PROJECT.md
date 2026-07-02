@@ -26,5 +26,5 @@
 - **スタイル**: 原則共通CSS管理。特定コンポーネント依存時のみ `<style>` を許容。
 
 ## 🛠 5. 開発・デプロイ・ワークフロー
-- **完了時手順**: `npx wrangler pages deploy public` で即時デプロイ ➡️ Gitコミット＆プッシュ。
+- **デプロイ手順**: `npx wrangler pages deploy public` で即時デプロイ ➡️ Gitコミット＆プッシュ。
 - **ガードレール**: `wrangler.toml` (Account ID等) およびローカル `git config` を厳守すること。
