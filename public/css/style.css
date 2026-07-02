@@ -2232,7 +2232,7 @@ details[open] .faq__marker::after {
    ========================================================================== */
 .staff-dentist {
   padding: var(--section-padding-y) 0;
-  background-color: #B3A58B; /* ベージュ背景 */
+  background: linear-gradient(to right, #C0B399 50%, #B3A58B 50%); /* 縦割りの2トーン背景 */
 }
 
 .staff-dentist__inner {
