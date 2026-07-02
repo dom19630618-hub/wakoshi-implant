@@ -1974,12 +1974,77 @@ details[open] .faq__marker::after {
   border: 0;
 }
 
-.c-information01__access-address {
+.c-information01__access-address-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.c-information01__access-address {
+  margin: 0;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.7;
   color: #555; /* 他の説明文（dd）の色と合わせる */
+}
+
+.c-information01__copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #e6e2d8;
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  color: #6b5c43;
+  font-family: var(--font-sans);
+}
+
+.c-information01__copy-btn:hover {
+  background: #f8f6f2;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.c-information01__copy-tooltip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #33322F;
+  color: #fff;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.c-information01__copy-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #33322F transparent transparent transparent;
+}
+
+.c-information01__copy-btn:hover .c-information01__copy-tooltip,
+.c-information01__copy-tooltip.is-active {
+  visibility: visible;
+  opacity: 1;
 }
 
 .c-information01__access-info {

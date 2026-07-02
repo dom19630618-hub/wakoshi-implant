@@ -26,10 +26,33 @@
                     </iframe>
                 </div>
 
-                <!-- 住所 -->
-                <p class="c-information01__access-address">
-                    〒351-0104　埼玉県和光市南1-6-20
-                </p>
+                <!-- 住所 (コピー機能付き) -->
+                <div class="c-information01__access-address-wrapper">
+                    <p class="c-information01__access-address">
+                        〒351-0104　埼玉県和光市南1-6-20
+                    </p>
+                    <button class="c-information01__copy-btn" onclick="copyAddress()" title="住所をコピー">
+                        <span class="material-icons-outlined" style="font-size: 14px;">content_copy</span>
+                        <span class="c-information01__copy-tooltip" id="copy-tooltip">コピー</span>
+                    </button>
+                </div>
+
+                <script>
+                function copyAddress() {
+                    const address = "〒埼玉県和光市南1-6-20";
+                    navigator.clipboard.writeText(address).then(() => {
+                        const tooltip = document.getElementById('copy-tooltip');
+                        tooltip.textContent = 'コピーしました！';
+                        tooltip.classList.add('is-active');
+                        setTimeout(() => {
+                            tooltip.textContent = 'コピー';
+                            tooltip.classList.remove('is-active');
+                        }, 1500);
+                    }).catch(err => {
+                        console.error('住所のコピーに失敗しました: ', err);
+                    });
+                }
+                </script>
 
                 <!-- 電車でのアクセス -->
                 <div class="c-information01__access-info">
