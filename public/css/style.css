@@ -1593,14 +1593,9 @@ details[open] .faq__marker::after {
   font-weight: 700;
   font-family: var(--font-sans); /* ベースを日本語フォントにして円や税込を綺麗に */
   display: flex;
-  align-items: center;
+  align-items: baseline; /* ベースライン（下）揃えにする */
   justify-content: center;
   gap: 2px;
-}
-
-.c-price01__total-price span {
-  font-size: inherit;
-  font-family: var(--font-sans);
 }
 
 .c-price01__highlight {
@@ -1608,6 +1603,12 @@ details[open] .faq__marker::after {
   color: #A32E48;
   font-family: var(--font-en);
   letter-spacing: 0.02em;
+}
+
+.c-price01__tax {
+  font-size: clamp(16px, 2.5vw, 21px); /* 半分の大きさに */
+  font-family: var(--font-sans);
+  margin-left: -2px; /* 〜にさらに寄せる */
 }
 
 .c-price01__cta {
