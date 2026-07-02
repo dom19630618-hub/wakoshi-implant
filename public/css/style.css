@@ -2347,11 +2347,11 @@ details[open] .faq__marker::after {
 }
 
 .staff-history__year {
-  width: 70px;
+  width: 54px;
   flex-shrink: 0;
   color: var(--color-primary);
   font-weight: 500; /* 太字を解除し、スマートなウェイトに変更 */
-  margin: 0;
+  margin: 0 12px 0 0;
 }
 
 .staff-history__txt {
