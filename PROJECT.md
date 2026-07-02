@@ -5,6 +5,7 @@
 ### ブランドカラー（Brand Colors）
 - **Primary**: #A32E48 (メイン ボルドー赤)
 - **Background**: #F8F6F2 (背景 )
+- **Heading**: #595959 (見出し色)
 
 ### スタイリング方針
 - **Framework**: Vanilla CSS (`public/css/style.css`) を使用する。
