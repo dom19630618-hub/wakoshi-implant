@@ -2490,7 +2490,7 @@ details[open] .faq__marker::after {
 }
 
 .staff-history__icon {
-  color: var(--color-primary);
+  color: #1a1a1a;
   font-size: 18px;
 }
 
