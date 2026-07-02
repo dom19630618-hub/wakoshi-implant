@@ -262,7 +262,7 @@ ul {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 7px;
   width: 52px;
   height: 52px;
   background: none;
@@ -295,14 +295,14 @@ ul {
 
 /* アクティブ時: ✕ マーク */
 .l-nav-btn.is-active .l-nav-btn__line:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+  transform: translateY(9px) rotate(45deg);
 }
 .l-nav-btn.is-active .l-nav-btn__line:nth-child(2) {
   opacity: 0;
   transform: scaleX(0);
 }
 .l-nav-btn.is-active .l-nav-btn__line:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
+  transform: translateY(-9px) rotate(-45deg);
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━
