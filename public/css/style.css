@@ -1598,6 +1598,11 @@ details[open] .faq__marker::after {
   font-family: var(--font-sans);
 }
 
+.c-price01__highlight {
+  font-size: 64px;
+  color: #A32E48;
+}
+
 .c-price01__cta {
   background: #f7f4ef;
   border-radius: 8px;
@@ -1669,6 +1674,9 @@ details[open] .faq__marker::after {
 
   .c-price01__total-price {
     font-size: 24px;
+  }
+  .c-price01__highlight {
+    font-size: 44px;
   }
   .c-price01__cta {
     padding: 24px 16px;
