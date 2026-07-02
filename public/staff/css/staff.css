@@ -8,8 +8,13 @@
    スタッフ紹介 (staff-member)
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .staff-member {
-    background: #f8f6f2; /* PROJECT.md の Background と統一 */
-    padding: var(--section-padding-y) 0;
+  padding: 80px 0 100px;
+  background: #faf8f5; /* インプラントサイト特有の優しい背景色 */
+}
+
+/* PageHeaderとの重複を避けるため、モジュール側の見出しを非表示 */
+.staff-member .c-head01 {
+  display: none;
 }
 
 .staff-member__inner {

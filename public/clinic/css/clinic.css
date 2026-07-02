@@ -9,6 +9,11 @@
   background-color: #faf8f5; /* 優しい極薄ベージュ背景 */
 }
 
+/* PageHeaderとの重複を避けるため、モジュール側の見出しを非表示 */
+.clinic-intro .c-head01 {
+  display: none;
+}
+
 .clinic-intro__inner {
   max-width: 1100px;
   margin: 0 auto;
