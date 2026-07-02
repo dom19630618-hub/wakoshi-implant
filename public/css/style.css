@@ -1829,20 +1829,41 @@ details[open] .faq__marker::after {
 
 .c-information01__btn-reserve .c-btn01__link {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 18px 12px;
+  padding: 16px 12px;
   background: #A32E48;
   color: #fff;
   border-radius: 4px;
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
   transition: background 0.2s;
+  text-decoration: none;
 }
 
 .c-information01__btn-reserve .c-btn01__link:hover {
   background: #8a253a;
+}
+
+.marina-style-reserve__sub {
+  font-size: clamp(13px, 1.8vw, 15px);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+
+.marina-style-reserve__main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: clamp(24px, 3.5vw, 34px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  font-family: var(--font-en);
+}
+
+.marina-style-reserve__main .material-icons-outlined {
+  font-size: clamp(28px, 4vw, 38px);
 }
 
 .c-information01__btn-small-wrap {
