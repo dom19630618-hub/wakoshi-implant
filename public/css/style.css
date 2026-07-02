@@ -1295,6 +1295,16 @@ details[open] .faq__marker::after {
   letter-spacing: 0.03em;
 }
 
+.page-header__sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #33322F;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
 .page-header__title {
   font-size: var(--ph-title-size);
   font-weight: var(--ph-font-weight);
