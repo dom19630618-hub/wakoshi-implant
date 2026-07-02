@@ -2531,6 +2531,7 @@ details[open] .faq__marker::after {
 
 .staff-history__txt {
   color: #555;
+  font-weight: 500;
   margin: 0;
 }
 
