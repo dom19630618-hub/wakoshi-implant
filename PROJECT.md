@@ -4,9 +4,7 @@
 #
 ### ブランドカラー（Brand Colors）
 - **Primary**: #A32E48 (メイン ボルドー赤)
-- **Secondary**: #B33F5A (アクセント ローズレッド)
-- **Primary Dark**: #A32E48 (濃色 ダークワイン)
-- **Background**: #F8F6F2 (背景 ピンクベージュ)
+- **Background**: #F8F6F2 (背景 )
 
 ### スタイリング方針
 - **Framework**: Vanilla CSS (`public/css/style.css`) を使用する。
