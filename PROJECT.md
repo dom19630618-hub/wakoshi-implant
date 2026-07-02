@@ -10,6 +10,7 @@
 - **Framework**: Vanilla CSS (`public/css/style.css`) を使用する。
 - **コンポーネント背景**: #F8F6F2または#ffffffが基本だがセクションによっては違う色を使うことがある
 - **余白の一括管理**: セクション（外箱）の上下余白は `--section-padding-y`（PC: 60px / スマホ: 35px）変数を用いてサイト全体で統一する。
+- **署名や区切り線**: 挨拶文などのメッセージの下に署名を追加する場合は、薄い境界線（例: `border-top: 1px solid #e0dbd0` 等）を設けて適切な余白（`margin-top` / `padding-top`）を確保し、情報構造を明確に区分けするデザインを活かすこと。
 
 ## 🧩 2. UCS (Universal Component System)
 - **概要**: `public/js/component_loader.js` を使用し、HTML内の `use:フォルダ/コンポーネント名` を動的展開。
