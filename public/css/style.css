@@ -2232,7 +2232,7 @@ details[open] .faq__marker::after {
    ========================================================================== */
 .staff-dentist {
   padding: var(--section-padding-y) 0;
-  background: linear-gradient(to right, #8C7E81 50%, #786B6D 50%); /* ボルドーと調和するモーブグレーの2トーン */
+  background: linear-gradient(to right, #F9F4F5 50%, #EBDCE0 50%); /* ボルドーと同色調の淡い2トーン（ペールピンク系） */
 }
 
 .staff-dentist__inner {
@@ -2261,7 +2261,7 @@ details[open] .faq__marker::after {
   display: flex;
   align-items: center;
   gap: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(140, 46, 67, 0.15);
   padding-bottom: 16px;
   margin-bottom: 24px;
 }
@@ -2275,20 +2275,20 @@ details[open] .faq__marker::after {
 .staff-dentist-set__name {
   font-size: 24px;
   font-weight: normal;
-  color: #fff;
+  color: var(--color-text);
   letter-spacing: 0.1em;
 }
 
 .staff-dentist-set__name-en {
   font-size: 13px;
-  color: #fff;
+  color: var(--color-primary);
   letter-spacing: 0.1em;
   font-family: var(--font-en);
 }
 
 .staff-dentist-set__label {
-  background: #fff;
-  color: var(--color-primary);
+  background: var(--color-primary);
+  color: #fff;
   font-size: 13px;
   font-weight: bold;
   padding: 4px 12px;
@@ -2298,7 +2298,7 @@ details[open] .faq__marker::after {
 .staff-dentist-set__txt {
   font-size: 15px;
   line-height: 1.8;
-  color: #fff;
+  color: var(--color-text);
   margin-bottom: 40px;
 }
 
@@ -2306,6 +2306,7 @@ details[open] .faq__marker::after {
   background: #fff;
   border-radius: 8px;
   padding: 32px;
+  box-shadow: 0 4px 15px rgba(140, 46, 67, 0.05);
 }
 
 .staff-history__head-box {
@@ -2322,7 +2323,7 @@ details[open] .faq__marker::after {
 .staff-history__head {
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: var(--color-text);
 }
 
 .staff-history__list {
