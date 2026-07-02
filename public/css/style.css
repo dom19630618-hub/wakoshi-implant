@@ -953,7 +953,7 @@ body {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   column-gap: 16px;
-  padding: 24px 8px; /* パディングをすっきりさせて余白を美しく */
+  padding: 20px 24px; /* 左右のパディングを24pxにして回答カードと統一 */
   cursor: pointer;
   background-color: transparent; /* ベタ塗りを廃止して背景透過に */
 }
@@ -1027,7 +1027,7 @@ details[open] .faq__marker::after {
 .faq__answer-body {
   background: rgba(252, 236, 239, 0.2); /* 開いた回答エリアをほんの少しソフトな色合いに */
   color: var(--faq-text);
-  padding: 20px 24px 28px 48px; /* 左側に十分なインデントを確保 */
+  padding: 20px 24px; /* 左パディングを48pxから24pxにし、質問のQ.と位置を完全一致させ、横幅を広く確保 */
   display: flex;
   gap: 16px;
   margin: 0;
