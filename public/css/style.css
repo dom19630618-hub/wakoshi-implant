@@ -416,7 +416,7 @@ ul {
 ━━━━━━━━━━━━━━━━━━━━━━ */
 @media (min-width: 900px) {
   .l-header__nav {
-    display: block;
+    display: none;
   }
 
   .l-header__btn-group {
@@ -424,7 +424,7 @@ ul {
   }
 
   .l-nav-btn {
-    display: none;
+    display: flex;
   }
 }
 
