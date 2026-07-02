@@ -78,7 +78,13 @@ async function parseAndLoadComponents() {
         await Promise.all([...componentNames].map(async (name) => {
             try {
                 // Fetch using constructed path with index.html's CSS version or timestamp (for local dev) as cache buster
-                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const hostname = window.location.hostname;
+                const isLocal = hostname === 'localhost' || 
+                                hostname === '127.0.0.1' || 
+                                hostname.endsWith('.local') ||
+                                /^192\.168\./.test(hostname) ||
+                                /^10\./.test(hostname) ||
+                                /^172\.(1[6-9]|2[0-9]|3[01])\./.test(hostname);
                 const styleSheet = document.querySelector('link[href*="style.css"]');
                 const cssVersion = styleSheet ? styleSheet.getAttribute('href').split('?')[1] : '';
                 const version = isLocal ? `t=${Date.now()}` : cssVersion;
