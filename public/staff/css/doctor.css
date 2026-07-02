@@ -1,0 +1,587 @@
+/* ============================================================
+   doctor.css — マリーナ歯科スタッフページ完全再現スタイル
+   ============================================================ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ① ページビジュアル (l-sub-img)
+   マリーナ: 写真 + テキストオーバーレイ
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.l-sub-img {
+    position: relative;
+    overflow: hidden;
+    height: 240px;
+}
+
+@media (min-width: 768px) {
+    .l-sub-img { height: 320px; }
+}
+
+.l-sub-img__inner {
+    position: relative;
+    height: 100%;
+}
+
+.l-sub-img__img {
+    position: absolute;
+    inset: 0;
+}
+
+.l-sub-img__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+}
+
+.l-sub-img__img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 20, 10, 0.48);
+}
+
+.l-sub-img__textarea {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px 24px;
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .l-sub-img__textarea {
+        padding: 48px 48px;
+    }
+}
+
+.l-sub-img__en {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.l-sub-img__head {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   共通見出し
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.c-head01__sub {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.c-head01__main {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0;
+    line-height: 1.4;
+}
+
+.c-head01.is-center { text-align: center; }
+
+.c-head01.is-white .c-head01__sub { color: rgba(205, 31, 91, 0.9); }
+.c-head01.is-white .c-head01__main { color: #f5f0e8; }
+
+.c-head02 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e0dbd0;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   共通タイムライン
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.staff-history__label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+}
+
+.staff-history__wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+
+@media (min-width: 768px) {
+    .staff-history__wrap {
+        grid-template-columns: 1fr 1fr;
+        gap: 0 40px;
+    }
+}
+
+.staff-history__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 1px solid rgba(180, 165, 135, 0.4);
+    padding-left: 20px;
+    margin-bottom: 24px;
+}
+
+.staff-history__list.is-dark {
+    border-left-color: rgba(255,255,255,0.15);
+}
+
+.staff-history__item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+    position: relative;
+}
+
+.staff-history__item::before {
+    content: '';
+    position: absolute;
+    left: -25px;
+    top: 7px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--color-primary);
+}
+
+.staff-history__year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    min-width: 52px;
+    padding-top: 1px;
+    flex-shrink: 0;
+}
+
+.staff-history__txt {
+    font-family: var(--font-base);
+    font-size: 13px;
+    line-height: 1.75;
+    color: #555;
+}
+
+.staff-history__txt strong {
+    color: #1a1a1a;
+    font-weight: 700;
+}
+
+.staff-history__list.is-dark .staff-history__txt { color: rgba(232, 224, 208, 0.8); }
+.staff-history__list.is-dark .staff-history__txt strong { color: #f5f0e8; }
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ② 院長ご挨拶 (staff-msg)
+   マリーナ: 暖かみのあるオフホワイト背景
+   写真2枚が重なるコンポジション
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.staff-msg {
+    background: #f8f6f2;
+    padding: 72px 0 80px;
+}
+
+.staff-msg__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.staff-msg__header {
+    margin-bottom: 56px;
+}
+
+/* 写真コンポジション */
+.staff-msg-set {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-bottom: 56px;
+}
+
+@media (min-width: 768px) {
+    .staff-msg-set {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+}
+
+.staff-msg-set__imgs {
+    position: relative;
+    padding-bottom: 60px;
+    padding-right: 40px;
+}
+
+/* 大きな横写真 */
+.staff-msg-set__img1 {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 4px;
+    position: relative;
+    z-index: 2;
+    display: block;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+/* 小さな正方形写真（右下に重なる） */
+.staff-msg-set__img2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 4px;
+    z-index: 3;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border: 4px solid #f8f6f2;
+}
+
+/* 装飾背景ブロック1 */
+.staff-msg-set__img-bg1 {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    width: 55%;
+    height: 55%;
+    background: rgba(205, 31, 91, 0.08);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* 装飾背景ブロック2 */
+.staff-msg-set__img-bg2 {
+    position: absolute;
+    bottom: -8px;
+    right: 20px;
+    width: 40%;
+    height: 30%;
+    background: rgba(180, 160, 110, 0.12);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+/* テキストエリア */
+.staff-msg-set__textarea {}
+
+.staff-msg-set__head {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.staff-msg-set__txt {
+    font-family: var(--font-base);
+    font-size: 14px;
+    line-height: 1.9;
+    color: #555;
+    margin-bottom: 28px;
+}
+
+.staff-msg-set__name {
+    font-family: var(--font-base);
+    font-size: 12px;
+    color: #888;
+    line-height: 1.8;
+}
+
+.staff-msg-set__name span {
+    display: block;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 4px;
+    letter-spacing: 0.1em;
+}
+
+/* 略歴タイムライン */
+.staff-msg__history {
+    background: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ③ 歯科医師紹介 (staff-dentist)
+   マリーナ: ダーク（#2d2d2d系）背景
+   縦長写真 + テキスト横並び
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.staff-dentist {
+    background: #262521;
+    padding: 80px 0;
+}
+
+.staff-dentist__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.staff-dentist-set {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+@media (min-width: 768px) {
+    .staff-dentist-set {
+        grid-template-columns: 360px 1fr;
+        gap: 60px;
+    }
+}
+
+/* 縦長写真 */
+.staff-dentist-set__areaImg {}
+
+.staff-dentist-set__img {
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.staff-dentist-set__img img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.staff-dentist-set__img:hover img {
+    transform: scale(1.03);
+}
+
+/* テキスト */
+.staff-dentist-set__header {
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.staff-dentist-set__name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #f5f0e8;
+    line-height: 1.2;
+    margin-bottom: 6px;
+    letter-spacing: 0.08em;
+}
+
+.staff-dentist-set__name-en {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: rgba(245, 240, 232, 0.45);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.staff-dentist-set__label {
+    font-family: var(--font-base);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    background: rgba(205, 31, 91, 0.12);
+    border: 1px solid rgba(205, 31, 91, 0.3);
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+.staff-dentist-set__txt {
+    font-family: var(--font-base);
+    font-size: 14px;
+    line-height: 1.9;
+    color: rgba(232, 224, 208, 0.8);
+    margin-bottom: 32px;
+}
+
+.staff-dentist-set__history .staff-history__label {
+    color: var(--color-primary);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ④ スタッフ紹介 (staff-member)
+   マリーナ: オフホワイト、セクション大画像
+   + 名前・コメント・タグのリスト
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.staff-member {
+    background: #f8f6f2;
+    padding: 80px 0;
+}
+
+.staff-member__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* スタッフセクション（職種ごと） */
+.staff-member-sec {
+    margin-bottom: 64px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+
+.staff-member-sec:last-child {
+    margin-bottom: 0;
+}
+
+/* セクション代表写真 */
+.staff-member-sec__img {
+    margin-bottom: 32px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.staff-member-sec__img img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .staff-member-sec__img img { height: 300px; }
+}
+
+/* スタッフリスト */
+.staff-member-sec__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+@media (min-width: 640px) {
+    .staff-member-sec__list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/* スタッフアイテム */
+.staff-member-sec__item {
+    padding-bottom: 32px;
+    border-bottom: 1px solid #f0ece4;
+}
+
+.staff-member-sec__item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.staff-member-sec__item-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+}
+
+.staff-member-sec__item-txt {
+    font-family: var(--font-base);
+    font-size: 13px;
+    line-height: 1.85;
+    color: #666;
+    margin-bottom: 16px;
+}
+
+/* タグリスト */
+.staff-member-sec__cat {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.staff-member-sec__cat-item {
+    font-family: var(--font-base);
+    font-size: 11px;
+    font-weight: 500;
+    color: #8a6a35;
+    background: rgba(180, 155, 100, 0.1);
+    border: 1px solid rgba(180, 155, 100, 0.25);
+    padding: 3px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.03em;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   見出しセクション区切り
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.c-head01 {
+    margin-bottom: 48px;
+}
+
+/* staff-dentist内のis-white */
+.staff-dentist .c-head01.is-white {
+    margin-bottom: 48px;
+}
+
+.staff-dentist .c-head01__main::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: var(--color-primary);
+    margin: 16px auto 0;
+}
+
+.staff-msg__header .c-head01__main::after {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 2px;
+    background: var(--color-primary);
+    margin: 16px 0 0;
+}
+
+.c-head01.is-center .c-head01__main::after {
+    margin-left: auto;
+    margin-right: auto;
+}
