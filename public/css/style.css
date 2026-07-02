@@ -1581,26 +1581,33 @@ details[open] .faq__marker::after {
 
 .c-price01__total-label {
   color: #33322F;
-  font-size: 16px;
+  font-size: clamp(20px, 3.5vw, 26px);
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
 }
 
 .c-price01__total-price {
   color: #8a7a5a;
-  font-size: 32px;
+  font-size: clamp(32px, 5vw, 42px);
   font-weight: 700;
-  font-family: var(--font-en);
+  font-family: var(--font-sans); /* ベースを日本語フォントにして円や税込を綺麗に */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
 }
 
 .c-price01__total-price span {
-  font-size: 16px;
+  font-size: inherit;
   font-family: var(--font-sans);
 }
 
 .c-price01__highlight {
-  font-size: 64px;
+  font-size: inherit;
   color: #A32E48;
+  font-family: var(--font-en);
+  letter-spacing: 0.02em;
 }
 
 .c-price01__cta {
