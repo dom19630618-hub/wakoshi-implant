@@ -77,8 +77,11 @@ async function parseAndLoadComponents() {
         const moduleCache = {};
         await Promise.all([...componentNames].map(async (name) => {
             try {
-                // Fetch using constructed path
-                const response = await fetch(`${MODULE_DIR}${name}${MODULE_EXT}`);
+                // Fetch using constructed path with index.html's CSS version as cache buster
+                const styleSheet = document.querySelector('link[href*="style.css"]');
+                const version = styleSheet ? styleSheet.getAttribute('href').split('?')[1] : '';
+                const url = `${MODULE_DIR}${name}${MODULE_EXT}${version ? '?' + version : ''}`;
+                const response = await fetch(url);
                 if (response.ok) {
                     moduleCache[name] = await response.text();
                 } else {
