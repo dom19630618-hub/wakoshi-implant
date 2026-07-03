@@ -6,7 +6,7 @@
 
 /* イントロダクション */
 .features-intro {
-  padding: 50px 0 40px;
+  padding: 20px  40px;
   background-color: #ffffff;
   text-align: center;
 }
@@ -37,7 +37,7 @@
 
 @media screen and (max-width: 768px) {
   .features-intro {
-    padding: 50px 0 40px;
+    padding: 10px 24px 20px;
   }
   .features-intro__txt {
     font-size: 14px;
@@ -46,7 +46,7 @@
 
 /* 特長リスト */
 .features-list {
-  padding: 20px 0 80px;
+  padding: 0px 0 80px;
   background-color: #faf8f5; /* 医院全体の温かみのあるベージュ背景 */
 }
 
