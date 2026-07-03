@@ -89,12 +89,38 @@ async function parseAndLoadComponents() {
                 const cssVersion = styleSheet ? styleSheet.getAttribute('href').split('?')[1] : '';
                 const version = isLocal ? `t=${Date.now()}` : cssVersion;
                 const url = `${MODULE_DIR}${name}${MODULE_EXT}${version ? '?' + version : ''}`;
-                const response = await fetch(url);
+                let response = await fetch(url);
+                let text = '';
+                let isValid = false;
+
                 if (response.ok) {
-                    moduleCache[name] = await response.text();
+                    text = await response.text();
+                    // SPAフォールバック（身代わりトップページ）の検知：<!DOCTYPE html>で始まる場合は不正とする
+                    if (!text.trim().startsWith('<!DOCTYPE html>') && !text.includes('use:ヘッダー')) {
+                        isValid = true;
+                    }
+                }
+
+                // 失敗またはフォールバックが返された場合、NFD正規化（macOS環境のファイル名）で再試行
+                if (!isValid) {
+                    const nfdName = name.normalize('NFD');
+                    if (nfdName !== name) {
+                        const nfdUrl = `${MODULE_DIR}${nfdName}${MODULE_EXT}${version ? '?' + version : ''}`;
+                        const nfdResponse = await fetch(nfdUrl);
+                        if (nfdResponse.ok) {
+                            const nfdText = await nfdResponse.text();
+                            if (!nfdText.trim().startsWith('<!DOCTYPE html>') && !nfdText.includes('use:ヘッダー')) {
+                                text = nfdText;
+                                isValid = true;
+                            }
+                        }
+                    }
+                }
+
+                if (isValid) {
+                    moduleCache[name] = text;
                 } else {
-                    console.warn(`[Component Loader] Component not found: "${name}" (Status: ${response.status})`);
-                    // Improved fallback: visible error
+                    console.warn(`[Component Loader] Component not found or returned invalid fallback: "${name}"`);
                     moduleCache[name] = `<div style="color:red; font-weight:bold; border:1px solid red; background:#ffeeee; padding:4px;">[Missing component: ${name}]</div>`;
                 }
             } catch (err) {
