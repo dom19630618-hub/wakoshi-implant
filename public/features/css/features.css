@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+/* ============================================================
+   features.css — 当院の特長 ページ専用スタイル
+   ============================================================ */
+
+/* イントロダクション */
+.features-intro {
+  padding: 80px 0 60px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.features-intro__inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.features-intro__lead {
+  font-family: var(--font-serif, "Noto Serif JP", serif);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 700;
+  color: #4a4a4a;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+}
+
+.features-intro__txt {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--color-text, #595959);
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+@media screen and (max-width: 768px) {
+  .features-intro {
+    padding: 50px 0 40px;
+  }
+  .features-intro__txt {
+    font-size: 14px;
+  }
+}
+
+/* 特長リスト */
+.features-list {
+  padding: 40px 0 100px;
+  background-color: #faf8f5; /* 医院全体の温かみのあるベージュ背景 */
+}
+
+.features-list__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* 特長カード間の余白 */
+}
+
+@media screen and (max-width: 768px) {
+  .features-list {
+    padding: 30px 0 60px;
+  }
+  .features-list__inner {
+    gap: 48px;
+  }
+}
+
+/* 各特長アイテム */
+.features-item {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* メタ情報 (01 / SUBTITLE) */
+.features-item__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.features-item__num {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 700;
+  color: #dfc8c0; /* 優しいピンクベージュ/ローズゴールド系 */
+  line-height: 1;
+}
+
+.features-item__sub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: #8c8273;
+  text-transform: uppercase;
+}
+
+/* コンテンツボックス (画像 + テキスト) */
+.features-item__box {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(140, 130, 115, 0.05); /* 温かみのある繊細な影 */
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.features-item:hover .features-item__box {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(140, 130, 115, 0.08);
+}
+
+/* 左右リバース (奇数番目/2番目の特徴を交互にする) */
+.features-item--reverse .features-item__box {
+  grid-template-columns: 0.9fr 1.1fr;
+}
+
+.features-item--reverse .features-item__info {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.features-item--reverse .features-item__img {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* テキスト情報エリア */
+.features-item__info {
+  padding: 48px 40px;
+}
+
+.features-item__title {
+  font-family: var(--font-base, "Zen Maru Gothic", sans-serif);
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 700;
+  color: #4a4a4a;
+  line-height: 1.45;
+  margin-bottom: 24px;
+  letter-spacing: 0.04em;
+}
+
+.features-item__title-highlight {
+  color: #bd9a8c; /* ローズゴールド・アクセントカラー */
+  font-size: 1.15em;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.features-item__txt {
+  font-size: 14.5px;
+  line-height: 1.85;
+  color: #595959;
+  text-align: justify;
+}
+
+/* 画像エリア */
+.features-item__img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
+  background-color: #eaeaea;
+}
+
+.features-item__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* レスポンシブ (タブレット・スマホ) */
+@media screen and (max-width: 900px) {
+  .features-item__box,
+  .features-item--reverse .features-item__box {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .features-item--reverse .features-item__info,
+  .features-item--reverse .features-item__img {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* スマホでは画像が上、テキストが下 */
+  .features-item__img {
+    order: 1;
+    height: 250px;
+    min-height: auto;
+  }
+
+  .features-item__info {
+    order: 2;
+    padding: 30px 24px;
+  }
+
+  .features-item__title {
+    margin-bottom: 16px;
+  }
+}
