@@ -5,7 +5,7 @@
    ============================================================ */
 
 .clinic-intro {
-  padding: 80px 0 100px;
+  padding: 80px 0 10px;
   background-color: #faf8f5; /* 優しい極薄ベージュ背景 */
 }
 
@@ -69,9 +69,6 @@
   flex: 1;
 }
 
-.clinic-card:last-child .clinic-card__body {
-  padding-top: 10px;
-}
 
 .clinic-card__title {
   font-family: var(--font-base);
