@@ -2735,3 +2735,16 @@ details[open] .faq__marker::after {
     font-size: 13px;
   }
 }
+
+/* ==========================================================================
+   下層ページ共通設定 (.is-lower)
+   ========================================================================== */
+body.is-lower .clinic-intro .c-head01,
+body.is-lower .staff-member .c-head01 {
+  display: none;
+}
+
+body.is-lower .clinic-intro,
+body.is-lower .staff-member {
+  padding-top: 20px;
+}
