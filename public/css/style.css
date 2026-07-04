@@ -271,6 +271,7 @@ ul {
   padding: 4px;
   position: relative;
   z-index: 210;
+  margin-right: -14px;
 }
 
 .l-nav-btn__line {
