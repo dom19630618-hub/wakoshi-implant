@@ -601,6 +601,96 @@ body {
     font-size: 1rem;
     padding: 0.6rem 6px;
   }
+
+  .hero-scroll {
+    bottom: 12px;
+    gap: 4px;
+  }
+
+  .hero-scroll__mouse {
+    width: 19px;
+    height: 29px;
+    border-radius: 10px;
+  }
+
+  .hero-scroll__wheel {
+    width: 2.5px;
+    height: 5.5px;
+  }
+
+  .hero-scroll__text {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+  }
+}
+
+/* ==========================================================================
+   Hero Scroll Indicator (Mouse Pictogram)
+   ========================================================================== */
+.hero-scroll {
+  position: absolute;
+  bottom: 22px;
+  left: 40%; /* 写真エリア(80%)の中央に美しく配置 */
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.hero-scroll__mouse {
+  width: 22px;
+  height: 33px;
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  background-color: rgba(0, 0, 0, 0.22); /* 写真の明るさに埋もれないように上品なシャドウ下地 */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 11px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.hero-scroll__wheel {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 6px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  animation: heroScrollWheel 2.2s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes heroScrollWheel {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0);
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, 9px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, 13px);
+  }
+}
+
+.hero-scroll__text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.5);
+  line-height: 1;
 }
 
 /* ==========================================================================
